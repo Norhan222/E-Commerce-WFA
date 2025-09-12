@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce.Application
+namespace E_Commerce.Application.Interfaces
 {
     public interface IGenericRepo<T, TId>
     {

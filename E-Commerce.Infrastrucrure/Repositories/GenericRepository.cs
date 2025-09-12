@@ -8,14 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce.Infrastrucrure
+namespace E_Commerce.Infrastrucrure.Repositories
 {
     public class GenericRepository<T, TId> : IGenericRepo<T, TId> where T : BaseModel<TId>
     {
         AppDbContext _context;
-        DbSet <T> _Dbset;
+        DbSet<T> _Dbset;
 
-        public GenericRepository( AppDbContext context)
+        public GenericRepository(AppDbContext context)
         {
             _context = context;
             _Dbset = _context.Set<T>();
