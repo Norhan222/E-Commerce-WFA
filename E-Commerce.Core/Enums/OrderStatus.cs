@@ -11,7 +11,8 @@ namespace E_Commerce.Core.Enums
         {
             Processing,
             Shipped,
+            Cancelled,
             Delivered
-        }
+    }
     
 }
