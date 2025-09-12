@@ -16,12 +16,17 @@ namespace E_Commerce.PL.Admin.ChildForm
         {
             InitializeComponent();
             txtName.Text = gridViewRow.Cells["Name"].Value?.ToString();
-            txtDescription.Text= gridViewRow.Cells["Id"].Value?.ToString();
+            txtDescription.Text = gridViewRow.Cells["Id"].Value?.ToString();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             (this.ParentForm as Dashbord).OpenChildForm(new FormCategory());
+        }
+
+        private void FormUpdateCategory_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

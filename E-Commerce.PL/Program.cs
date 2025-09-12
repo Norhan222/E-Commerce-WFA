@@ -30,7 +30,7 @@ namespace E_Commerce.PL
             }).As<AppDbContext>().InstancePerLifetimeScope();
             builder.Build();
 
-            Application.Run(new Login());
+            Application.Run(new Dashbord());
         }
     }
 }

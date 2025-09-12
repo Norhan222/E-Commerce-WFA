@@ -63,6 +63,16 @@ namespace E_Commerce.PL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _543_5436355_plain_green_t_shirt_png_download_image_blank {
+            get {
+                object obj = ResourceManager.GetObject("543-5436355_plain-green-t-shirt-png-download-image-blank", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _56468664_image_ {
             get {
                 object obj = ResourceManager.GetObject("56468664-image_", resourceCulture);
@@ -136,6 +146,16 @@ namespace E_Commerce.PL.Properties {
         internal static System.Drawing.Bitmap images {
             get {
                 object obj = ResourceManager.GetObject("images", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tsgirt {
+            get {
+                object obj = ResourceManager.GetObject("tsgirt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

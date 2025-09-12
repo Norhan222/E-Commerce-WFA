@@ -48,7 +48,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.MidnightBlue;
+            panel1.BackColor = Color.DarkBlue;
             panel1.Controls.Add(iconButton4);
             panel1.Controls.Add(iconButton3);
             panel1.Controls.Add(iconButton2);
@@ -62,6 +62,7 @@
             // 
             // iconButton4
             // 
+            iconButton4.BackColor = Color.DarkBlue;
             iconButton4.Dock = DockStyle.Top;
             iconButton4.FlatAppearance.BorderSize = 0;
             iconButton4.FlatStyle = FlatStyle.Flat;
@@ -80,7 +81,7 @@
             iconButton4.Text = "Orders";
             iconButton4.TextAlign = ContentAlignment.MiddleLeft;
             iconButton4.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton4.UseVisualStyleBackColor = true;
+            iconButton4.UseVisualStyleBackColor = false;
             iconButton4.Click += iconButton4_Click;
             // 
             // iconButton3
@@ -175,7 +176,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.MidnightBlue;
+            panel3.BackColor = Color.DarkBlue;
             panel3.Controls.Add(labelTitleChildForm);
             panel3.Controls.Add(iconHome);
             panel3.Dock = DockStyle.Top;
@@ -188,22 +189,24 @@
             // labelTitleChildForm
             // 
             labelTitleChildForm.AutoSize = true;
-            labelTitleChildForm.ForeColor = Color.LightGray;
-            labelTitleChildForm.Location = new Point(100, 12);
+            labelTitleChildForm.BackColor = Color.DarkBlue;
+            labelTitleChildForm.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitleChildForm.ForeColor = Color.White;
+            labelTitleChildForm.Location = new Point(94, 15);
             labelTitleChildForm.Name = "labelTitleChildForm";
-            labelTitleChildForm.Size = new Size(61, 25);
+            labelTitleChildForm.Size = new Size(68, 28);
             labelTitleChildForm.TabIndex = 1;
             labelTitleChildForm.Text = "Home";
             // 
             // iconHome
             // 
-            iconHome.BackColor = Color.MidnightBlue;
+            iconHome.BackColor = Color.DarkBlue;
             iconHome.ForeColor = Color.DarkOrange;
             iconHome.IconChar = FontAwesome.Sharp.IconChar.Home;
             iconHome.IconColor = Color.DarkOrange;
             iconHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconHome.IconSize = 38;
-            iconHome.Location = new Point(32, 12);
+            iconHome.Location = new Point(38, 15);
             iconHome.Name = "iconHome";
             iconHome.Size = new Size(50, 38);
             iconHome.TabIndex = 0;

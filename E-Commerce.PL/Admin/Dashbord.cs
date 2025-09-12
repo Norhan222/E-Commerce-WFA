@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using E_Commerce.PL.Admin.ChildForm;
+using E_Commerce.PL.Admin.ChildForm.Product;
 using FontAwesome.Sharp;
 
 namespace E_Commerce.PL.Admin
@@ -103,6 +104,7 @@ namespace E_Commerce.PL.Admin
         private void iconButton3_Click(object sender, EventArgs e)
         {
             ActiveteButton(sender, RGBColors.color3);
+            OpenChildForm(new AllProductForm());
 
         }
 
