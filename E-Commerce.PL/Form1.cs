@@ -7,13 +7,15 @@ namespace E_Commerce.PL
     public partial class Form1 : Form
     {
         private readonly IAuthService _authService;
+        private readonly ICategoryservice _categoryservice;
         private Form currentChildForm;
 
-        public Form1(IAuthService authService)
+        public Form1(IAuthService authService , ICategoryservice categoryservice)
         {
             InitializeComponent();
             _authService = authService;
-            OpenChildForm(new EcommerceForm());
+           _categoryservice = categoryservice;
+            OpenChildForm(new Login(_authService,_categoryservice));
         }
 
         private void Form1_Load(object sender, EventArgs e)

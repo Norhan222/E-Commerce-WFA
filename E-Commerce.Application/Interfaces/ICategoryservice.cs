@@ -1,4 +1,5 @@
-﻿using E_Commerce.Core.Entites;
+﻿using E_Commerce.Application.Dtos;
+using E_Commerce.Core.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,15 @@ namespace E_Commerce.Application.Interfaces
 {
     public interface ICategoryservice
     {
-        public List<Category> GetAllcategoryies(int pagenumber = 1, int pagesize = 3); //CategoryDTO
+        public IEnumerable<CategoryDto> GetAllcategoryies(); //CategoryDTO
 
-        public void createcategory(Category cat); //CreatecategoryDTOS
+        public void createcategory(CategoryDto cat); //CreatecategoryDTOS
 
-        public void deletecategory(Category cat);
+        public void deletecategory(CategoryDto cat);
 
-        public void updatecategory(Category cat);
+        public void updatecategory(CategoryDto cat);
+
+        public CategoryDto getcategory(int id);
 
         public int save();
 

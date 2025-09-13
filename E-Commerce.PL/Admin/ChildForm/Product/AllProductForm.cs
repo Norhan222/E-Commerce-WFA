@@ -39,7 +39,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
         }
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Dashbord).OpenChildForm(new FormAddCategory());
+            (this.ParentForm as Dashbord).OpenChildForm(new AddProduct());
 
         }
 
@@ -48,7 +48,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
             if (dataGridView.CurrentRow != null)
             {
                 var row = dataGridView.CurrentRow;
-                (this.ParentForm as Dashbord).OpenChildForm(new FormUpdateCategory(row));
+                (this.ParentForm as Dashbord).OpenChildForm(new UpdateProduct(row));
 
             }
             else

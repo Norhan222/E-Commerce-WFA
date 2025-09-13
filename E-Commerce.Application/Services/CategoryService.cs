@@ -1,5 +1,7 @@
-﻿using E_Commerce.Application.Interfaces;
+﻿using E_Commerce.Application.Dtos;
+using E_Commerce.Application.Interfaces;
 using E_Commerce.Core.Entites;
+using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,44 +12,53 @@ namespace E_Commerce.Application.Services
 {
     public class CategoryService : ICategoryservice
     {
-        IGenericRepo<Category, int> _CategoryRepo;
+        private readonly ICategoryRepo _categoryRepo;
 
-        public CategoryService(IGenericRepo<Category, int> categoryRepo)//Dependency Injection
+        public CategoryService(ICategoryRepo  categoryRepo)
         {
-            _CategoryRepo = categoryRepo;
+            _categoryRepo = categoryRepo;
         }
 
-        public void createcategory(Category cat)
+        public void createcategory(CategoryDto cat)
         {
-            //Category newcat = Category.Adapt<category>();
-            _CategoryRepo.createcategory(cat);
+            var catmapped = cat.Adapt<Category>();
+            _categoryRepo.Create(catmapped);
 
         }
 
-        public void deletecategory(Category cat)
+        public void deletecategory(CategoryDto cat)
         {
-            _CategoryRepo.delete(cat);
+           // _categoryRepo.Delete(cat);
         }
 
-        public List<Category> GetAllcategoryies(int pagenumber = 1, int pagesize = 3)
+        public IEnumerable<CategoryDto> GetAllcategoryies()
         {
-            IQueryable<Category> allcatquery = _CategoryRepo.GetAll();
-            var allcategories = allcatquery.Where(c => c.Products.Count > 0)
-                .Skip((pagenumber - 1) * pagesize).Take(pagesize).ToList();
-            //.Adapt<List<CategoryDTO>>();
+            //IQueryable<Category> allcatquery = _categoryRepo.GetAll();
+            //var allcategories = allcatquery.Where(c => c.Products.Count > 0)
+            //    .Skip((pagenumber - 1) * pagesize).Take(pagesize).ToList();
+            ////.Adapt<List<CategoryDTO>>();
+            ///
+            var allcategories = _categoryRepo.GetAll();
+            var Allcategorymapped=allcategories.Adapt<IEnumerable<CategoryDto>>();
+            return Allcategorymapped;
 
-            return allcategories;
+        }
 
+        public CategoryDto getcategory(int id)
+        {
+          var category= _categoryRepo.GetById(id);
+          return category.Adapt<CategoryDto>();
         }
 
         public int save()
         {
-            return _CategoryRepo.save();
+            return _categoryRepo.Save();
         }
 
-        public void updatecategory(Category cat)
+        public void updatecategory(CategoryDto cat)
         {
-            _CategoryRepo.update(cat);
+            var mappedcat= cat.Adapt<Category>();
+            _categoryRepo.Update(mappedcat);
         }
     }
 }

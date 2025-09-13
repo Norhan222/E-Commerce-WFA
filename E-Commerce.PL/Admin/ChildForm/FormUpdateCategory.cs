@@ -1,4 +1,7 @@
-﻿using System;
+﻿using E_Commerce.Application.Dtos;
+using E_Commerce.Application.Interfaces;
+using Microsoft.Identity.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,20 +15,48 @@ namespace E_Commerce.PL.Admin.ChildForm
 {
     public partial class FormUpdateCategory : Form
     {
-        public FormUpdateCategory(DataGridViewRow gridViewRow)
+        private readonly ICategoryservice _categoryservice;
+        private Label lblId;
+        public FormUpdateCategory(DataGridViewRow gridViewRow, ICategoryservice categoryservice)
         {
             InitializeComponent();
+            _categoryservice = categoryservice;
+            lblId = new Label();
+            lblId.Text = gridViewRow.Cells["Id"].Value?.ToString();
             txtName.Text = gridViewRow.Cells["Name"].Value?.ToString();
-            txtDescription.Text = gridViewRow.Cells["Id"].Value?.ToString();
+            txtDescription.Text = gridViewRow.Cells["Description"].Value?.ToString();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Dashbord).OpenChildForm(new FormCategory());
+            (this.ParentForm as Dashbord).OpenChildForm(new FormCategory(_categoryservice));
         }
 
         private void FormUpdateCategory_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            var name = txtName.Text;
+            var Des = txtDescription.Text;
+            var category = new CategoryDto()
+            {
+                Id = Int32.Parse(lblId.Text),
+                Name = name,
+                Description = Des,
+            };
+            var errors = Helper.Validate(category);
+            if (errors.Any())
+            {
+                string message = String.Join("\n", errors.Select(e => e.ErrorMessage));
+                MessageBox.Show(message, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            _categoryservice.updatecategory(category);
+            _categoryservice.save();
+            (this.ParentForm as Dashbord).OpenChildForm(new FormCategory(_categoryservice));
 
         }
     }

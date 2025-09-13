@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using E_Commerce.Application.Interfaces;
 using E_Commerce.PL.Admin.ChildForm;
 using E_Commerce.PL.Admin.ChildForm.Product;
 using FontAwesome.Sharp;
@@ -19,7 +20,9 @@ namespace E_Commerce.PL.Admin
         private IconButton currentBtn = new IconButton();
         private Panel leftBorderBtn;
         public Form currentChildForm;
-        public Dashbord()
+        private readonly ICategoryservice _categoryservice;
+
+        public Dashbord(ICategoryservice categoryservice)
         {
             InitializeComponent();
             leftBorderBtn = new Panel();
@@ -29,6 +32,7 @@ namespace E_Commerce.PL.Admin
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+           _categoryservice = categoryservice;
         }
         private struct RGBColors
         {
@@ -98,7 +102,7 @@ namespace E_Commerce.PL.Admin
         private void iconButton2_Click(object sender, EventArgs e)
         {
             ActiveteButton(sender, RGBColors.color2);
-            OpenChildForm(new FormCategory());
+            OpenChildForm(new FormCategory(_categoryservice));
         }
 
         private void iconButton3_Click(object sender, EventArgs e)

@@ -22,7 +22,7 @@ namespace E_Commerce.Infrastrucrure.Repositories
             _Dbset = _context.Set<T>();
         }
 
-        public void Createcategory(T Entity)
+        public void Create(T Entity)
         {
             _Dbset.Add(Entity);
         }
@@ -32,9 +32,9 @@ namespace E_Commerce.Infrastrucrure.Repositories
             _Dbset.Remove(Entity);
         }
 
-        public IQueryable<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
-            return _Dbset;
+            return _Dbset.AsNoTracking();
         }
 
         public T GetById(TId pk)

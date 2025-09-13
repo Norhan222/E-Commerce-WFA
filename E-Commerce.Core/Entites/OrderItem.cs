@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.Core.Entites
 {
-    public class OrderItem
+    public class OrderItem:BaseModel<int>
     {
-        public int Id { get; set; }
         public int OrderId { get; set; }
         public Order Order { get; set; }
         public int ProductId { get; set; }

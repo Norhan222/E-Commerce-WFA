@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,18 +17,19 @@ namespace E_Commerce.PL
     public partial class Register : Form
     {
         private readonly IAuthService _authService;
+        private readonly ICategoryservice _categoryservice;
 
-        public Register(IAuthService authService)
+        public Register(IAuthService authService,ICategoryservice categoryservice)
         {
             InitializeComponent();
             _authService = authService;
+           _categoryservice = categoryservice;
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Login login = new Login(_authService);
-            login.ShowDialog();
+          (this.ParentForm as Form1).OpenChildForm(new Login(_authService,_categoryservice));
+          
         }
 
         private void Register_Load(object sender, EventArgs e)
@@ -48,11 +50,15 @@ namespace E_Commerce.PL
                 PhoneNumber = null
 
             };
+            var errors = Helper.Validate(Register);
+            if (errors.Any())
+            {
+                string message = String.Join("\n", errors.Select(e => e.ErrorMessage));
+                MessageBox.Show(message,"Validation",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             await _authService.Register(Register);
-            this.Hide();
-            EcommerceForm ecommerceForm
-                = new EcommerceForm();
-            ecommerceForm.ShowDialog();
+            (this.ParentForm as Form1).OpenChildForm(new Login(_authService, _categoryservice));
         }
 
         private void guna2TextBoxUsername_TextChanged(object sender, EventArgs e)

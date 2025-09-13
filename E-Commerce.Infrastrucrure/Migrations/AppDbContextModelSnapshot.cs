@@ -38,7 +38,7 @@ namespace E_Commerce.Infrastrucrure.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Carts");
+                    b.ToTable("Carts", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Core.Entites.CartItem", b =>
@@ -64,7 +64,7 @@ namespace E_Commerce.Infrastrucrure.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("CartItems");
+                    b.ToTable("CartItems", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Core.Entites.Category", b =>
@@ -85,7 +85,7 @@ namespace E_Commerce.Infrastrucrure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Core.Entites.Order", b =>
@@ -109,7 +109,7 @@ namespace E_Commerce.Infrastrucrure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Core.Entites.OrderItem", b =>
@@ -138,7 +138,7 @@ namespace E_Commerce.Infrastrucrure.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItems", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Core.Entites.Product", b =>
@@ -167,7 +167,7 @@ namespace E_Commerce.Infrastrucrure.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Core.Entites.User", b =>
@@ -199,7 +199,7 @@ namespace E_Commerce.Infrastrucrure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("E_Commerce.Core.Entites.Cart", b =>

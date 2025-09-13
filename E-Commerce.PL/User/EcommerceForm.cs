@@ -1,4 +1,6 @@
-﻿using E_Commerce.Core.Entites;
+﻿using E_Commerce.Application;
+using E_Commerce.Application.Interfaces;
+using E_Commerce.Core.Entites;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -14,23 +16,29 @@ namespace E_Commerce.PL.User
 {
     public partial class EcommerceForm : Form
     {
-        public EcommerceForm()
+        private readonly ICategoryservice _categoryservice;
+
+        public EcommerceForm(ICategoryservice categoryservice)
         {
             InitializeComponent();
-            // CreateFilterPanel();
-            string[] categories =
-           {
-            "Aventura", "Dallas", "Daly City", "Deerfield Beach",
-            "Hayward", "Highland Village", "Irving",
-            "Manhattan", "Montgomery", "San Jose"
-        };
+            _categoryservice = categoryservice;
+            if (SessionManger.currentUser !=null)
+            {
+                lblUsername.Text = SessionManger.currentUser.Username;
+            }
+            else
+            {
+                lblUsername.Text = "Login";
+            }
+
+
 
             // Add Guna2CheckBoxes
-            foreach (var cat in categories)
+            foreach (var cat in categoryservice.GetAllcategoryies())
             {
                 var chk = new Guna2CheckBox
                 {
-                    Text = cat,
+                    Text = cat.Name,
                     AutoSize = true,
                     Font = new Font("Segoe UI", 10),
                     CheckedState = { FillColor = Color.DodgerBlue },
@@ -56,10 +64,11 @@ namespace E_Commerce.PL.User
                                 .Select(c => c.Text);
                 MessageBox.Show("Selected: " + string.Join(", ", selected));
             };
+          
         }
-        
 
-    List<Product> Products = new List<Product>()
+
+        List<Product> Products = new List<Product>()
         {
         new Product()
         {
@@ -276,12 +285,18 @@ namespace E_Commerce.PL.User
 
         private void iconPictureBox2_Click(object sender, EventArgs e)
         {
-            ContextMenuStrip usertMenu=new ContextMenuStrip();
+            ContextMenuStrip usertMenu = new ContextMenuStrip();
             usertMenu.Items.Add("Logout");
             usertMenu.Items.Add("Cart");
-            iconPictureBox2.Click += (s, e) => {
+            iconPictureBox2.Click += (s, e) =>
+            {
                 usertMenu.Show(iconPictureBox2, new Point(-100, iconPictureBox2.Height));
-                };
+            };
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

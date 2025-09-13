@@ -1,5 +1,7 @@
-﻿using E_Commerce.Application.Dtos;
+﻿using E_Commerce.Application;
+using E_Commerce.Application.Dtos;
 using E_Commerce.Application.Interfaces;
+using E_Commerce.PL.Admin;
 using E_Commerce.PL.User;
 using System;
 using System.Collections.Generic;
@@ -16,11 +18,13 @@ namespace E_Commerce.PL
     public partial class Login : Form
     {
         private readonly IAuthService _authService;
+        private readonly ICategoryservice _categoryservice;
 
-        public Login(IAuthService authService)
+        public Login(IAuthService authService,ICategoryservice categoryservice)
         {
             InitializeComponent();
-           _authService = authService;
+            _authService = authService;
+           _categoryservice = categoryservice;
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -30,8 +34,8 @@ namespace E_Commerce.PL
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Form1).OpenChildForm(new Register(_authService));
-           
+            (this.ParentForm as Form1).OpenChildForm(new Register(_authService, _categoryservice));
+
 
         }
 
@@ -42,15 +46,44 @@ namespace E_Commerce.PL
             var login = new LoginDto()
             {
                 Username = username,
-              
                 Password = password,
 
             };
-            await _authService.Login(login);
-            this.Hide();
-            EcommerceForm ecommerceForm
-                = new EcommerceForm();
-            ecommerceForm.ShowDialog();
+            var errors = Helper.Validate(login);
+            if (errors.Any())
+            {
+                string message = String.Join("\n", errors.Select(e => e.ErrorMessage));
+                MessageBox.Show(message, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+          
+            if ( await _authService.Login(login))
+            {
+                if (SessionManger.currentUser.Role == "Admin")
+                {
+                    (this.ParentForm as Form1).Hide();
+                    Dashbord dashbord = new Dashbord(_categoryservice);
+                    dashbord.ShowDialog();
+
+                }
+                else { (this.ParentForm as Form1).OpenChildForm(new EcommerceForm(_categoryservice)); };
+
+            }
+            else
+            {
+                MessageBox.Show("Username  Or Password Is Incorrect", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            (this.ParentForm as Form1).OpenChildForm(new EcommerceForm(_categoryservice));
         }
     }
 }

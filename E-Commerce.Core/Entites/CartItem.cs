@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.Core.Entites
 {
-    public class CartItem
+    public class CartItem:BaseModel<int>
     {
-        public int Id { get; set; }
         public int CartId { get; set; }
         public Cart Cart { get; set; }
         public int ProductId { get; set; }

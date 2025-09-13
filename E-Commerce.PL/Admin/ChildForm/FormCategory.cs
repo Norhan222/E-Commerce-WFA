@@ -1,4 +1,5 @@
-﻿using System;
+﻿using E_Commerce.Application.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,34 +17,38 @@ namespace E_Commerce.PL.Admin.ChildForm
 {
     public partial class FormCategory : Form
     {
-        List<Category> Categories =Category.categories;
-        public FormCategory()
+        private readonly ICategoryservice _categoryservice;
+        public FormCategory(ICategoryservice categoryservice)
         {
             InitializeComponent();
             this.Text = "Categories";
+            _categoryservice = categoryservice;
+
             dataGridView.Columns.Add("Id", "Id");
             dataGridView.Columns.Add("Name", "Name");
-            foreach (var item in Categories)
+            dataGridView.Columns.Add("Description", "Description");
+
+            foreach (var item in _categoryservice.GetAllcategoryies())
             {
-                dataGridView.Rows.Add(item.Id, item.Name);
+                dataGridView.Rows.Add(item.Id, item.Name, item.Description);
             }
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
 
             dataGridView.DefaultCellStyle.Font = new Font("segoe UI", 10);
-
         }
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Dashbord).OpenChildForm(new FormAddCategory());
+            (this.ParentForm as Dashbord).OpenChildForm(new FormAddCategory(_categoryservice));
 
         }
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (dataGridView.CurrentRow != null)
             {
                 var row = dataGridView.CurrentRow;
-                (this.ParentForm as Dashbord).OpenChildForm(new FormUpdateCategory(row));
+                (this.ParentForm as Dashbord).OpenChildForm(new FormUpdateCategory(row, _categoryservice));
 
             }
             else
@@ -54,6 +59,11 @@ namespace E_Commerce.PL.Admin.ChildForm
         }
 
         private void FormCategory_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
         {
 
         }

@@ -89,6 +89,7 @@
             btnSave.TabIndex = 5;
             btnSave.Text = "Update";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 

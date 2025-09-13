@@ -71,6 +71,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1090, 75);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // iconPictureBox3
             // 
@@ -267,9 +268,9 @@
             flowLayoutitmes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutitmes.AutoScroll = true;
             flowLayoutitmes.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            flowLayoutitmes.Location = new Point(256, 85);
+            flowLayoutitmes.Location = new Point(256, 88);
             flowLayoutitmes.Name = "flowLayoutitmes";
-            flowLayoutitmes.Size = new Size(826, 515);
+            flowLayoutitmes.Size = new Size(817, 512);
             flowLayoutitmes.TabIndex = 4;
             // 
             // EcommerceForm

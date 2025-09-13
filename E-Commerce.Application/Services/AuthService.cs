@@ -28,9 +28,15 @@ namespace E_Commerce.Application.Services
                var paashshd=HashPassword(userDto.Password);
                 if(paashshd == user.Password)
                 {
+                    SessionManger.currentUser = new UserSession
+                    {
+                        Id = user.Id,
+                        Username = userDto.Username,
+                        Role=user.Role
+                    };
                     return true;
                 }
-                return false;
+               
             }
             return false;
         }

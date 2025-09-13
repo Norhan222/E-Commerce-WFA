@@ -9,13 +9,13 @@ namespace E_Commerce.Application.Interfaces
 {
     public interface IGenericRepo<T, TId>
     {
-        public IQueryable<T> GetAll();
+        public IEnumerable<T> GetAll();
         public T GetById(TId pk);
 
-        public void createcategory(T Entity);
-        public void delete(T Entity);
-        public void update(T Entity);
-        public int save();
+        public void Create(T Entity);
+        public void Delete(T Entity);
+        public void Update(T Entity);
+        public int Save();
 
     }
 }
