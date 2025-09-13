@@ -42,8 +42,8 @@ namespace E_Commerce.PL.Admin.ChildForm
             var Des = txtDescription.Text;
             var category = new CategoryDto()
             {
-                Name = name,
-                Description = Des,
+                CatName = name,
+                CatDescription = Des,
             };
             var errors = Helper.Validate(category);
             if (errors.Any())

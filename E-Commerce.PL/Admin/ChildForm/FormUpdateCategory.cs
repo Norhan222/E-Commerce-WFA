@@ -43,9 +43,9 @@ namespace E_Commerce.PL.Admin.ChildForm
             var Des = txtDescription.Text;
             var category = new CategoryDto()
             {
-                Id = Int32.Parse(lblId.Text),
-                Name = name,
-                Description = Des,
+                CatId = Int32.Parse(lblId.Text),
+                CatName=name,
+                CatDescription=Des,
             };
             var errors = Helper.Validate(category);
             if (errors.Any())

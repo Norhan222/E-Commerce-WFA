@@ -38,7 +38,7 @@ namespace E_Commerce.PL.User
             {
                 var chk = new Guna2CheckBox
                 {
-                    Text = cat.Name,
+                    Text = cat.CatName,
                     AutoSize = true,
                     Font = new Font("Segoe UI", 10),
                     CheckedState = { FillColor = Color.DodgerBlue },

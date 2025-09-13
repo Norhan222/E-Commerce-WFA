@@ -18,7 +18,6 @@ namespace E_Commerce.Application.Dtos
         [Required(ErrorMessage = "Category Description Is Requird")]
         [StringLength(500)]
         public string CatDescription { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+      
     }
 }

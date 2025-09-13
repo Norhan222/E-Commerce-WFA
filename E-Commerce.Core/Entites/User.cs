@@ -14,6 +14,5 @@ namespace E_Commerce.Core.Entites
         public string? PhoneNumber { get; set; }
         public string Role { get; set; } = "user";
         public Cart Cart { get; set; }
-        public DateTime CreatedAt { get; set; }
     }
 }

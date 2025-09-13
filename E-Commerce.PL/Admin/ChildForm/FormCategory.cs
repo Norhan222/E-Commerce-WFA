@@ -31,7 +31,7 @@ namespace E_Commerce.PL.Admin.ChildForm
 
             foreach (var item in _categoryservice.GetAllcategoryies())
             {
-                dataGridView.Rows.Add(item.Id, item.Name, item.Description);
+                dataGridView.Rows.Add(item.CatId, item.CatName, item.CatDescription);
             }
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
