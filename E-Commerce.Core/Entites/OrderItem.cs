@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.Core.Entites
 {
-<<<<<<< HEAD
+
     public class OrderItem:BaseModel<int>
     {
-=======
-    public class OrderItem : BaseModel<int>
-    {
-        //public int Id { get; set; }
->>>>>>> fedcc878f2a5a737932d817d8d78a2909cf62096
+
         public int OrderId { get; set; }
         public Order Order { get; set; }
         public int ProductId { get; set; }

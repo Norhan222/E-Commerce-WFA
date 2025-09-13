@@ -23,6 +23,5 @@ namespace E_Commerce.Application.Interfaces
 
         public int Save();
 
-
     }
 }

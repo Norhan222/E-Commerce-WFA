@@ -29,7 +29,7 @@ namespace E_Commerce.Infrastrucrure.Repositories
         {
             return _context.Orders.Include(o => o.OrderItems)
                 .ThenInclude(oi => oi.Product)
-                .FirstOrDefault(o=>o.id == orderId);
+                .FirstOrDefault(o=>o.Id == orderId);
         }
 
         // هنا هنرجع ليست 

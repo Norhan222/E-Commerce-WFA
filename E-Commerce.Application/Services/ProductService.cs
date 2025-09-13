@@ -19,18 +19,18 @@ namespace E_Commerce.Application.Services
 
         public void CreateProduct(Product product)
         {
-            _ProductRepo.CreateRepo(product);
+            _ProductRepo.Create(product);
             
         }
 
         public void DeleteProduct(Product product)
         {
-            _ProductRepo.DeleteRepo(product);   
+            _ProductRepo.Delete(product);
         }
 
         public List<Product> GetAllProducts(int pagenumber = 1, int pagesize = 10)
         {
-            IQueryable<Product> AllProductQuery = _ProductRepo.GetAll();
+           var AllProductQuery = _ProductRepo.GetAll();
             var AllProduct = AllProductQuery.Where(c => c.Category != null )
              .Skip((pagenumber - 1) * pagesize).Take(pagesize).ToList();
             //.Adapt<List<ProductDTO>>();
@@ -41,13 +41,13 @@ namespace E_Commerce.Application.Services
 
         public int Save()
         {
-           return _ProductRepo.SaveRepo();
+           return _ProductRepo.Save();
             
         }
 
         public void UpdateProduct(Product product)
         {
-            _ProductRepo.UpdateRepo(product);
+            _ProductRepo.Update(product);
         }
     }
 }

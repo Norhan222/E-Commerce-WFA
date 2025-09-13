@@ -41,6 +41,7 @@ namespace E_Commerce.Application.Services
                 })
                .ToList()
             };
+            throw new InvalidOperationException("Cart is empty!");
 
         }
 
