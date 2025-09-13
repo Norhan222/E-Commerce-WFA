@@ -12,6 +12,7 @@ namespace E_Commerce.Application.Interfaces
     {
         public IEnumerable<CategoryDto> GetAllcategoryies(); //CategoryDTO
 
+<<<<<<< HEAD
         public void createcategory(CategoryDto cat); //CreatecategoryDTOS
 
         public void deletecategory(CategoryDto cat);
@@ -19,8 +20,15 @@ namespace E_Commerce.Application.Interfaces
         public void updatecategory(CategoryDto cat);
 
         public CategoryDto getcategory(int id);
+=======
+        public void Createcategory(Category cat); //CreatecategoryDTOS
 
-        public int save();
+        public void Deletecategory(Category cat);
+
+        public void Updatecategory(Category cat);
+>>>>>>> fedcc878f2a5a737932d817d8d78a2909cf62096
+
+        public int Save();
 
 
     }

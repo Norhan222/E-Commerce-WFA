@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.Application.Interfaces
 {
-<<<<<<< HEAD
-    public interface ICategoryRepo :IGenericRepo<Category, int>
+    public interface ICartRepo
     {
+        public Cart GetCartByUserId(int userId);
+        public void CreateCart(Cart cart);
+        public void UpdateCart(Cart cart);
+        public void Save();
 
-=======
-    public interface ICategoryRepo
-    {
 
 
->>>>>>> fedcc878f2a5a737932d817d8d78a2909cf62096
+
+       
+
     }
 }
