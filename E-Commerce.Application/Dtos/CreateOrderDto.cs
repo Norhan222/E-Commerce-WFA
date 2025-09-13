@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce.Core.Entites
+namespace E_Commerce.Application.Dtos
 {
-    public class Cart:BaseModel<int>
+    public class CreateOrderDto
     {
         public int UserId { get; set; }
-        public User User { get; set; }
-        public ICollection<CartItem> CartItems { get; set; }
+        public ICollection<CreateOrderItemDto> Items { get; set; }
     }
 }

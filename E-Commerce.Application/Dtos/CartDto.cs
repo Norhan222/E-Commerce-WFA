@@ -1,15 +1,15 @@
-﻿using System;
+﻿using E_Commerce.Core.Entites;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce.Core.Entites
+namespace E_Commerce.Application.Dtos
 {
-    public class Cart:BaseModel<int>
+    public class CartDto
     {
         public int UserId { get; set; }
-        public User User { get; set; }
         public ICollection<CartItem> CartItems { get; set; }
     }
 }
