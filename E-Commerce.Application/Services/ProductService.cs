@@ -1,5 +1,7 @@
-﻿using E_Commerce.Application.Interfaces;
+﻿using E_Commerce.Application.Dtos;
+using E_Commerce.Application.Interfaces;
 using E_Commerce.Core.Entites;
+using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,32 +12,35 @@ namespace E_Commerce.Application.Services
 {
     public class ProductService : IproductService
     {
-        IGenericRepo<Product, int> _ProductRepo;
+        private readonly IProductRepo _ProductRepo;
 
-        public ProductService(IGenericRepo<Product, int> ProductRepo)
+        public ProductService(IProductRepo ProductRepo)
         {
             _ProductRepo = ProductRepo;
         }
 
-        public void CreateProduct(Product product)
+        public void CreateProduct(ProductDto product)
         {
-            _ProductRepo.Create(product);
+            var prodmapped = product.Adapt<Product>();
+            _ProductRepo.Create(prodmapped);
             
         }
 
-        public void DeleteProduct(Product product)
+        public void DeleteProduct(ProductDto product)
         {
-            _ProductRepo.Delete(product);
+            var prodmapped = product.Adapt<Product>();
+
+            _ProductRepo.Delete(prodmapped);
         }
 
-        public List<Product> GetAllProducts(int pagenumber = 1, int pagesize = 10)
+        public IEnumerable<ProductDto> GetAllProducts()
         {
-           var AllProductQuery = _ProductRepo.GetAll();
-            var AllProduct = AllProductQuery.Where(c => c.Category != null )
-             .Skip((pagenumber - 1) * pagesize).Take(pagesize).ToList();
-            //.Adapt<List<ProductDTO>>();
-
-            return AllProduct;
+           var AllProduct = _ProductRepo.GetAll();
+            //var AllProduct = AllProductQuery.Where(c => c.Category != null )
+            // .Skip((pagenumber - 1) * pagesize).Take(pagesize).ToList();
+            ////.Adapt<List<ProductDTO>>();
+            var AllProductMapped = AllProduct.Adapt<IEnumerable<ProductDto>>();
+            return AllProductMapped;
 
         }
 
@@ -45,9 +50,10 @@ namespace E_Commerce.Application.Services
             
         }
 
-        public void UpdateProduct(Product product)
+        public void UpdateProduct(ProductDto product)
         {
-            _ProductRepo.Update(product);
+            var prodmapped = product.Adapt<Product>();
+            _ProductRepo.Update(prodmapped);
         }
     }
 }
