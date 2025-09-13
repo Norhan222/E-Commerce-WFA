@@ -40,7 +40,7 @@ namespace E_Commerce.Infrastrucrure.Repositories
 
         public T GetById (TId pk)
         {
-            return _Dbset.Find(pk);
+            return _Dbset.AsNoTracking().FirstOrDefault(e => e.Id.Equals(pk));
         }
 
         public int Save()

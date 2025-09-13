@@ -1,4 +1,5 @@
 ﻿using E_Commerce.Application.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,7 +66,51 @@ namespace E_Commerce.PL.Admin.ChildForm
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+        
+            try
+            {
+                // 1- Check if a category is selected
+                if (dataGridView.CurrentRow == null)
+                {
+                    MessageBox.Show("Please select a category first.");
+                    return;
+                }
 
-        }
+                int categoryId = Convert.ToInt32(dataGridView.CurrentRow.Cells["Id"].Value);
+
+                // 2- Confirmation message
+                var result = MessageBox.Show("Are you sure you want to delete this category?",
+                                             "Delete Confirmation",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Warning);
+
+                if (result == DialogResult.No) return;
+
+                // 3- Check if category has related products
+                //var hasProducts = _dbContext.Products.Any(p => p.CategoryId == categoryId);
+                //if (hasProducts)
+                //{
+                //    MessageBox.Show("⚠️ Cannot delete this category because it has related products.");
+                //    return;
+                //}
+
+                // 4- Delete category
+                var category =_categoryservice.getcategory(categoryId);
+                if (category != null)
+                {
+                    _categoryservice.deletecategory(category);
+                    _categoryservice.Save();
+                    MessageBox.Show("✅ Category deleted successfully.");
+                    dataGridView.Rows.RemoveAt(dataGridView.CurrentRow.Index);
+                }
+
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while deleting: " + ex.Message);
+            }
+        
+    }
     }
 }

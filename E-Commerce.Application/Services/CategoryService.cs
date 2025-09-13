@@ -28,7 +28,8 @@ namespace E_Commerce.Application.Services
 
         public void deletecategory(CategoryDto cat)
         {
-            // _categoryRepo.Delete(cat);
+            var categorymapped=cat.Adapt<Category>();
+             _categoryRepo.Delete(categorymapped);
 
         }
 
@@ -49,7 +50,7 @@ namespace E_Commerce.Application.Services
         public CategoryDto getcategory(int id)
         {
           var category= _categoryRepo.GetById(id);
-          return category.Adapt<CategoryDto>();
+            return category.Adapt<CategoryDto>();
         }
 
         public int Save()
