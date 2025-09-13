@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.2-pre02" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\E-Commerce.Core\E-Commerce.Core.csproj" />
   </ItemGroup>
 

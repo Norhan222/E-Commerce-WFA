@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.Application.Interfaces
 {
-    internal interface IUserRepo
+    public interface IUserRepo
     {
-        public  Task<User> GetByIdAsync(int id);
+        public  Task<User> GetByUsernameAsync(string username);
         public Task<string> AddUserAsync(User user);
     }
 }

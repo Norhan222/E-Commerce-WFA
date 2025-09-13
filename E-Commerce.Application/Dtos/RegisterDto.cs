@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.Application.Dtos
 {
-    internal class RegisterDto
+    public class RegisterDto
     {
         [Required(ErrorMessage ="Username Is Requird")]
         public string  UserName { get; set; }

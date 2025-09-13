@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.Application.Dtos
 {
-    internal class LoginDto
+    public class LoginDto
     {
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

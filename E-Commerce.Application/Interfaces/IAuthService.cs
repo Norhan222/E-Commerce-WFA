@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.Application.Interfaces
 {
-    internal interface IAuthService
+    public interface IAuthService
     {
         public Task Register(RegisterDto userDto);
         public Task<bool> Login(LoginDto userDto);
