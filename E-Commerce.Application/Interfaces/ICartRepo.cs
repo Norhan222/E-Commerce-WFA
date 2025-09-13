@@ -13,5 +13,11 @@ namespace E_Commerce.Application.Interfaces
         public void CreateCart(Cart cart);
         public void UpdateCart(Cart cart);
         public void Save();
+
+
+
+
+       
+
     }
 }
