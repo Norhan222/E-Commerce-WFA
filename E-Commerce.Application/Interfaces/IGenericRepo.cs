@@ -11,11 +11,9 @@ namespace E_Commerce.Application.Interfaces
     {
         public IQueryable<T> GetAll();
         public T GetById(TId pk);
-
-        public void createcategory(T Entity);
-        public void delete(T Entity);
-        public void update(T Entity);
-        public int save();
-
+        public void CreateRepo(T Entity);
+        public void DeleteRepo(T Entity);
+        public void UpdateRepo(T Entity);
+        public int SaveRepo();
     }
 }

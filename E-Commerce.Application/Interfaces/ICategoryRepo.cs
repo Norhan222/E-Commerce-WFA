@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.Application.Interfaces
 {
-    internal interface ICategoryRepo
+    public interface ICategoryRepo
     {
+
+
     }
 }

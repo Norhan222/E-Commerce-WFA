@@ -11,13 +11,13 @@ namespace E_Commerce.Application.Interfaces
     {
         public List<Category> GetAllcategoryies(int pagenumber = 1, int pagesize = 3); //CategoryDTO
 
-        public void createcategory(Category cat); //CreatecategoryDTOS
+        public void Createcategory(Category cat); //CreatecategoryDTOS
 
-        public void deletecategory(Category cat);
+        public void Deletecategory(Category cat);
 
-        public void updatecategory(Category cat);
+        public void Updatecategory(Category cat);
 
-        public int save();
+        public int Save();
 
 
     }

@@ -22,12 +22,13 @@ namespace E_Commerce.Infrastrucrure.Repositories
             _Dbset = _context.Set<T>();
         }
 
-        public void Createcategory(T Entity)
+        public void CreateRepo(T Entity)
         {
+           
             _Dbset.Add(Entity);
         }
 
-        public void Delete(T Entity)
+        public void DeleteRepo(T Entity)
         {
             _Dbset.Remove(Entity);
         }
@@ -37,17 +38,17 @@ namespace E_Commerce.Infrastrucrure.Repositories
             return _Dbset;
         }
 
-        public T GetById(TId pk)
+        public T GetById (TId pk)
         {
             return _Dbset.Find(pk);
         }
 
-        public int Save()
+        public int SaveRepo()
         {
             return _context.SaveChanges();
         }
 
-        public void Update(T Entity)
+        public void UpdateRepo(T Entity)
         {
             _Dbset.Update(Entity);
         }

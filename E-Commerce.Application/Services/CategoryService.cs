@@ -17,16 +17,16 @@ namespace E_Commerce.Application.Services
             _CategoryRepo = categoryRepo;
         }
 
-        public void createcategory(Category cat)
+        public void Createcategory(Category cat)
         {
             //Category newcat = Category.Adapt<category>();
-            _CategoryRepo.createcategory(cat);
+            _CategoryRepo.CreateRepo(cat);
 
         }
 
-        public void deletecategory(Category cat)
+        public void Deletecategory(Category cat)
         {
-            _CategoryRepo.delete(cat);
+            _CategoryRepo.DeleteRepo(cat);
         }
 
         public List<Category> GetAllcategoryies(int pagenumber = 1, int pagesize = 3)
@@ -40,14 +40,14 @@ namespace E_Commerce.Application.Services
 
         }
 
-        public int save()
+        public int Save()
         {
-            return _CategoryRepo.save();
+            return _CategoryRepo.SaveRepo();
         }
 
-        public void updatecategory(Category cat)
+        public void Updatecategory(Category cat)
         {
-            _CategoryRepo.update(cat);
+            _CategoryRepo.UpdateRepo(cat);
         }
     }
 }
