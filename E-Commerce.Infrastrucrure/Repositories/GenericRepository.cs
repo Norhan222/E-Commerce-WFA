@@ -22,21 +22,17 @@ namespace E_Commerce.Infrastrucrure.Repositories
             _Dbset = _context.Set<T>();
         }
 
-<<<<<<< HEAD
         public void Create(T Entity)
-=======
-        public void CreateRepo(T Entity)
->>>>>>> fedcc878f2a5a737932d817d8d78a2909cf62096
+        
         {
            
             _Dbset.Add(Entity);
         }
 
-        public void DeleteRepo(T Entity)
+        public void Delete(T Entity)
         {
             _Dbset.Remove(Entity);
         }
-
         public IEnumerable<T> GetAll()
         {
             return _Dbset.AsNoTracking();
@@ -47,12 +43,12 @@ namespace E_Commerce.Infrastrucrure.Repositories
             return _Dbset.Find(pk);
         }
 
-        public int SaveRepo()
+        public int Save()
         {
             return _context.SaveChanges();
         }
 
-        public void UpdateRepo(T Entity)
+        public void Update(T Entity)
         {
             _Dbset.Update(Entity);
         }

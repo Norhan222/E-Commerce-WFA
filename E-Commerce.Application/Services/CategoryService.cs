@@ -19,7 +19,6 @@ namespace E_Commerce.Application.Services
             _categoryRepo = categoryRepo;
         }
 
-<<<<<<< HEAD
         public void createcategory(CategoryDto cat)
         {
             var catmapped = cat.Adapt<Category>();
@@ -29,21 +28,11 @@ namespace E_Commerce.Application.Services
 
         public void deletecategory(CategoryDto cat)
         {
-           // _categoryRepo.Delete(cat);
-=======
-        public void Createcategory(Category cat)
-        {
-            //Category newcat = Category.Adapt<category>();
-            _CategoryRepo.CreateRepo(cat);
+            // _categoryRepo.Delete(cat);
 
         }
 
-        public void Deletecategory(Category cat)
-        {
-            _CategoryRepo.DeleteRepo(cat);
->>>>>>> fedcc878f2a5a737932d817d8d78a2909cf62096
-        }
-
+    
         public IEnumerable<CategoryDto> GetAllcategoryies()
         {
             //IQueryable<Category> allcatquery = _categoryRepo.GetAll();
@@ -65,7 +54,6 @@ namespace E_Commerce.Application.Services
 
         public int Save()
         {
-<<<<<<< HEAD
             return _categoryRepo.Save();
         }
 
@@ -73,14 +61,8 @@ namespace E_Commerce.Application.Services
         {
             var mappedcat= cat.Adapt<Category>();
             _categoryRepo.Update(mappedcat);
-=======
-            return _CategoryRepo.SaveRepo();
         }
 
-        public void Updatecategory(Category cat)
-        {
-            _CategoryRepo.UpdateRepo(cat);
->>>>>>> fedcc878f2a5a737932d817d8d78a2909cf62096
-        }
+       
     }
 }

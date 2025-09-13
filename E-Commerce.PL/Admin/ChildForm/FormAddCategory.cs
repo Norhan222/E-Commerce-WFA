@@ -53,7 +53,7 @@ namespace E_Commerce.PL.Admin.ChildForm
                 return;
             }
             _categoryservice.createcategory(category);
-            _categoryservice.save();
+            _categoryservice.Save();
             (this.ParentForm as Dashbord).OpenChildForm(new FormCategory(_categoryservice));
         }
     }
