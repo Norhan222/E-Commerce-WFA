@@ -36,6 +36,9 @@ namespace E_Commerce.PL
             containerBuilder.RegisterType<AuthService>().As<IAuthService>().SingleInstance();
             containerBuilder.RegisterType<CategoryService>().As<ICategoryservice>().SingleInstance();
             containerBuilder.RegisterType<CategoryRepo>().As<ICategoryRepo>().SingleInstance();
+            containerBuilder.RegisterType<ProductRepo>().As<IProductRepo>().SingleInstance();
+            containerBuilder.RegisterType<ProductService>().As<IproductService>().SingleInstance();
+
 
             containerBuilder.RegisterType<Register>();
             containerBuilder.RegisterType<Login>();

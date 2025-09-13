@@ -13,22 +13,22 @@ namespace E_Commerce.Application
     {
         public static void RegisterMapsterconfiguration ()
         {
-            TypeAdapterConfig<Product, ProductDto>.NewConfig()
-                .Map(dest => dest.ProdName, src => src.Name)
-                .Map(dest => dest.ProdPrice, src => src.Price)
-                .Map(dest => dest.ProdDescription, src => src.Description)
-                .Map(dest => dest.ProdId, src => src.Id)
-                .Map(dest => dest.IsAvailable, src => src.Stock > 0);
+            //TypeAdapterConfig<Product, ProductDto>.NewConfig()
+            //    .Map(dest => dest.ProdName, src => src.Name)
+            //    .Map(dest => dest.ProdPrice, src => src.Price)
+            //    .Map(dest => dest.ProdDescription, src => src.Description)
+            //    .Map(dest => dest.ProdId, src => src.Id)
+            //    .Map(dest => dest.IsAvailable, src => src.Stock > 0);
 
-            TypeAdapterConfig<Product, CreateProductDto>.NewConfig()
-                .Map(dest => dest.ProdName, src => src.Name)
-                .Map(dest => dest.ProdUnitPrice, src => src.Price)
-                .Map(dest => dest.ProdDescription, src => src.Description);
+            //TypeAdapterConfig<Product, CreateProductDto>.NewConfig()
+            //    .Map(dest => dest.ProdName, src => src.Name)
+            //    .Map(dest => dest.ProdUnitPrice, src => src.Price)
+            //    .Map(dest => dest.ProdDescription, src => src.Description).TwoWays();
 
-            TypeAdapterConfig<Category, CategoryDto>.NewConfig()
-                .Map(dest => dest.CatId, src => src.Id)
-                .Map(dest => dest.CatName, src => src.Name)
-                .Map(dest => dest.CatDescription, src => src.Description);
+            //TypeAdapterConfig<Category, CategoryDto>.NewConfig()
+            //    .Map(dest => dest.CatId, src => src.Id)
+            //    .Map(dest => dest.CatName, src => src.Name)
+            //    .Map(dest => dest.CatDescription, src => src.Description).TwoWays();
 
             TypeAdapterConfig<Category, CreateCategoryDto>.NewConfig()
                 .Map(dest => dest.CatName, src => src.Name)

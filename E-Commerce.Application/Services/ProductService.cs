@@ -19,7 +19,7 @@ namespace E_Commerce.Application.Services
             _ProductRepo = ProductRepo;
         }
 
-        public void CreateProduct(ProductDto product)
+        public void CreateProduct(CreateProductDto product)
         {
             var prodmapped = product.Adapt<Product>();
             _ProductRepo.Create(prodmapped);
@@ -35,7 +35,7 @@ namespace E_Commerce.Application.Services
 
         public IEnumerable<ProductDto> GetAllProducts()
         {
-           var AllProduct = _ProductRepo.GetAll();
+           var AllProduct = _ProductRepo.GetAllProducts();
             //var AllProduct = AllProductQuery.Where(c => c.Category != null )
             // .Skip((pagenumber - 1) * pagesize).Take(pagesize).ToList();
             ////.Adapt<List<ProductDTO>>();

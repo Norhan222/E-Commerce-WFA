@@ -10,12 +10,10 @@ namespace E_Commerce.Application.Dtos
 {
     public class CreateProductDto
     {
-        [Required]
-        [StringLength(50)]
-        public string ProdName { get; set; }
-        [StringLength(500)]
-        public string ProdDescription { get; set; }
-        public decimal ProdUnitPrice { get; set; }
+        [Required(ErrorMessage ="Product Name Is Requird")]
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
         public int Stock { get; set; }
         public string ImageUrl { get; set; }
         public int CategoryId { get; set; }

@@ -21,10 +21,13 @@ namespace E_Commerce.PL.Admin
         private Panel leftBorderBtn;
         public Form currentChildForm;
         private readonly ICategoryservice _categoryservice;
+        private readonly IproductService _productService;
 
-        public Dashbord(ICategoryservice categoryservice)
+        public Dashbord(ICategoryservice categoryservice,IproductService productService)
         {
             InitializeComponent();
+            _categoryservice = categoryservice;
+            _productService = productService;
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panel1.Controls.Add(leftBorderBtn);
@@ -32,7 +35,7 @@ namespace E_Commerce.PL.Admin
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-           _categoryservice = categoryservice;
+          
         }
         private struct RGBColors
         {
@@ -108,7 +111,7 @@ namespace E_Commerce.PL.Admin
         private void iconButton3_Click(object sender, EventArgs e)
         {
             ActiveteButton(sender, RGBColors.color3);
-            OpenChildForm(new AllProductForm());
+            OpenChildForm(new AllProductForm(_categoryservice,_productService));
 
         }
 

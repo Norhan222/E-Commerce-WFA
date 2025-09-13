@@ -1,4 +1,7 @@
-﻿using System;
+﻿using E_Commerce.Application.Dtos;
+using E_Commerce.Application.Interfaces;
+using E_Commerce.Core.Entites;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,21 +15,75 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
 {
     public partial class AddProduct : Form
     {
-        public AddProduct()
+        private readonly ICategoryservice _categoryservice;
+        private readonly IproductService _productService;
+
+        public AddProduct(ICategoryservice categoryservice,IproductService productService)
         {
             InitializeComponent();
+            _productService = productService;
+            _categoryservice = categoryservice;
+            var cates= _categoryservice.GetAllcategoryies().ToList();
+            comboBoxCategory.DataSource=cates;
+            comboBoxCategory.DisplayMember = "Name";
+            comboBoxCategory.ValueMember = "Id";
+           _productService = productService;
         }
-
+        string selectedImagePath = null;
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+                selectedImagePath = openFileDialog1.FileName;
+                pictureBox1.ImageLocation = selectedImagePath;
             }
         }
 
         private void AddProduct_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            var name=txtName.Text;
+            var price =Convert.ToDecimal(txtPrice.Text);
+            var categoryId = Convert.ToInt32(comboBoxCategory.SelectedValue);
+            var stock =Convert.ToInt32(txtQuantity.Text);
+            var description = guna2TextBoxDes.Text;
+
+            var imagefolder = Path.Combine(Directory.GetParent(System.Windows.Forms.Application.StartupPath).Parent.Parent.Parent.FullName, "Images", "Product");
+            if (!Directory.Exists(imagefolder))
+            {
+                Directory.CreateDirectory(imagefolder);
+            }
+            var newfilename=Guid.NewGuid().ToString() + Path.GetExtension(selectedImagePath);
+            var destPath =Path.Combine(imagefolder, newfilename);
+
+            File.Copy(selectedImagePath, destPath,true);
+            var relativepath = Path.Combine("Images", "Product", newfilename);
+
+            var ProductDto = new CreateProductDto()
+            {
+                Name = name,
+                Description = description,
+                CategoryId = categoryId,
+                Stock = stock,
+                Price = price,
+                ImageUrl=relativepath
+
+            };
+            var errors = Helper.Validate(ProductDto);
+            if (errors.Any())
+            {
+                string message = String.Join("\n", errors.Select(e => e.ErrorMessage));
+                MessageBox.Show(message, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            _productService.CreateProduct(ProductDto);
+            _productService.Save();
+            (this.ParentForm as Dashbord).OpenChildForm(new AllProductForm(_categoryservice,_productService));
 
         }
     }

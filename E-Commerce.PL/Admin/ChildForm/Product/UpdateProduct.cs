@@ -32,7 +32,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Dashbord).OpenChildForm(new AllProductForm());
+           // (this.ParentForm as Dashbord).OpenChildForm(new AllProductForm());
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

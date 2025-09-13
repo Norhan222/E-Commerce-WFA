@@ -8,14 +8,16 @@ namespace E_Commerce.PL
     {
         private readonly IAuthService _authService;
         private readonly ICategoryservice _categoryservice;
+        private readonly IproductService _productService;
         private Form currentChildForm;
 
-        public Form1(IAuthService authService , ICategoryservice categoryservice)
+        public Form1(IAuthService authService , ICategoryservice categoryservice,IproductService productService)
         {
             InitializeComponent();
             _authService = authService;
            _categoryservice = categoryservice;
-            OpenChildForm(new Login(_authService,_categoryservice));
+            _productService = productService;
+            OpenChildForm(new Login(_authService,_categoryservice,_productService));
         }
 
         private void Form1_Load(object sender, EventArgs e)

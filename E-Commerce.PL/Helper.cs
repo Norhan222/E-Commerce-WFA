@@ -16,5 +16,7 @@ namespace E_Commerce.PL
             Validator.TryValidateObject(Dto, context, results, validateAllProperties: true);
             return results;
         }
+
+
     }
 }

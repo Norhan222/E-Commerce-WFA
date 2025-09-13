@@ -9,15 +9,13 @@ namespace E_Commerce.Application.Dtos
 {
     public class CategoryDto
     {
-        public int CatId { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage ="Category Name Is Requird")]
-        [StringLength(50)]
-        public string CatName { get; set; }
+        public string Name { get; set; }
 
         [Required(ErrorMessage = "Category Description Is Requird")]
-        [StringLength(500)]
-        public string CatDescription { get; set; }
+        public string Description { get; set; }
       
     }
 }

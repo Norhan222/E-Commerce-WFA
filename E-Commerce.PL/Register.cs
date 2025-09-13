@@ -18,17 +18,19 @@ namespace E_Commerce.PL
     {
         private readonly IAuthService _authService;
         private readonly ICategoryservice _categoryservice;
+        private readonly IproductService productService;
 
-        public Register(IAuthService authService,ICategoryservice categoryservice)
+        public Register(IAuthService authService,ICategoryservice categoryservice, IproductService productService)
         {
             InitializeComponent();
             _authService = authService;
            _categoryservice = categoryservice;
+            this.productService = productService;
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-          (this.ParentForm as Form1).OpenChildForm(new Login(_authService,_categoryservice));
+          (this.ParentForm as Form1).OpenChildForm(new Login(_authService,_categoryservice,productService));
           
         }
 
@@ -58,7 +60,7 @@ namespace E_Commerce.PL
                 return;
             }
             await _authService.Register(Register);
-            (this.ParentForm as Form1).OpenChildForm(new Login(_authService, _categoryservice));
+            (this.ParentForm as Form1).OpenChildForm(new Login(_authService, _categoryservice,productService));
         }
 
         private void guna2TextBoxUsername_TextChanged(object sender, EventArgs e)

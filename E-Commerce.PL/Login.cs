@@ -19,12 +19,14 @@ namespace E_Commerce.PL
     {
         private readonly IAuthService _authService;
         private readonly ICategoryservice _categoryservice;
+        private readonly IproductService _productService;
 
-        public Login(IAuthService authService,ICategoryservice categoryservice)
+        public Login(IAuthService authService,ICategoryservice categoryservice,IproductService productService)
         {
             InitializeComponent();
             _authService = authService;
            _categoryservice = categoryservice;
+            _productService = productService;
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -34,7 +36,7 @@ namespace E_Commerce.PL
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Form1).OpenChildForm(new Register(_authService, _categoryservice));
+            (this.ParentForm as Form1).OpenChildForm(new Register(_authService, _categoryservice,_productService));
 
 
         }
@@ -62,7 +64,7 @@ namespace E_Commerce.PL
                 if (SessionManger.currentUser.Role == "Admin")
                 {
                     (this.ParentForm as Form1).Hide();
-                    Dashbord dashbord = new Dashbord(_categoryservice);
+                    Dashbord dashbord = new Dashbord(_categoryservice,_productService);
                     dashbord.ShowDialog();
 
                 }

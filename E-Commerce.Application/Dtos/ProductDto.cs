@@ -10,18 +10,16 @@ namespace E_Commerce.Application.Dtos
 {
     public class ProductDto
     {
-        public int ProdId { get; set; }
+        public int Id { get; set; }
         [Required]
         [StringLength(50)]
-        public string ProdName { get; set; }
+        public string Name { get; set; }
         [StringLength(500)]
-        public string ProdDescription { get; set; }
-        public decimal ProdPrice { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
         public int Stock { get; set; }
         public string ImageUrl { get; set; }
-        public int CategoryId { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public Category Category { get; set; }
         public bool IsAvailable => Stock > 0;
     }
 }

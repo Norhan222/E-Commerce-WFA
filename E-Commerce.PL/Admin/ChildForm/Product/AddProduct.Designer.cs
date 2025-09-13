@@ -28,20 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             label2 = new Label();
             txtName = new TextBox();
             label3 = new Label();
             btnSave = new Button();
             btnCancel = new Button();
-            textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
+            txtPrice = new TextBox();
+            comboBoxCategory = new ComboBox();
             label4 = new Label();
             pictureBox1 = new PictureBox();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             openFileDialog1 = new OpenFileDialog();
+            txtQuantity = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
+            guna2TextBoxDes = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -60,7 +66,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(48, 98);
+            label2.Location = new Point(57, 98);
             label2.Name = "label2";
             label2.Size = new Size(75, 25);
             label2.TabIndex = 1;
@@ -89,12 +95,13 @@
             btnSave.Cursor = Cursors.Hand;
             btnSave.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(57, 391);
+            btnSave.Location = new Point(57, 410);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(155, 43);
             btnSave.TabIndex = 5;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
@@ -102,27 +109,27 @@
             btnCancel.Cursor = Cursors.Hand;
             btnCancel.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(263, 391);
+            btnCancel.Location = new Point(254, 410);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(162, 43);
             btnCancel.TabIndex = 6;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtPrice
             // 
-            textBox1.Location = new Point(57, 212);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(215, 31);
-            textBox1.TabIndex = 7;
+            txtPrice.Location = new Point(57, 212);
+            txtPrice.Name = "txtPrice";
+            txtPrice.Size = new Size(215, 31);
+            txtPrice.TabIndex = 7;
             // 
-            // comboBox1
+            // comboBoxCategory
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(57, 297);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(215, 33);
-            comboBox1.TabIndex = 8;
+            comboBoxCategory.FormattingEnabled = true;
+            comboBoxCategory.Location = new Point(57, 297);
+            comboBoxCategory.Name = "comboBoxCategory";
+            comboBoxCategory.Size = new Size(215, 33);
+            comboBoxCategory.TabIndex = 8;
             // 
             // label4
             // 
@@ -137,7 +144,7 @@
             // pictureBox1
             // 
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(587, 61);
+            pictureBox1.Location = new Point(648, 57);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(224, 205);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -146,7 +153,7 @@
             // 
             // guna2Button1
             // 
-            guna2Button1.CustomizableEdges = customizableEdges1;
+            guna2Button1.CustomizableEdges = customizableEdges5;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -154,9 +161,9 @@
             guna2Button1.FillColor = Color.DarkGray;
             guna2Button1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(607, 289);
+            guna2Button1.Location = new Point(674, 277);
             guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Button1.Size = new Size(182, 41);
             guna2Button1.TabIndex = 11;
             guna2Button1.Text = "Choose Image";
@@ -166,16 +173,68 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // txtQuantity
+            // 
+            txtQuantity.Location = new Point(334, 126);
+            txtQuantity.Name = "txtQuantity";
+            txtQuantity.Size = new Size(215, 31);
+            txtQuantity.TabIndex = 13;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label5.Location = new Point(334, 98);
+            label5.Name = "label5";
+            label5.Size = new Size(82, 25);
+            label5.TabIndex = 12;
+            label5.Text = "Quantity";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label6.Location = new Point(334, 189);
+            label6.Name = "label6";
+            label6.Size = new Size(107, 25);
+            label6.TabIndex = 14;
+            label6.Text = "Description:";
+            // 
+            // guna2TextBoxDes
+            // 
+            guna2TextBoxDes.CustomizableEdges = customizableEdges7;
+            guna2TextBoxDes.DefaultText = "";
+            guna2TextBoxDes.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBoxDes.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBoxDes.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBoxDes.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBoxDes.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBoxDes.Font = new Font("Segoe UI", 9F);
+            guna2TextBoxDes.ForeColor = Color.FromArgb(64, 64, 64);
+            guna2TextBoxDes.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBoxDes.Location = new Point(334, 219);
+            guna2TextBoxDes.Margin = new Padding(4, 5, 4, 5);
+            guna2TextBoxDes.Name = "guna2TextBoxDes";
+            guna2TextBoxDes.PlaceholderText = "";
+            guna2TextBoxDes.SelectedText = "";
+            guna2TextBoxDes.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2TextBoxDes.Size = new Size(242, 99);
+            guna2TextBoxDes.TabIndex = 15;
+            // 
             // AddProduct
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(858, 471);
+            ClientSize = new Size(928, 487);
+            Controls.Add(guna2TextBoxDes);
+            Controls.Add(label6);
+            Controls.Add(txtQuantity);
+            Controls.Add(label5);
             Controls.Add(guna2Button1);
             Controls.Add(pictureBox1);
             Controls.Add(label4);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox1);
+            Controls.Add(comboBoxCategory);
+            Controls.Add(txtPrice);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(label3);
@@ -199,11 +258,15 @@
         private Label label3;
         private Button btnSave;
         private Button btnCancel;
-        private TextBox textBox1;
-        private ComboBox comboBox1;
+        private TextBox txtPrice;
+        private ComboBox comboBoxCategory;
         private Label label4;
         private PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private OpenFileDialog openFileDialog1;
+        private TextBox txtQuantity;
+        private Label label5;
+        private Label label6;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxDes;
     }
 }

@@ -9,7 +9,7 @@ namespace E_Commerce.Application.Interfaces
 {
     public interface IProductRepo :IGenericRepo<Product,int>
     {
-
+        public IEnumerable<Product> GetAllProducts();
 
     }
 }
