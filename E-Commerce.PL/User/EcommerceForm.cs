@@ -19,11 +19,11 @@ namespace E_Commerce.PL.User
         private readonly ICategoryservice _categoryservice;
         private readonly IproductService _productService;
 
-        public EcommerceForm(ICategoryservice categoryservice,IproductService productService)
+        public EcommerceForm(ICategoryservice categoryservice, IproductService productService)
         {
             InitializeComponent();
             _categoryservice = categoryservice;
-           _productService = productService;
+            _productService = productService;
             if (SessionManger.currentUser != null)
             {
                 lblUsername.Text = SessionManger.currentUser.Username;
@@ -69,121 +69,28 @@ namespace E_Commerce.PL.User
 
         }
 
-
-        //List<Product> Products = new List<Product>()
-        //{
-        //new Product()
-        //{
-        //    Name = "Product 2",
-        //    Price = 200,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    },
-        //    new Product()
-        //{
-        //    Name = "Product 3",
-        //    Price = 300,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    },
-        //    new Product()
-        //{
-        //    Name = "Product 4",
-        //    Price = 400,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    },
-        //    new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    },
-        // new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    }, new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    }, new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    }, new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    }, new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    }, new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    }, new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    }, new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    }, new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    }, new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    }, new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    }, new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    }, new Product()
-        //{
-        //    Name = "Product 5",
-        //    Price = 500,
-        //    ImageUrl = "https://via.placeholder.com/150",
-        //    },
-        //};
-
         private void EcommerceForm_Load(object sender, EventArgs e)
         {
-            var products = _productService.GetAllProducts();
-            foreach (var item in products)
-            {
-                Item card = new Item(_productService);
-                card.ProductId = item.Id;
-                card.ProductName = item.Name;
-                card.ProductPrice = item.Price;
-                var fullpath = Path.Combine(Directory.GetParent(System.Windows.Forms.Application.StartupPath).Parent.Parent.Parent.FullName, item.ImageUrl);
-                if (File.Exists(fullpath))
+          
+                var products = _productService.GetAllProducts();
+                foreach (var item in products)
                 {
-                    using (var fs = new FileStream(fullpath, FileMode.Open, FileAccess.Read))
+                    Item card = new Item(_productService);
+                    card.ProductId = item.Id;
+                    card.ProductName = item.Name;
+                    card.ProductPrice = item.Price;
+                    var fullpath = Path.Combine(Directory.GetParent(System.Windows.Forms.Application.StartupPath).Parent.Parent.Parent.FullName, item.ImageUrl);
+                    if (File.Exists(fullpath))
                     {
-                        card.ProductIamge = Image.FromStream(fs);
+                        using (var fs = new FileStream(fullpath, FileMode.Open, FileAccess.Read))
+                        {
+                            card.ProductIamge = Image.FromStream(fs);
+                        }
                     }
+
+                    flowLayoutitmes.Controls.Add(card);
                 }
-                   
-                flowLayoutitmes.Controls.Add(card);
-            }
+            
         }
 
 
@@ -314,6 +221,31 @@ namespace E_Commerce.PL.User
         private void flowLayoutitmes_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+          var searchproducts= _productService.SearchProducts(guna2TextBox1.Text);
+            if (searchproducts.Any()) {
+                flowLayoutitmes.Controls.Clear();
+                foreach (var item in searchproducts)
+                {
+                    Item card = new Item(_productService);
+                    card.ProductId = item.Id;
+                    card.ProductName = item.Name;
+                    card.ProductPrice = item.Price;
+                    var fullpath = Path.Combine(Directory.GetParent(System.Windows.Forms.Application.StartupPath).Parent.Parent.Parent.FullName, item.ImageUrl);
+                    if (File.Exists(fullpath))
+                    {
+                        using (var fs = new FileStream(fullpath, FileMode.Open, FileAccess.Read))
+                        {
+                            card.ProductIamge = Image.FromStream(fs);
+                        }
+                    }
+
+                    flowLayoutitmes.Controls.Add(card);
+                }
+            }
         }
     }
 }
