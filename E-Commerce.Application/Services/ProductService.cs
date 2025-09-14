@@ -55,5 +55,17 @@ namespace E_Commerce.Application.Services
             var prodmapped = product.Adapt<Product>();
             _ProductRepo.Update(prodmapped);
         }
+
+        public IEnumerable<ProductDto> SearchProducts(string name)
+        {
+            var products = _ProductRepo.SearchByName(name);
+            return products.Adapt<IEnumerable<ProductDto>>();
+        }
+        public void funtest ()
+        {
+            var test = "git byhazar";
+        }
+
+    
     }
 }

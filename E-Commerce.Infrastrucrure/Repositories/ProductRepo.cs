@@ -23,5 +23,11 @@ namespace E_Commerce.Infrastrucrure.Repositories
         {
             return _dbContext.Products.Include(p => p.Category).AsNoTracking();
         }
+
+        public IEnumerable<Product> SearchByName(string name)
+        {
+            return _dbContext.Products.Include(p=>p.Category)
+                .Where(p=>p.Name.Contains(name)).AsNoTracking().ToList();
+        }
     }
 }
