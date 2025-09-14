@@ -13,12 +13,9 @@ namespace E_Commerce.Application
     {
         public static void RegisterMapsterconfiguration ()
         {
-            //TypeAdapterConfig<Product, ProductDto>.NewConfig()
-            //    .Map(dest => dest.ProdName, src => src.Name)
-            //    .Map(dest => dest.ProdPrice, src => src.Price)
-            //    .Map(dest => dest.ProdDescription, src => src.Description)
-            //    .Map(dest => dest.ProdId, src => src.Id)
-            //    .Map(dest => dest.IsAvailable, src => src.Stock > 0);
+            TypeAdapterConfig<Product, ProductDto>.NewConfig()
+                .Map(dest => dest.CategoryName, src => src.Category.Name);
+
 
             //TypeAdapterConfig<Product, CreateProductDto>.NewConfig()
             //    .Map(dest => dest.ProdName, src => src.Name)

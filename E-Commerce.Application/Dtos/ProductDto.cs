@@ -19,7 +19,7 @@ namespace E_Commerce.Application.Dtos
         public decimal Price { get; set; }
         public int Stock { get; set; }
         public string ImageUrl { get; set; }
-        public Category Category { get; set; }
+        public string CategoryName { get; set; }
         public bool IsAvailable => Stock > 0;
     }
 }

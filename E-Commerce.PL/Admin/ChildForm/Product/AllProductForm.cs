@@ -49,7 +49,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
                     }
                 }
                Image resizedimg = new Bitmap(img, new Size(50, 50));
-                dataGridView.Rows.Add(item.Id, item.Name,item.Price,item.Description, resizedimg,item.Category.Name);
+                dataGridView.Rows.Add(item.Id, item.Name,item.Price,item.Description, resizedimg,item.CategoryName);
             }
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -69,7 +69,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
             if (dataGridView.CurrentRow != null)
             {
                 var row = dataGridView.CurrentRow;
-                (this.ParentForm as Dashbord).OpenChildForm(new UpdateProduct(row));
+                (this.ParentForm as Dashbord).OpenChildForm(new UpdateProduct(row,_categoryservice,_productService));
 
             }
             else
@@ -103,7 +103,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
             if (dataGridView.CurrentRow != null)
             {
                 var row = dataGridView.CurrentRow;
-                (this.ParentForm as Dashbord).OpenChildForm(new UpdateProduct(row));
+                (this.ParentForm as Dashbord).OpenChildForm(new UpdateProduct(row,_categoryservice,_productService));
 
             }
             else

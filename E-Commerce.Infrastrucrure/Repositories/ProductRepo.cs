@@ -21,7 +21,7 @@ namespace E_Commerce.Infrastrucrure.Repositories
 
         public IEnumerable<Product> GetAllProducts()
         {
-            return _dbContext.Products.Include(p => p.Category);
+            return _dbContext.Products.Include(p => p.Category).AsNoTracking();
         }
     }
 }

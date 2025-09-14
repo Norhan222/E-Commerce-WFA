@@ -24,6 +24,8 @@
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             label2 = new Label();
             txtName = new TextBox();
@@ -36,6 +38,10 @@
             pictureBox1 = new PictureBox();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             openFileDialog1 = new OpenFileDialog();
+            txtquantity = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
+            guna2TextBoxDes = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -132,7 +138,7 @@
             // pictureBox1
             // 
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(587, 61);
+            pictureBox1.Location = new Point(641, 47);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(224, 205);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -149,7 +155,7 @@
             guna2Button1.FillColor = Color.DarkGray;
             guna2Button1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(607, 289);
+            guna2Button1.Location = new Point(655, 275);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button1.Size = new Size(182, 41);
@@ -161,11 +167,63 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // txtquantity
+            // 
+            txtquantity.Location = new Point(343, 126);
+            txtquantity.Name = "txtquantity";
+            txtquantity.Size = new Size(215, 31);
+            txtquantity.TabIndex = 13;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label5.Location = new Point(334, 98);
+            label5.Name = "label5";
+            label5.Size = new Size(96, 25);
+            label5.TabIndex = 12;
+            label5.Text = " Quantity :";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label6.Location = new Point(334, 215);
+            label6.Name = "label6";
+            label6.Size = new Size(117, 25);
+            label6.TabIndex = 14;
+            label6.Text = " Description :";
+            // 
+            // guna2TextBoxDes
+            // 
+            guna2TextBoxDes.CustomizableEdges = customizableEdges3;
+            guna2TextBoxDes.DefaultText = "";
+            guna2TextBoxDes.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBoxDes.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBoxDes.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBoxDes.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBoxDes.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBoxDes.Font = new Font("Segoe UI", 9F);
+            guna2TextBoxDes.ForeColor = Color.FromArgb(64, 64, 64);
+            guna2TextBoxDes.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBoxDes.Location = new Point(343, 245);
+            guna2TextBoxDes.Margin = new Padding(4, 5, 4, 5);
+            guna2TextBoxDes.Name = "guna2TextBoxDes";
+            guna2TextBoxDes.PlaceholderText = "";
+            guna2TextBoxDes.SelectedText = "";
+            guna2TextBoxDes.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2TextBoxDes.Size = new Size(235, 110);
+            guna2TextBoxDes.TabIndex = 15;
+            // 
             // UpdateProduct
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(858, 471);
+            ClientSize = new Size(910, 488);
+            Controls.Add(guna2TextBoxDes);
+            Controls.Add(label6);
+            Controls.Add(txtquantity);
+            Controls.Add(label5);
             Controls.Add(guna2Button1);
             Controls.Add(pictureBox1);
             Controls.Add(label4);
@@ -198,5 +256,9 @@
         private PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private OpenFileDialog openFileDialog1;
+        private TextBox txtquantity;
+        private Label label5;
+        private Label label6;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxDes;
     }
 }

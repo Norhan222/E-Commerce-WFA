@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             label2 = new Label();
             txtName = new TextBox();
@@ -115,6 +115,7 @@
             btnCancel.TabIndex = 6;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // txtPrice
             // 
@@ -153,7 +154,7 @@
             // 
             // guna2Button1
             // 
-            guna2Button1.CustomizableEdges = customizableEdges5;
+            guna2Button1.CustomizableEdges = customizableEdges1;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -163,7 +164,7 @@
             guna2Button1.ForeColor = Color.White;
             guna2Button1.Location = new Point(674, 277);
             guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button1.Size = new Size(182, 41);
             guna2Button1.TabIndex = 11;
             guna2Button1.Text = "Choose Image";
@@ -202,7 +203,7 @@
             // 
             // guna2TextBoxDes
             // 
-            guna2TextBoxDes.CustomizableEdges = customizableEdges7;
+            guna2TextBoxDes.CustomizableEdges = customizableEdges3;
             guna2TextBoxDes.DefaultText = "";
             guna2TextBoxDes.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBoxDes.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -217,7 +218,7 @@
             guna2TextBoxDes.Name = "guna2TextBoxDes";
             guna2TextBoxDes.PlaceholderText = "";
             guna2TextBoxDes.SelectedText = "";
-            guna2TextBoxDes.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2TextBoxDes.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2TextBoxDes.Size = new Size(242, 99);
             guna2TextBoxDes.TabIndex = 15;
             // 
