@@ -61,11 +61,7 @@ namespace E_Commerce.Application.Services
             var products = _ProductRepo.SearchByName(name);
             return products.Adapt<IEnumerable<ProductDto>>();
         }
-        public void funtest ()
-        {
-            var test = "git byhazar";
-        }
-
+    
     
     }
 }
