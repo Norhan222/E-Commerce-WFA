@@ -12,5 +12,7 @@ namespace E_Commerce.Application.Interfaces
         public IEnumerable<Product> GetAllProducts();
         public Product GetProduct(int id);
 
+        public IEnumerable<Product> SearchByName(string name);
+
     }
 }

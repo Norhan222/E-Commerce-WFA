@@ -19,6 +19,8 @@ namespace E_Commerce.Application.Interfaces
 
         public void UpdateProduct(UpdateProductDto productdto);
 
+        public IEnumerable<ProductDto> SearchProducts(string name);
+
         public int Save();
 
     }
