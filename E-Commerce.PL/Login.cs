@@ -68,7 +68,7 @@ namespace E_Commerce.PL
                     dashbord.ShowDialog();
 
                 }
-                else { (this.ParentForm as Form1).OpenChildForm(new EcommerceForm(_categoryservice)); };
+                else { (this.ParentForm as Form1).OpenChildForm(new EcommerceForm(_categoryservice,_productService)); };
 
             }
             else
@@ -85,7 +85,7 @@ namespace E_Commerce.PL
 
         private void label5_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Form1).OpenChildForm(new EcommerceForm(_categoryservice));
+            (this.ParentForm as Form1).OpenChildForm(new EcommerceForm(_categoryservice,_productService));
         }
     }
 }

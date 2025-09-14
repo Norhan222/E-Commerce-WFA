@@ -23,5 +23,10 @@ namespace E_Commerce.Infrastrucrure.Repositories
         {
             return _dbContext.Products.Include(p => p.Category).AsNoTracking();
         }
+
+        public Product GetProduct(int id)
+        {
+            return _dbContext.Products.AsNoTracking().Include(p=>p.Category).FirstOrDefault(p => p.Id == id);
+        }
     }
 }

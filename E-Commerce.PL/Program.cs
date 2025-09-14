@@ -5,6 +5,7 @@ using E_Commerce.Infrastrucrure.Data;
 using E_Commerce.Infrastrucrure.Repositories;
 using E_Commerce.PL.Admin;
 using E_Commerce.PL.Admin.ChildForm;
+using E_Commerce.PL.Admin.ChildForm.Product;
 using E_Commerce.PL.User;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -30,7 +31,7 @@ namespace E_Commerce.PL
                 optionsBuilder.UseSqlServer("Server=.; Database=EcommerceDb; Trusted_Connection=true;  TrustServerCertificate=True; MultipleActiveResultSets=True;");
                 return new AppDbContext(optionsBuilder.Options);
             }).As<AppDbContext>()
-            .InstancePerLifetimeScope();
+            .InstancePerDependency();
 
             containerBuilder.RegisterType<UserRepo>().As<IUserRepo>().SingleInstance();
             containerBuilder.RegisterType<AuthService>().As<IAuthService>().SingleInstance();
@@ -43,6 +44,7 @@ namespace E_Commerce.PL
             containerBuilder.RegisterType<Register>();
             containerBuilder.RegisterType<Login>();
             containerBuilder.RegisterType<Form1>();
+            containerBuilder.RegisterType<UpdateProduct>();
 
 
 

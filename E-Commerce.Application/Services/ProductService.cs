@@ -44,15 +44,22 @@ namespace E_Commerce.Application.Services
 
         }
 
+        public ProductDto GetProductById(int id)
+        {
+            var product = _ProductRepo.GetProduct(id);
+            return product.Adapt<ProductDto>();
+        }
+
         public int Save()
         {
            return _ProductRepo.Save();
             
         }
 
-        public void UpdateProduct(ProductDto product)
+        public void UpdateProduct(UpdateProductDto product)
         {
             var prodmapped = product.Adapt<Product>();
+            
             _ProductRepo.Update(prodmapped);
         }
     }

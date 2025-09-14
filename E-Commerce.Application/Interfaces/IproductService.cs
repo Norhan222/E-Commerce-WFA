@@ -12,11 +12,12 @@ namespace E_Commerce.Application.Interfaces
     {
         public IEnumerable<ProductDto> GetAllProducts  ();
 
+        public ProductDto GetProductById (int id);
         public void CreateProduct(CreateProductDto productdto);
 
         public void DeleteProduct(ProductDto productdto);
 
-        public void UpdateProduct(ProductDto productdto);
+        public void UpdateProduct(UpdateProductDto productdto);
 
         public int Save();
 

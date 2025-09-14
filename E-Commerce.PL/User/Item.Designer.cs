@@ -51,6 +51,7 @@
             // ProductImage
             // 
             ProductImage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ProductImage.Cursor = Cursors.Hand;
             ProductImage.Image = Properties.Resources._543_5436355_plain_green_t_shirt_png_download_image_blank;
             ProductImage.Location = new Point(67, 16);
             ProductImage.Name = "ProductImage";
@@ -58,6 +59,7 @@
             ProductImage.SizeMode = PictureBoxSizeMode.Zoom;
             ProductImage.TabIndex = 2;
             ProductImage.TabStop = false;
+            ProductImage.Click += ProductImage_Click;
             // 
             // label1
             // 

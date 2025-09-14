@@ -272,6 +272,7 @@
             flowLayoutitmes.Name = "flowLayoutitmes";
             flowLayoutitmes.Size = new Size(817, 512);
             flowLayoutitmes.TabIndex = 4;
+            flowLayoutitmes.Paint += flowLayoutitmes_Paint;
             // 
             // EcommerceForm
             // 

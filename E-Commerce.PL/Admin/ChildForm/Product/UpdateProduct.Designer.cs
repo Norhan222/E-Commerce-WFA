@@ -22,15 +22,15 @@
 
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             label2 = new Label();
             txtName = new TextBox();
             label3 = new Label();
-            btnSave = new Button();
+            btnUpdate = new Button();
             btnCancel = new Button();
             textPrice = new TextBox();
             comboBoxCategory = new ComboBox();
@@ -52,9 +52,9 @@
             label1.ForeColor = Color.RoyalBlue;
             label1.Location = new Point(39, 36);
             label1.Name = "label1";
-            label1.Size = new Size(182, 38);
+            label1.Size = new Size(223, 38);
             label1.TabIndex = 0;
-            label1.Text = "Add Product";
+            label1.Text = "Update Product";
             // 
             // label2
             // 
@@ -83,18 +83,19 @@
             label3.TabIndex = 3;
             label3.Text = "Price:";
             // 
-            // btnSave
+            // btnUpdate
             // 
-            btnSave.BackColor = Color.OrangeRed;
-            btnSave.Cursor = Cursors.Hand;
-            btnSave.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(57, 391);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(155, 43);
-            btnSave.TabIndex = 5;
-            btnSave.Text = "Update";
-            btnSave.UseVisualStyleBackColor = false;
+            btnUpdate.BackColor = Color.OrangeRed;
+            btnUpdate.Cursor = Cursors.Hand;
+            btnUpdate.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.Location = new Point(57, 391);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(155, 43);
+            btnUpdate.TabIndex = 5;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnCancel
             // 
@@ -138,16 +139,16 @@
             // pictureBox1
             // 
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(641, 47);
+            pictureBox1.Location = new Point(641, 36);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(224, 205);
+            pictureBox1.Size = new Size(209, 204);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
             // guna2Button1
             // 
-            guna2Button1.CustomizableEdges = customizableEdges1;
+            guna2Button1.CustomizableEdges = customizableEdges9;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -157,7 +158,7 @@
             guna2Button1.ForeColor = Color.White;
             guna2Button1.Location = new Point(655, 275);
             guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2Button1.Size = new Size(182, 41);
             guna2Button1.TabIndex = 11;
             guna2Button1.Text = "Choose Image";
@@ -196,7 +197,7 @@
             // 
             // guna2TextBoxDes
             // 
-            guna2TextBoxDes.CustomizableEdges = customizableEdges3;
+            guna2TextBoxDes.CustomizableEdges = customizableEdges11;
             guna2TextBoxDes.DefaultText = "";
             guna2TextBoxDes.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBoxDes.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -211,7 +212,7 @@
             guna2TextBoxDes.Name = "guna2TextBoxDes";
             guna2TextBoxDes.PlaceholderText = "";
             guna2TextBoxDes.SelectedText = "";
-            guna2TextBoxDes.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2TextBoxDes.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2TextBoxDes.Size = new Size(235, 110);
             guna2TextBoxDes.TabIndex = 15;
             // 
@@ -230,7 +231,7 @@
             Controls.Add(comboBoxCategory);
             Controls.Add(textPrice);
             Controls.Add(btnCancel);
-            Controls.Add(btnSave);
+            Controls.Add(btnUpdate);
             Controls.Add(label3);
             Controls.Add(txtName);
             Controls.Add(label2);
@@ -248,7 +249,7 @@
         private Label label2;
         private TextBox txtName;
         private Label label3;
-        private Button btnSave;
+        private Button btnUpdate;
         private Button btnCancel;
         private TextBox textPrice;
         private ComboBox comboBoxCategory;

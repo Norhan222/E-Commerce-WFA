@@ -31,6 +31,7 @@ namespace E_Commerce.Infrastrucrure.Repositories
 
         public void Delete(T Entity)
         {
+            _context.ChangeTracker.Clear();
             _Dbset.Remove(Entity);
         }
         public IEnumerable<T> GetAll()
@@ -50,7 +51,9 @@ namespace E_Commerce.Infrastrucrure.Repositories
 
         public void Update(T Entity)
         {
-            _Dbset.Update(Entity);
+            _context.ChangeTracker.Clear();
+       
+             _Dbset.Update(Entity);
         }
     }
 }
