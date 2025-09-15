@@ -64,6 +64,20 @@ namespace E_Commerce.Application.Services
             _categoryRepo.Update(mappedcat);
         }
 
-       
+        public CategoryDto GetCategoryWithProductsByName(string name)
+        {
+            var category = _categoryRepo.GetCategoryWithProductsByName(name);
+            if (category == null) return null;
+
+            // Map Category + Products
+            var categoryDto = category.Adapt<CategoryDto>();
+
+            // Map Products
+            categoryDto.Products = category.Products.Adapt<IEnumerable<ProductDto>>().ToList();
+
+            return categoryDto;
+        }
+
+
     }
 }

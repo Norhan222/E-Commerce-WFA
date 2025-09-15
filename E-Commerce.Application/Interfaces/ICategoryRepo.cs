@@ -9,6 +9,7 @@ namespace E_Commerce.Application.Interfaces
 {
     public interface ICategoryRepo : IGenericRepo<Category, int>
     {
+        public Category GetCategoryWithProductsByName(string name);
 
     }
 

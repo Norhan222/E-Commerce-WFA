@@ -28,8 +28,16 @@ namespace E_Commerce.PL
             containerBuilder.Register(ctx =>
             {
                 var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-                optionsBuilder.UseSqlServer("Server=.; Database=EcommerceDb; Trusted_Connection=true;  TrustServerCertificate=True; MultipleActiveResultSets=True;");
-                return new AppDbContext(optionsBuilder.Options);
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-SVASVG3\\SQLEXPRESS ; Initial Catalog = MyecommerceProject ; Integrated Security = true; Encrypt = false");
+
+                //return new AppDbContext(optionsBuilder.Options);
+                var context = new AppDbContext(optionsBuilder.Options);
+
+                DbSeeder.Seed(context);
+
+                return context;
+
+
             }).As<AppDbContext>()
             .InstancePerDependency();
 

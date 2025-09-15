@@ -20,6 +20,7 @@ namespace E_Commerce.Application.Interfaces
 
         public CategoryDto getcategory(int id);
 
+        public CategoryDto GetCategoryWithProductsByName(string name);
 
         public int Save();
 

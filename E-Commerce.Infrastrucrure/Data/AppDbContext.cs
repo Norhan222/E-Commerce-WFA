@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 
 namespace E_Commerce.Infrastrucrure.Data
 {
@@ -21,7 +23,7 @@ namespace E_Commerce.Infrastrucrure.Data
         public DbSet<User> Users { get; set; }
 
 
-
+     
 
 
 

@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Electronics",
+    "Description": "All electronic items and gadgets"
+  },
+  {
+    "Name": "Clothing",
+    "Description": "Men and Women clothing"
+  },
+  {
+    "Name": "Books",
+    "Description": "Books and Stationery"
+  },
+  {
+    "Name": "Home Appliances",
+    "Description": "Appliances for home use"
+  },
+  {
+    "Name": "Sports",
+    "Description": "Sports items and equipment"
+  }
+]

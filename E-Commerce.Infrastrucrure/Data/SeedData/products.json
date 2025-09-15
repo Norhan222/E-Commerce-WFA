@@ -1,0 +1,806 @@
+[
+  {
+    "Name": "Smartphone 1",
+    "Description": "test",
+    "Price": 5000,
+    "Stock": 10,
+    "CategoryId": 1,
+    "ImageUrl": "test"
+  },
+  {
+    "Name": "Laptop 2",
+    "Description": "Electronic item",
+    "Price": 15000,
+    "Stock": 5,
+    "CategoryId": 1,
+    "ImageUrl": "laptop2.jpg"
+  },
+  {
+    "Name": "Headphones 3",
+    "Description": "Electronic item",
+    "Price": 1200,
+    "Stock": 20,
+    "CategoryId": 1,
+    "ImageUrl": "headphones3.jpg"
+  },
+  {
+    "Name": "Smartwatch 4",
+    "Description": "Electronic item",
+    "Price": 2000,
+    "Stock": 15,
+    "CategoryId": 1,
+    "ImageUrl": "smartwatch4.jpg"
+  },
+  {
+    "Name": "Tablet 5",
+    "Description": "Electronic item",
+    "Price": 4000,
+    "Stock": 8,
+    "CategoryId": 1,
+    "ImageUrl": "tablet5.jpg"
+  },
+  {
+    "Name": "Camera 6",
+    "Description": "Electronic item",
+    "Price": 6000,
+    "Stock": 7,
+    "CategoryId": 1,
+    "ImageUrl": "camera6.jpg"
+  },
+  {
+    "Name": "Keyboard 7",
+    "Description": "Electronic item",
+    "Price": 900,
+    "Stock": 30,
+    "CategoryId": 1,
+    "ImageUrl": "keyboard7.jpg"
+  },
+  {
+    "Name": "Mouse 8",
+    "Description": "Electronic item",
+    "Price": 400,
+    "Stock": 40,
+    "CategoryId": 1,
+    "ImageUrl": "mouse8.jpg"
+  },
+  {
+    "Name": "Monitor 9",
+    "Description": "Electronic item",
+    "Price": 3000,
+    "Stock": 12,
+    "CategoryId": 1,
+    "ImageUrl": "monitor9.jpg"
+  },
+  {
+    "Name": "Printer 10",
+    "Description": "Electronic item",
+    "Price": 3500,
+    "Stock": 6,
+    "CategoryId": 1,
+    "ImageUrl": "printer10.jpg"
+  },
+  {
+    "Name": "Charger 11",
+    "Description": "Electronic item",
+    "Price": 300,
+    "Stock": 50,
+    "CategoryId": 1,
+    "ImageUrl": "charger11.jpg"
+  },
+  {
+    "Name": "Powerbank 12",
+    "Description": "Electronic item",
+    "Price": 800,
+    "Stock": 25,
+    "CategoryId": 1,
+    "ImageUrl": "powerbank12.jpg"
+  },
+  {
+    "Name": "Speaker 13",
+    "Description": "Electronic item",
+    "Price": 1100,
+    "Stock": 18,
+    "CategoryId": 1,
+    "ImageUrl": "speaker13.jpg"
+  },
+  {
+    "Name": "Router 14",
+    "Description": "Electronic item",
+    "Price": 950,
+    "Stock": 22,
+    "CategoryId": 1,
+    "ImageUrl": "router14.jpg"
+  },
+  {
+    "Name": "SSD 15",
+    "Description": "Electronic item",
+    "Price": 2500,
+    "Stock": 10,
+    "CategoryId": 1,
+    "ImageUrl": "ssd15.jpg"
+  },
+  {
+    "Name": "HDD 16",
+    "Description": "Electronic item",
+    "Price": 2000,
+    "Stock": 12,
+    "CategoryId": 1,
+    "ImageUrl": "hdd16.jpg"
+  },
+  {
+    "Name": "TV 17",
+    "Description": "Electronic item",
+    "Price": 7000,
+    "Stock": 5,
+    "CategoryId": 1,
+    "ImageUrl": "tv17.jpg"
+  },
+  {
+    "Name": "Console 18",
+    "Description": "Electronic item",
+    "Price": 12000,
+    "Stock": 3,
+    "CategoryId": 1,
+    "ImageUrl": "console18.jpg"
+  },
+  {
+    "Name": "Drone 19",
+    "Description": "Electronic item",
+    "Price": 5000,
+    "Stock": 2,
+    "CategoryId": 1,
+    "ImageUrl": "drone19.jpg"
+  },
+  {
+    "Name": "Projector 20",
+    "Description": "Electronic item",
+    "Price": 4500,
+    "Stock": 4,
+    "CategoryId": 1,
+    "ImageUrl": "projector20.jpg"
+  },
+
+  {
+    "Name": "T-Shirt 1",
+    "Description": "Clothing item",
+    "Price": 200,
+    "Stock": 50,
+    "CategoryId": 2,
+    "ImageUrl": "tshirt1.jpg"
+  },
+  {
+    "Name": "Jeans 2",
+    "Description": "Clothing item",
+    "Price": 500,
+    "Stock": 40,
+    "CategoryId": 2,
+    "ImageUrl": "jeans2.jpg"
+  },
+  {
+    "Name": "Jacket 3",
+    "Description": "Clothing item",
+    "Price": 1200,
+    "Stock": 15,
+    "CategoryId": 2,
+    "ImageUrl": "jacket3.jpg"
+  },
+  {
+    "Name": "Shirt 4",
+    "Description": "Clothing item",
+    "Price": 400,
+    "Stock": 25,
+    "CategoryId": 2,
+    "ImageUrl": "shirt4.jpg"
+  },
+  {
+    "Name": "Sweater 5",
+    "Description": "Clothing item",
+    "Price": 600,
+    "Stock": 20,
+    "CategoryId": 2,
+    "ImageUrl": "sweater5.jpg"
+  },
+  {
+    "Name": "Shorts 6",
+    "Description": "Clothing item",
+    "Price": 300,
+    "Stock": 30,
+    "CategoryId": 2,
+    "ImageUrl": "shorts6.jpg"
+  },
+  {
+    "Name": "Skirt 7",
+    "Description": "Clothing item",
+    "Price": 350,
+    "Stock": 18,
+    "CategoryId": 2,
+    "ImageUrl": "skirt7.jpg"
+  },
+  {
+    "Name": "Dress 8",
+    "Description": "Clothing item",
+    "Price": 800,
+    "Stock": 10,
+    "CategoryId": 2,
+    "ImageUrl": "dress8.jpg"
+  },
+  {
+    "Name": "Shoes 9",
+    "Description": "Clothing item",
+    "Price": 700,
+    "Stock": 15,
+    "CategoryId": 2,
+    "ImageUrl": "shoes9.jpg"
+  },
+  {
+    "Name": "Hat 10",
+    "Description": "Clothing item",
+    "Price": 150,
+    "Stock": 40,
+    "CategoryId": 2,
+    "ImageUrl": "hat10.jpg"
+  },
+  {
+    "Name": "Scarf 11",
+    "Description": "Clothing item",
+    "Price": 100,
+    "Stock": 25,
+    "CategoryId": 2,
+    "ImageUrl": "scarf11.jpg"
+  },
+  {
+    "Name": "Gloves 12",
+    "Description": "Clothing item",
+    "Price": 120,
+    "Stock": 30,
+    "CategoryId": 2,
+    "ImageUrl": "gloves12.jpg"
+  },
+  {
+    "Name": "Belt 13",
+    "Description": "Clothing item",
+    "Price": 200,
+    "Stock": 20,
+    "CategoryId": 2,
+    "ImageUrl": "belt13.jpg"
+  },
+  {
+    "Name": "Socks 14",
+    "Description": "Clothing item",
+    "Price": 50,
+    "Stock": 50,
+    "CategoryId": 2,
+    "ImageUrl": "socks14.jpg"
+  },
+  {
+    "Name": "Coat 15",
+    "Description": "Clothing item",
+    "Price": 1500,
+    "Stock": 5,
+    "CategoryId": 2,
+    "ImageUrl": "coat15.jpg"
+  },
+  {
+    "Name": "Blazer 16",
+    "Description": "Clothing item",
+    "Price": 1300,
+    "Stock": 7,
+    "CategoryId": 2,
+    "ImageUrl": "blazer16.jpg"
+  },
+  {
+    "Name": "Pants 17",
+    "Description": "Clothing item",
+    "Price": 600,
+    "Stock": 20,
+    "CategoryId": 2,
+    "ImageUrl": "pants17.jpg"
+  },
+  {
+    "Name": "Jumpsuit 18",
+    "Description": "Clothing item",
+    "Price": 900,
+    "Stock": 10,
+    "CategoryId": 2,
+    "ImageUrl": "jumpsuit18.jpg"
+  },
+  {
+    "Name": "Tank Top 19",
+    "Description": "Clothing item",
+    "Price": 250,
+    "Stock": 30,
+    "CategoryId": 2,
+    "ImageUrl": "tanktop19.jpg"
+  },
+  {
+    "Name": "Hoodie 20",
+    "Description": "Clothing item",
+    "Price": 800,
+    "Stock": 12,
+    "CategoryId": 2,
+    "ImageUrl": "hoodie20.jpg"
+  },
+
+  {
+    "Name": "Book 1",
+    "Description": "Books item",
+    "Price": 100,
+    "Stock": 50,
+    "CategoryId": 3,
+    "ImageUrl": "book1.jpg"
+  },
+  {
+    "Name": "Book 2",
+    "Description": "Books item",
+    "Price": 150,
+    "Stock": 40,
+    "CategoryId": 3,
+    "ImageUrl": "book2.jpg"
+  },
+  {
+    "Name": "Book 3",
+    "Description": "Books item",
+    "Price": 200,
+    "Stock": 30,
+    "CategoryId": 3,
+    "ImageUrl": "book3.jpg"
+  },
+  {
+    "Name": "Book 4",
+    "Description": "Books item",
+    "Price": 250,
+    "Stock": 20,
+    "CategoryId": 3,
+    "ImageUrl": "book4.jpg"
+  },
+  {
+    "Name": "Book 5",
+    "Description": "Books item",
+    "Price": 300,
+    "Stock": 15,
+    "CategoryId": 3,
+    "ImageUrl": "book5.jpg"
+  },
+  {
+    "Name": "Book 6",
+    "Description": "Books item",
+    "Price": 350,
+    "Stock": 10,
+    "CategoryId": 3,
+    "ImageUrl": "book6.jpg"
+  },
+  {
+    "Name": "Book 7",
+    "Description": "Books item",
+    "Price": 400,
+    "Stock": 5,
+    "CategoryId": 3,
+    "ImageUrl": "book7.jpg"
+  },
+  {
+    "Name": "Book 8",
+    "Description": "Books item",
+    "Price": 450,
+    "Stock": 8,
+    "CategoryId": 3,
+    "ImageUrl": "book8.jpg"
+  },
+  {
+    "Name": "Book 9",
+    "Description": "Books item",
+    "Price": 500,
+    "Stock": 12,
+    "CategoryId": 3,
+    "ImageUrl": "book9.jpg"
+  },
+  {
+    "Name": "Book 10",
+    "Description": "Books item",
+    "Price": 550,
+    "Stock": 6,
+    "CategoryId": 3,
+    "ImageUrl": "book10.jpg"
+  },
+  {
+    "Name": "Book 11",
+    "Description": "Books item",
+    "Price": 600,
+    "Stock": 14,
+    "CategoryId": 3,
+    "ImageUrl": "book11.jpg"
+  },
+  {
+    "Name": "Book 12",
+    "Description": "Books item",
+    "Price": 650,
+    "Stock": 16,
+    "CategoryId": 3,
+    "ImageUrl": "book12.jpg"
+  },
+  {
+    "Name": "Book 13",
+    "Description": "Books item",
+    "Price": 700,
+    "Stock": 10,
+    "CategoryId": 3,
+    "ImageUrl": "book13.jpg"
+  },
+  {
+    "Name": "Book 14",
+    "Description": "Books item",
+    "Price": 750,
+    "Stock": 12,
+    "CategoryId": 3,
+    "ImageUrl": "book14.jpg"
+  },
+  {
+    "Name": "Book 15",
+    "Description": "Books item",
+    "Price": 800,
+    "Stock": 18,
+    "CategoryId": 3,
+    "ImageUrl": "book15.jpg"
+  },
+  {
+    "Name": "Book 16",
+    "Description": "Books item",
+    "Price": 850,
+    "Stock": 20,
+    "CategoryId": 3,
+    "ImageUrl": "book16.jpg"
+  },
+  {
+    "Name": "Book 17",
+    "Description": "Books item",
+    "Price": 900,
+    "Stock": 25,
+    "CategoryId": 3,
+    "ImageUrl": "book17.jpg"
+  },
+  {
+    "Name": "Book 18",
+    "Description": "Books item",
+    "Price": 950,
+    "Stock": 15,
+    "CategoryId": 3,
+    "ImageUrl": "book18.jpg"
+  },
+  {
+    "Name": "Book 19",
+    "Description": "Books item",
+    "Price": 1000,
+    "Stock": 10,
+    "CategoryId": 3,
+    "ImageUrl": "book19.jpg"
+  },
+  {
+    "Name": "Book 20",
+    "Description": "Books item",
+    "Price": 1050,
+    "Stock": 12,
+    "CategoryId": 3,
+    "ImageUrl": "book20.jpg"
+  },
+
+  {
+    "Name": "Vacuum 1",
+    "Description": "Home appliance",
+    "Price": 2000,
+    "Stock": 8,
+    "CategoryId": 4,
+    "ImageUrl": "vacuum1.jpg"
+  },
+  {
+    "Name": "Blender 2",
+    "Description": "Home appliance",
+    "Price": 1200,
+    "Stock": 10,
+    "CategoryId": 4,
+    "ImageUrl": "blender2.jpg"
+  },
+  {
+    "Name": "Microwave 3",
+    "Description": "Home appliance",
+    "Price": 1800,
+    "Stock": 5,
+    "CategoryId": 4,
+    "ImageUrl": "microwave3.jpg"
+  },
+  {
+    "Name": "Oven 4",
+    "Description": "Home appliance",
+    "Price": 2200,
+    "Stock": 6,
+    "CategoryId": 4,
+    "ImageUrl": "oven4.jpg"
+  },
+  {
+    "Name": "Toaster 5",
+    "Description": "Home appliance",
+    "Price": 400,
+    "Stock": 15,
+    "CategoryId": 4,
+    "ImageUrl": "toaster5.jpg"
+  },
+  {
+    "Name": "Refrigerator 6",
+    "Description": "Home appliance",
+    "Price": 8000,
+    "Stock": 3,
+    "CategoryId": 4,
+    "ImageUrl": "refrigerator6.jpg"
+  },
+  {
+    "Name": "Dishwasher 7",
+    "Description": "Home appliance",
+    "Price": 5000,
+    "Stock": 2,
+    "CategoryId": 4,
+    "ImageUrl": "dishwasher7.jpg"
+  },
+  {
+    "Name": "Air Conditioner 8",
+    "Description": "Home appliance",
+    "Price": 10000,
+    "Stock": 4,
+    "CategoryId": 4,
+    "ImageUrl": "airconditioner8.jpg"
+  },
+  {
+    "Name": "Fan 9",
+    "Description": "Home appliance",
+    "Price": 300,
+    "Stock": 20,
+    "CategoryId": 4,
+    "ImageUrl": "fan9.jpg"
+  },
+  {
+    "Name": "Heater 10",
+    "Description": "Home appliance",
+    "Price": 1200,
+    "Stock": 7,
+    "CategoryId": 4,
+    "ImageUrl": "heater10.jpg"
+  },
+  {
+    "Name": "Coffee Maker 11",
+    "Description": "Home appliance",
+    "Price": 900,
+    "Stock": 12,
+    "CategoryId": 4,
+    "ImageUrl": "coffee11.jpg"
+  },
+  {
+    "Name": "Kettle 12",
+    "Description": "Home appliance",
+    "Price": 400,
+    "Stock": 25,
+    "CategoryId": 4,
+    "ImageUrl": "kettle12.jpg"
+  },
+  {
+    "Name": "Juicer 13",
+    "Description": "Home appliance",
+    "Price": 600,
+    "Stock": 15,
+    "CategoryId": 4,
+    "ImageUrl": "juicer13.jpg"
+  },
+  {
+    "Name": "Rice Cooker 14",
+    "Description": "Home appliance",
+    "Price": 800,
+    "Stock": 10,
+    "CategoryId": 4,
+    "ImageUrl": "ricecooker14.jpg"
+  },
+  {
+    "Name": "Mixer 15",
+    "Description": "Home appliance",
+    "Price": 700,
+    "Stock": 18,
+    "CategoryId": 4,
+    "ImageUrl": "mixer15.jpg"
+  },
+  {
+    "Name": "Grill 16",
+    "Description": "Home appliance",
+    "Price": 1500,
+    "Stock": 8,
+    "CategoryId": 4,
+    "ImageUrl": "grill16.jpg"
+  },
+  {
+    "Name": "Slow Cooker 17",
+    "Description": "Home appliance",
+    "Price": 1200,
+    "Stock": 5,
+    "CategoryId": 4,
+    "ImageUrl": "slowcooker17.jpg"
+  },
+  {
+    "Name": "Toaster Oven 18",
+    "Description": "Home appliance",
+    "Price": 600,
+    "Stock": 10,
+    "CategoryId": 4,
+    "ImageUrl": "toasteroven18.jpg"
+  },
+  {
+    "Name": "Air Fryer 19",
+    "Description": "Home appliance",
+    "Price": 900,
+    "Stock": 12,
+    "CategoryId": 4,
+    "ImageUrl": "airfryer19.jpg"
+  },
+  {
+    "Name": "Water Heater 20",
+    "Description": "Home appliance",
+    "Price": 1500,
+    "Stock": 6,
+    "CategoryId": 4,
+    "ImageUrl": "waterheater20.jpg"
+  },
+
+  {
+    "Name": "Football 1",
+    "Description": "Sports item",
+    "Price": 300,
+    "Stock": 20,
+    "CategoryId": 5,
+    "ImageUrl": "football1.jpg"
+  },
+  {
+    "Name": "Basketball 2",
+    "Description": "Sports item",
+    "Price": 400,
+    "Stock": 15,
+    "CategoryId": 5,
+    "ImageUrl": "basketball2.jpg"
+  },
+  {
+    "Name": "Tennis Racket 3",
+    "Description": "Sports item",
+    "Price": 800,
+    "Stock": 10,
+    "CategoryId": 5,
+    "ImageUrl": "tennis3.jpg"
+  },
+  {
+    "Name": "Golf Club 4",
+    "Description": "Sports item",
+    "Price": 1500,
+    "Stock": 5,
+    "CategoryId": 5,
+    "ImageUrl": "golf4.jpg"
+  },
+  {
+    "Name": "Baseball Bat 5",
+    "Description": "Sports item",
+    "Price": 500,
+    "Stock": 8,
+    "CategoryId": 5,
+    "ImageUrl": "baseball5.jpg"
+  },
+  {
+    "Name": "Helmet 6",
+    "Description": "Sports item",
+    "Price": 300,
+    "Stock": 12,
+    "CategoryId": 5,
+    "ImageUrl": "helmet6.jpg"
+  },
+  {
+    "Name": "Gloves 7",
+    "Description": "Sports item",
+    "Price": 150,
+    "Stock": 20,
+    "CategoryId": 5,
+    "ImageUrl": "gloves7.jpg"
+  },
+  {
+    "Name": "Jersey 8",
+    "Description": "Sports item",
+    "Price": 250,
+    "Stock": 10,
+    "CategoryId": 5,
+    "ImageUrl": "jersey8.jpg"
+  },
+  {
+    "Name": "Shoes 9",
+    "Description": "Sports item",
+    "Price": 700,
+    "Stock": 15,
+    "CategoryId": 5,
+    "ImageUrl": "shoes9.jpg"
+  },
+  {
+    "Name": "Cap 10",
+    "Description": "Sports item",
+    "Price": 100,
+    "Stock": 30,
+    "CategoryId": 5,
+    "ImageUrl": "cap10.jpg"
+  },
+  {
+    "Name": "Skateboard 11",
+    "Description": "Sports item",
+    "Price": 1200,
+    "Stock": 5,
+    "CategoryId": 5,
+    "ImageUrl": "skateboard11.jpg"
+  },
+  {
+    "Name": "Yoga Mat 12",
+    "Description": "Sports item",
+    "Price": 350,
+    "Stock": 20,
+    "CategoryId": 5,
+    "ImageUrl": "yogamat12.jpg"
+  },
+  {
+    "Name": "Dumbbells 13",
+    "Description": "Sports item",
+    "Price": 500,
+    "Stock": 10,
+    "CategoryId": 5,
+    "ImageUrl": "dumbbells13.jpg"
+  },
+  {
+    "Name": "Treadmill 14",
+    "Description": "Sports item",
+    "Price": 10000,
+    "Stock": 2,
+    "CategoryId": 5,
+    "ImageUrl": "treadmill14.jpg"
+  },
+  {
+    "Name": "Skipping Rope 15",
+    "Description": "Sports item",
+    "Price": 50,
+    "Stock": 50,
+    "CategoryId": 5,
+    "ImageUrl": "rope15.jpg"
+  },
+  {
+    "Name": "Punching Bag 16",
+    "Description": "Sports item",
+    "Price": 800,
+    "Stock": 5,
+    "CategoryId": 5,
+    "ImageUrl": "punching16.jpg"
+  },
+  {
+    "Name": "Badminton Racket 17",
+    "Description": "Sports item",
+    "Price": 400,
+    "Stock": 15,
+    "CategoryId": 5,
+    "ImageUrl": "badminton17.jpg"
+  },
+  {
+    "Name": "Hockey Stick 18",
+    "Description": "Sports item",
+    "Price": 700,
+    "Stock": 10,
+    "CategoryId": 5,
+    "ImageUrl": "hockey18.jpg"
+  },
+  {
+    "Name": "Kayak 19",
+    "Description": "Sports item",
+    "Price": 15000,
+    "Stock": 1,
+    "CategoryId": 5,
+    "ImageUrl": "kayak19.jpg"
+  },
+  {
+    "Name": "Tread Shoes 20",
+    "Description": "Sports item",
+    "Price": 500,
+    "Stock": 20,
+    "CategoryId": 5,
+    "ImageUrl": "treadshoes20.jpg"
+  }
+]

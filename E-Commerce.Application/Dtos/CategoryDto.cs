@@ -16,6 +16,9 @@ namespace E_Commerce.Application.Dtos
 
         [Required(ErrorMessage = "Category Description Is Requird")]
         public string Description { get; set; }
-      
+
+        public List<ProductDto> Products { get; set; } 
+
+
     }
 }
