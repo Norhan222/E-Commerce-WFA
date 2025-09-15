@@ -21,6 +21,8 @@ namespace E_Commerce.Application.Interfaces
 
         public IEnumerable<ProductDto> SearchProducts(string name);
 
+        public IEnumerable<ProductDto> GetProductsWithCategory(string categoryname);
+
         public int Save();
 
     }

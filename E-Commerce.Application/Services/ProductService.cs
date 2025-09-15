@@ -68,7 +68,11 @@ namespace E_Commerce.Application.Services
             var products = _ProductRepo.SearchByName(name);
             return products.Adapt<IEnumerable<ProductDto>>();
         }
-    
-    
+
+        public IEnumerable<ProductDto> GetProductsWithCategory(string categoryname)
+        {
+            var products = _ProductRepo.GetProductsWithCategoryName(categoryname);
+            return products.Adapt<IEnumerable<ProductDto>>();
+        }
     }
 }

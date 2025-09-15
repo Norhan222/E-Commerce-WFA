@@ -29,6 +29,11 @@ namespace E_Commerce.Infrastrucrure.Repositories
             return _dbContext.Products.AsNoTracking().Include(p => p.Category).FirstOrDefault(p => p.Id == id);
         }
 
+        public IEnumerable<Product> GetProductsWithCategoryName(string categoryName)
+        {
+            return _dbContext.Products.Where(p=>p.Category.Name== categoryName).AsNoTracking();
+        }
+
         public IEnumerable<Product> SearchByName(string name)
         {
             return _dbContext.Products.Include(p=>p.Category)

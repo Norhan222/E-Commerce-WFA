@@ -71,26 +71,26 @@ namespace E_Commerce.PL.User
 
         private void EcommerceForm_Load(object sender, EventArgs e)
         {
-          
-                var products = _productService.GetAllProducts();
-                foreach (var item in products)
-                {
-                    Item card = new Item(_productService);
-                    card.ProductId = item.Id;
-                    card.ProductName = item.Name;
-                    card.ProductPrice = item.Price;
-                    var fullpath = Path.Combine(Directory.GetParent(System.Windows.Forms.Application.StartupPath).Parent.Parent.Parent.FullName, item.ImageUrl);
-                    if (File.Exists(fullpath))
-                    {
-                        using (var fs = new FileStream(fullpath, FileMode.Open, FileAccess.Read))
-                        {
-                            card.ProductIamge = Image.FromStream(fs);
-                        }
-                    }
 
-                    flowLayoutitmes.Controls.Add(card);
+            var products = _productService.GetAllProducts();
+            foreach (var item in products)
+            {
+                Item card = new Item(_productService);
+                card.ProductId = item.Id;
+                card.ProductName = item.Name;
+                card.ProductPrice = item.Price;
+                var fullpath = Path.Combine(Directory.GetParent(System.Windows.Forms.Application.StartupPath).Parent.Parent.Parent.FullName, item.ImageUrl);
+                if (File.Exists(fullpath))
+                {
+                    using (var fs = new FileStream(fullpath, FileMode.Open, FileAccess.Read))
+                    {
+                        card.ProductIamge = Image.FromStream(fs);
+                    }
                 }
-            
+
+                flowLayoutitmes.Controls.Add(card);
+            }
+
         }
 
 
@@ -225,8 +225,9 @@ namespace E_Commerce.PL.User
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
-          var searchproducts= _productService.SearchProducts(guna2TextBox1.Text);
-            if (searchproducts.Any()) {
+            var searchproducts = _productService.SearchProducts(guna2TextBox1.Text);
+            if (searchproducts.Any())
+            {
                 flowLayoutitmes.Controls.Clear();
                 foreach (var item in searchproducts)
                 {
@@ -246,6 +247,14 @@ namespace E_Commerce.PL.User
                     flowLayoutitmes.Controls.Add(card);
                 }
             }
+        }
+
+        private void guna2BtnApply_Click(object sender, EventArgs e)
+        {
+            var selected = flowLayoutFilter.Controls.OfType<Guna2CheckBox>()
+                .Where(c => c.Checked)
+                .Select(c => c.Text);
+            
         }
     }
 }

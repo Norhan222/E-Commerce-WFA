@@ -221,6 +221,7 @@
             guna2BtnApply.Size = new Size(97, 44);
             guna2BtnApply.TabIndex = 3;
             guna2BtnApply.Text = "Apply";
+            guna2BtnApply.Click += guna2BtnApply_Click;
             // 
             // linkClear
             // 

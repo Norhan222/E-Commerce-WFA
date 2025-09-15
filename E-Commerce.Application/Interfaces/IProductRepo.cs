@@ -14,5 +14,9 @@ namespace E_Commerce.Application.Interfaces
 
         public IEnumerable<Product> SearchByName(string name);
 
+        public IEnumerable<Product> GetProductsWithCategoryName(string categoryName);
+
+        
+
     }
 }

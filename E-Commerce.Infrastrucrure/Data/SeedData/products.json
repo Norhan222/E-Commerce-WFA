@@ -13,7 +13,7 @@
     "Price": 15000,
     "Stock": 5,
     "CategoryId": 1,
-    "ImageUrl": "laptop2.jpg"
+    "ImageUrl": "Images\\Product\\laptop2.jpg"
   },
   {
     "Name": "Headphones 3",
