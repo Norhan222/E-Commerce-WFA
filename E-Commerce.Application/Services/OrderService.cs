@@ -45,19 +45,20 @@ namespace E_Commerce.Application.Services
 
         }
 
-        public Order GetOrderById(int orderId)
+        public void PlaceOrder(Order order)
         {
-            throw new NotImplementedException();
+            order.OrderDate = DateTime.Now;
+            order.Status = OrderStatus.Processing;
+            order.TotalAmount = order.OrderItems.Sum(i => i.Price * i.Quantity);
+
+            _OrderRepo.Add(order);
         }
 
-        public IEnumerable<Order> GetUserOrders(int userId)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void UpdateOrderStatus(int orderId, OrderStatus newStatus)
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<Order> GetOrders() => _OrderRepo.GetAll();
+
+        public Order GetOrder(int id) => _OrderRepo.GetById(id);
     }
+
+
 }
