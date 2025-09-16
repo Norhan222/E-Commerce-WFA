@@ -8,8 +8,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Autofac;
 using E_Commerce.Application.Interfaces;
 using E_Commerce.PL.Admin.ChildForm;
+using E_Commerce.PL.Admin.ChildForm.Order;
 using E_Commerce.PL.Admin.ChildForm.Product;
 using FontAwesome.Sharp;
 
@@ -20,12 +22,14 @@ namespace E_Commerce.PL.Admin
         private IconButton currentBtn = new IconButton();
         private Panel leftBorderBtn;
         public Form currentChildForm;
+        private readonly IComponentContext _context;
         private readonly ICategoryservice _categoryservice;
         private readonly IproductService _productService;
 
-        public Dashbord(ICategoryservice categoryservice,IproductService productService)
+        public Dashbord(IComponentContext context   ,   ICategoryservice categoryservice,IproductService productService)
         {
             InitializeComponent();
+            _context = context;
             _categoryservice = categoryservice;
             _productService = productService;
             leftBorderBtn = new Panel();
@@ -105,19 +109,21 @@ namespace E_Commerce.PL.Admin
         private void iconButton2_Click(object sender, EventArgs e)
         {
             ActiveteButton(sender, RGBColors.color2);
-            OpenChildForm(new FormCategory(_categoryservice));
+            OpenChildForm(_context.Resolve<FormCategory>());
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
             ActiveteButton(sender, RGBColors.color3);
-            OpenChildForm(new AllProductForm(_categoryservice,_productService));
+            OpenChildForm(_context.Resolve<AllProductForm>());
 
         }
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
             ActiveteButton(sender, RGBColors.color4);
+            OpenChildForm(_context.Resolve<OrderMangment>());
+
 
         }
 

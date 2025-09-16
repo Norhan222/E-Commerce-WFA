@@ -5,6 +5,7 @@ using E_Commerce.Infrastrucrure.Data;
 using E_Commerce.Infrastrucrure.Repositories;
 using E_Commerce.PL.Admin;
 using E_Commerce.PL.Admin.ChildForm;
+using E_Commerce.PL.Admin.ChildForm.Order;
 using E_Commerce.PL.Admin.ChildForm.Product;
 using E_Commerce.PL.User;
 using Microsoft.EntityFrameworkCore;
@@ -24,11 +25,11 @@ namespace E_Commerce.PL
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            var containerBuilder=new ContainerBuilder();
+            var containerBuilder = new ContainerBuilder();
             containerBuilder.Register(ctx =>
             {
                 var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-SVASVG3\\SQLEXPRESS ; Initial Catalog = MyecommerceProject ; Integrated Security = true; Encrypt = false");
+                optionsBuilder.UseSqlServer("Server=.; Database=EcommerceDb; Trusted_Connection=true;  TrustServerCertificate=True; MultipleActiveResultSets=True;");
 
                 //return new AppDbContext(optionsBuilder.Options);
                 var context = new AppDbContext(optionsBuilder.Options);
@@ -48,21 +49,38 @@ namespace E_Commerce.PL
             containerBuilder.RegisterType<ProductRepo>().As<IProductRepo>().SingleInstance();
             containerBuilder.RegisterType<ProductService>().As<IproductService>().SingleInstance();
 
+            containerBuilder.RegisterType<CartRepo>().As<ICartRepo>().SingleInstance();
+            containerBuilder.RegisterType<CartService>().As<ICartService>().SingleInstance();
 
             containerBuilder.RegisterType<Register>();
             containerBuilder.RegisterType<Login>();
             containerBuilder.RegisterType<Form1>();
             containerBuilder.RegisterType<UpdateProduct>();
+            containerBuilder.RegisterType<ProductDetails>();
+            containerBuilder.RegisterType<Item>();
+            containerBuilder.RegisterType<EcommerceForm>();
+            containerBuilder.RegisterType<Dashbord>();
+            containerBuilder.RegisterType<CartDetails>();
+            containerBuilder.RegisterType<CartItem>();
+            containerBuilder.RegisterType<FormCategory>();
+            containerBuilder.RegisterType<AllProductForm>();
+            containerBuilder.RegisterType<AddProduct>();
+            containerBuilder.RegisterType<FormAddCategory>();
+            containerBuilder.RegisterType<OrderMangment>();
 
 
 
 
-            var container =containerBuilder.Build();
-            using (var scope = container.BeginLifetimeScope())
-            {
-                var form = scope.Resolve<Form1>();
-                System.Windows.Forms.Application.Run(form);
-            }
+
+
+
+
+
+
+
+            var container = containerBuilder.Build();
+    
+            System.Windows.Forms.Application.Run(container.Resolve<Form1>());
         }
     }
 }

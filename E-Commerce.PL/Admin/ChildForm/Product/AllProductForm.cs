@@ -1,4 +1,5 @@
-﻿using E_Commerce.Application.Interfaces;
+﻿using Autofac;
+using E_Commerce.Application.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,15 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
 {
     public partial class AllProductForm : Form
     {
+        private readonly IComponentContext _context;
         private readonly ICategoryservice _categoryservice;
         private readonly IproductService _productService;
         private string imagefolder;
 
-        public AllProductForm(ICategoryservice categoryservice, IproductService productService)
+        public AllProductForm(IComponentContext context,   ICategoryservice categoryservice, IproductService productService)
         {
             InitializeComponent();
+            _context = context;
             _categoryservice = categoryservice;
             _productService = productService;
             var products = _productService.GetAllProducts();
@@ -63,7 +66,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
         }
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Dashbord).OpenChildForm(new AddProduct(_categoryservice, _productService));
+            (this.ParentForm as Dashbord).OpenChildForm(_context.Resolve<AddProduct>());
 
         }
 
@@ -72,7 +75,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
             if (dataGridView.CurrentRow != null)
             {
                 var row = dataGridView.CurrentRow;
-                (this.ParentForm as Dashbord).OpenChildForm(new UpdateProduct(row, _categoryservice, _productService));
+                (this.ParentForm as Dashbord).OpenChildForm(_context.Resolve<UpdateProduct>());
 
             }
             else
@@ -97,7 +100,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
 
         private void btnAddNew_Click_1(object sender, EventArgs e)
         {
-            (this.ParentForm as Dashbord).OpenChildForm(new AddProduct(_categoryservice, _productService));
+            (this.ParentForm as Dashbord).OpenChildForm(_context.Resolve<AddProduct>());
         }
 
         private void btnEdit_Click_1(object sender, EventArgs e)
@@ -106,7 +109,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
             if (dataGridView.CurrentRow != null)
             {
                 var row = dataGridView.CurrentRow;
-                (this.ParentForm as Dashbord).OpenChildForm(new UpdateProduct(row, _categoryservice, _productService));
+                (this.ParentForm as Dashbord).OpenChildForm(new UpdateProduct(_context,row, _categoryservice, _productService));
 
             }
             else

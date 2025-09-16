@@ -1,4 +1,5 @@
-﻿using E_Commerce.Core.Entites;
+﻿using E_Commerce.Application.Services;
+using E_Commerce.Core.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,11 @@ namespace E_Commerce.Infrastrucrure.Data
     {
         public static void Seed(AppDbContext context)
         {
-            var categoriesPath = @"E:\.net\Visual-C#\E-Commerce-WFA\E-Commerce.Infrastrucrure\Data\SeedData\categories.json";
-            var productsPath = @"E:\.net\Visual-C#\E-Commerce-WFA\E-Commerce.Infrastrucrure\Data\SeedData\products.json";
+            var categoriesPath = Path.Combine(AppContext.BaseDirectory,"Data", "SeedData", "categories.json");
+            var productsPath = Path.Combine(AppContext.BaseDirectory, "Data", "SeedData", "products.json");
 
 
-
+            // @"E:\.net\Visual-C#\E-Commerce-WFA\E-Commerce.Infrastrucrure\Data\SeedData\products.json";
             // 🟢 Seed Categories
             if (!context.Categories.Any()) //  كدا مش هيضيف غير لو الجدول فاضي
             {

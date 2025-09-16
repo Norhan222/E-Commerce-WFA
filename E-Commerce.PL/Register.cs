@@ -1,4 +1,5 @@
-﻿using E_Commerce.Application.Dtos;
+﻿using Autofac;
+using E_Commerce.Application.Dtos;
 using E_Commerce.Application.Interfaces;
 using E_Commerce.PL.User;
 using System;
@@ -16,13 +17,15 @@ namespace E_Commerce.PL
 {
     public partial class Register : Form
     {
+        private readonly IComponentContext _context;
         private readonly IAuthService _authService;
         private readonly ICategoryservice _categoryservice;
         private readonly IproductService productService;
 
-        public Register(IAuthService authService,ICategoryservice categoryservice, IproductService productService)
+        public Register(IComponentContext context,IAuthService authService,ICategoryservice categoryservice, IproductService productService)
         {
             InitializeComponent();
+           _context = context;
             _authService = authService;
            _categoryservice = categoryservice;
             this.productService = productService;
@@ -30,7 +33,7 @@ namespace E_Commerce.PL
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-          (this.ParentForm as Form1).OpenChildForm(new Login(_authService,_categoryservice,productService));
+          (this.ParentForm as Form1).OpenChildForm(_context.Resolve<Login>());
           
         }
 
@@ -60,7 +63,7 @@ namespace E_Commerce.PL
                 return;
             }
             await _authService.Register(Register);
-            (this.ParentForm as Form1).OpenChildForm(new Login(_authService, _categoryservice,productService));
+            (this.ParentForm as Form1).OpenChildForm(_context.Resolve<Login>());
         }
 
         private void guna2TextBoxUsername_TextChanged(object sender, EventArgs e)

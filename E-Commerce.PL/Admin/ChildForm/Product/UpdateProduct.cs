@@ -1,4 +1,5 @@
-﻿using E_Commerce.Application.Dtos;
+﻿using Autofac;
+using E_Commerce.Application.Dtos;
 using E_Commerce.Application.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,16 +15,17 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
 {
     public partial class UpdateProduct : Form
     {
-
+        private readonly IComponentContext _context;
         private readonly ICategoryservice _categoryservice;
         private readonly IproductService _productService;
         private bool flag = false;
         private string imagePathold;
         private string oldRelativePath;
         Label idlbl;
-        public UpdateProduct(DataGridViewRow gridViewRow, ICategoryservice categoryservice, IproductService productService)
+        public UpdateProduct(IComponentContext context , DataGridViewRow gridViewRow, ICategoryservice categoryservice, IproductService productService)
         {
             InitializeComponent();
+          _context = context;
             _categoryservice = categoryservice;
             _productService = productService;
             idlbl = new Label();
@@ -65,7 +67,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Dashbord).OpenChildForm(new AllProductForm(_categoryservice, _productService));
+            (this.ParentForm as Dashbord).OpenChildForm(_context.Resolve<AllProductForm>());
         }
         string selectedImagePath = null;
         string relativepath;
@@ -142,7 +144,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
 
             _productService.UpdateProduct(ProductDto);
             _productService.Save();
-            (this.ParentForm as Dashbord).OpenChildForm(new AllProductForm(_categoryservice, _productService));
+            (this.ParentForm as Dashbord).OpenChildForm(_context.Resolve<AllProductForm>());
         }
     }
 }

@@ -27,6 +27,9 @@ namespace E_Commerce.Application
             //    .Map(dest => dest.CatName, src => src.Name)
             //    .Map(dest => dest.CatDescription, src => src.Description).TwoWays();
 
+            TypeAdapterConfig<Cart, CartDto>.NewConfig()
+                .Map(dest=>dest.Cartitems,src=> src.CartItems.Adapt<List<CartItemDto>>());
+
             TypeAdapterConfig<Category, CreateCategoryDto>.NewConfig()
                 .Map(dest => dest.CatName, src => src.Name)
                 .Map(dest => dest.CatDescription, src => src.Description);

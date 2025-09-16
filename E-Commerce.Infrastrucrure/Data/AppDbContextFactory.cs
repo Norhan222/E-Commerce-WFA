@@ -14,8 +14,8 @@ namespace E_Commerce.Infrastrucrure.Data
         public AppDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            //optionsBuilder.UseSqlServer("Server=.; Database=EcommerceDb; Trusted_Connection=true;  TrustServerCertificate=True; MultipleActiveResultSets=True;" );
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-SVASVG3\\SQLEXPRESS ; Initial Catalog = MyecommerceProject ; Integrated Security = true; Encrypt = false");
+            optionsBuilder.UseSqlServer("Server=.; Database=EcommerceDb; Trusted_Connection=true;  TrustServerCertificate=True; MultipleActiveResultSets=True;" );
+          //  optionsBuilder.UseSqlServer("Data Source=DESKTOP-SVASVG3\\SQLEXPRESS ; Initial Catalog = MyecommerceProject ; Integrated Security = true; Encrypt = false");
 
             return new AppDbContext(optionsBuilder.Options);
         }

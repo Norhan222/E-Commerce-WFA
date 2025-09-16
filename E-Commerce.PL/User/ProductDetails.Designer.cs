@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pictureBox1 = new PictureBox();
             guna2Buttonaddtocart = new Guna.UI2.WinForms.Guna2Button();
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
@@ -60,7 +60,7 @@
             // 
             guna2Buttonaddtocart.BorderRadius = 5;
             guna2Buttonaddtocart.Cursor = Cursors.Hand;
-            guna2Buttonaddtocart.CustomizableEdges = customizableEdges5;
+            guna2Buttonaddtocart.CustomizableEdges = customizableEdges1;
             guna2Buttonaddtocart.DisabledState.BorderColor = Color.DarkGray;
             guna2Buttonaddtocart.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Buttonaddtocart.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -70,16 +70,17 @@
             guna2Buttonaddtocart.ForeColor = Color.White;
             guna2Buttonaddtocart.Location = new Point(32, 340);
             guna2Buttonaddtocart.Name = "guna2Buttonaddtocart";
-            guna2Buttonaddtocart.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2Buttonaddtocart.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Buttonaddtocart.Size = new Size(138, 48);
             guna2Buttonaddtocart.TabIndex = 1;
             guna2Buttonaddtocart.Text = "Add To Cart";
+            guna2Buttonaddtocart.Click += guna2Buttonaddtocart_Click;
             // 
             // guna2Button2
             // 
             guna2Button2.BorderRadius = 5;
             guna2Button2.Cursor = Cursors.Hand;
-            guna2Button2.CustomizableEdges = customizableEdges7;
+            guna2Button2.CustomizableEdges = customizableEdges3;
             guna2Button2.DisabledState.BorderColor = Color.DarkGray;
             guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -89,7 +90,7 @@
             guna2Button2.ForeColor = Color.White;
             guna2Button2.Location = new Point(193, 340);
             guna2Button2.Name = "guna2Button2";
-            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Button2.Size = new Size(126, 48);
             guna2Button2.TabIndex = 2;
             guna2Button2.Text = "Cancel";

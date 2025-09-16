@@ -1,4 +1,5 @@
-﻿using E_Commerce.Application.Dtos;
+﻿using Autofac;
+using E_Commerce.Application.Dtos;
 using E_Commerce.Application.Interfaces;
 using E_Commerce.Core.Entites;
 using System;
@@ -15,13 +16,15 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
 {
     public partial class AddProduct : Form
     {
+        private readonly IComponentContext _context;
         private readonly ICategoryservice _categoryservice;
         private readonly IproductService _productService;
 
-        public AddProduct(ICategoryservice categoryservice, IproductService productService)
+        public AddProduct(IComponentContext context,ICategoryservice categoryservice, IproductService productService)
         {
             InitializeComponent();
             _productService = productService;
+            _context = context;
             _categoryservice = categoryservice;
             var cates = _categoryservice.GetAllcategoryies().ToList();
             comboBoxCategory.DataSource = cates;
@@ -83,13 +86,13 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
             }
             _productService.CreateProduct(ProductDto);
             _productService.Save();
-            (this.ParentForm as Dashbord).OpenChildForm(new AllProductForm(_categoryservice, _productService));
+            (this.ParentForm as Dashbord).OpenChildForm(_context.Resolve<AllProductForm>());
 
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Dashbord).OpenChildForm(new AllProductForm(_categoryservice, _productService));
+            (this.ParentForm as Dashbord).OpenChildForm(_context.Resolve<AllProductForm>());
         }
     }
 }

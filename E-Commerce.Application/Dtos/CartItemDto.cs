@@ -10,7 +10,7 @@ namespace E_Commerce.Application.Dtos
     public class CartItemDto
     {
         public int CartId { get; set; }
-        public int ProductId { get; set; }
+        public Product Product { get; set; }
         public int Quantity { get; set; }
     }
 }

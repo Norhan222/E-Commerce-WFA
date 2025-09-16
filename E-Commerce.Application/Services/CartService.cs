@@ -1,5 +1,7 @@
-﻿using E_Commerce.Application.Interfaces;
+﻿using E_Commerce.Application.Dtos;
+using E_Commerce.Application.Interfaces;
 using E_Commerce.Core.Entites;
+using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,52 +13,40 @@ namespace E_Commerce.Application.Services
 {
     public class CartService : ICartService
     {
-        IGenericRepo<Product, int> _productRepo;
         ICartRepo _CartRepo;
 
-        public CartService (ICartRepo catrepo, IGenericRepo<Product, int> prorepo)
+        public CartService (ICartRepo catrepo)
         {
             _CartRepo = catrepo;
-            _productRepo = prorepo;
         }
 
-        public void AddToCart(int UseerId, int ProductId, int Quantity)
+        public void AddToCart(CartDto cartDto)
         {
-            if (Quantity <= 0)
-                throw new ArgumentException("Quantity must be greater than 0");
-
-            var Product = _productRepo.GetById(ProductId);
-
-            if (Product == null)
-                throw new ArgumentException("Product not found");
-
-            var Cart = _CartRepo.GetCartByUserId(UseerId);
-            if ( Cart == null)
+            //if (Quantity <= 0)
+            //    throw new ArgumentException("Quantity must be greater than 0");
+            var Cart = _CartRepo.GetCartByUserId(cartDto.UserId);
+            if (Cart == null)
             {
                 Cart = new Cart
                 {
-                   UserId = UseerId,
-                   CartItems = new List<CartItem>()
+                    UserId = cartDto.UserId,
                 };
                 _CartRepo.CreateCart(Cart);
                 _CartRepo.Save();
             }
-
-            //هنا هيروح يشوف البرودكت متضاف اصلا ولا لا لو متضاف يزود العدد لو لا مش متضاف يضفه 
-            var existingItem = Cart.CartItems.FirstOrDefault(ci=>ci.ProductId== ProductId);
-            if (existingItem != null)
+            var cartitem = Cart.CartItems.FirstOrDefault(c=>c.Product.Id==cartDto.ProductId);
+            if (cartitem != null)
             {
-                existingItem.Quantity += Quantity;
+                cartitem.Quantity += 1;
             }
             else
             {
                 Cart.CartItems.Add(new CartItem
                 {
-                    ProductId = ProductId,
-                    Quantity = Quantity
+                    ProductId = cartDto.ProductId,
+                    Quantity = 1
                 });
             }
-
             _CartRepo.UpdateCart(Cart);
             _CartRepo.Save();
 
@@ -75,7 +65,8 @@ namespace E_Commerce.Application.Services
 
         public Cart GetCartById(int UserId)
         {
-            return _CartRepo.GetCartByUserId(UserId);
+            var cart= _CartRepo.GetCartByUserId(UserId);
+            return cart;
         }
 
         public void RemoveFromCart(int UserId, int ProductId)
@@ -91,5 +82,12 @@ namespace E_Commerce.Application.Services
                 _CartRepo.Save();
             }
         }
+
+        public void Save()
+        {
+            _CartRepo.Save();
+        }
+
+     
     }
 }

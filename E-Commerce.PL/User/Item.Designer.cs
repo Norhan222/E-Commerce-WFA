@@ -88,6 +88,7 @@
             iconPictureBox1.Size = new Size(48, 48);
             iconPictureBox1.TabIndex = 4;
             iconPictureBox1.TabStop = false;
+            iconPictureBox1.Click += iconPictureBox1_Click;
             // 
             // Item
             // 

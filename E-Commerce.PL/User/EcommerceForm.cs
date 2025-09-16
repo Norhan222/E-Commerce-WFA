@@ -1,4 +1,5 @@
-﻿using E_Commerce.Application;
+﻿using Autofac;
+using E_Commerce.Application;
 using E_Commerce.Application.Interfaces;
 using E_Commerce.Core.Entites;
 using Guna.UI2.WinForms;
@@ -16,12 +17,14 @@ namespace E_Commerce.PL.User
 {
     public partial class EcommerceForm : Form
     {
+        private readonly IComponentContext _context;
         private readonly ICategoryservice _categoryservice;
         private readonly IproductService _productService;
 
-        public EcommerceForm(ICategoryservice categoryservice, IproductService productService)
+        public EcommerceForm(IComponentContext context, ICategoryservice categoryservice, IproductService productService)
         {
             InitializeComponent();
+            _context = context;
             _categoryservice = categoryservice;
             _productService = productService;
             if (SessionManger.currentUser != null)
@@ -36,7 +39,7 @@ namespace E_Commerce.PL.User
 
 
             // Add Guna2CheckBoxes
-            foreach (var cat in categoryservice.GetAllcategoryies())
+            foreach (var cat in _categoryservice.GetAllcategoryies())
             {
                 var chk = new Guna2CheckBox
                 {
@@ -75,7 +78,7 @@ namespace E_Commerce.PL.User
             var products = _productService.GetAllProducts();
             foreach (var item in products)
             {
-                Item card = new Item(_productService);
+                Item card = _context.Resolve<Item>();         //new Item(_productService);
                 card.ProductId = item.Id;
                 card.ProductName = item.Name;
                 card.ProductPrice = item.Price;
@@ -231,7 +234,7 @@ namespace E_Commerce.PL.User
                 flowLayoutitmes.Controls.Clear();
                 foreach (var item in searchproducts)
                 {
-                    Item card = new Item(_productService);
+                    Item card = _context.Resolve<Item>();
                     card.ProductId = item.Id;
                     card.ProductName = item.Name;
                     card.ProductPrice = item.Price;
@@ -254,7 +257,13 @@ namespace E_Commerce.PL.User
             var selected = flowLayoutFilter.Controls.OfType<Guna2CheckBox>()
                 .Where(c => c.Checked)
                 .Select(c => c.Text);
-            
+
+        }
+
+        private void iconPictureBox3_Click(object sender, EventArgs e)
+        {
+            var CartDetails = _context.Resolve<CartDetails>();
+            CartDetails.ShowDialog();
         }
     }
 }

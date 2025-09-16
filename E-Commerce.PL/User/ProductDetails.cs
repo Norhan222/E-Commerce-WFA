@@ -1,4 +1,6 @@
-﻿using E_Commerce.Application.Interfaces;
+﻿using E_Commerce.Application;
+using E_Commerce.Application.Dtos;
+using E_Commerce.Application.Interfaces;
 using E_Commerce.Core.Entites;
 using System;
 using System.Collections.Generic;
@@ -14,15 +16,20 @@ namespace E_Commerce.PL.User
 {
     public partial class ProductDetails : Form
     {
-        private readonly int productId;
+        private int _productId;
         private readonly IproductService _productService;
-        public ProductDetails(int productId ,IproductService productService)
+        private readonly ICartService _cartService;
+
+        public ProductDetails( IproductService productService,ICartService cartService)
         {
             InitializeComponent();
-            this.productId = productId;
             _productService = productService;
+           _cartService = cartService;
         }
-
+        public void LoadProduct(int productid)
+        {
+           _productId = productid;
+        }
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -30,7 +37,7 @@ namespace E_Commerce.PL.User
 
         private void ProductDetails_Load(object sender, EventArgs e)
         {
-            var Product = _productService.GetProductById(productId);
+            var Product = _productService.GetProductById(_productId);
             label6.Text = Product.Name;
             label7.Text = Product.Description;
             label8.Text = $"${Product.Price.ToString()}";
@@ -45,5 +52,21 @@ namespace E_Commerce.PL.User
                 }
             }
         }
+
+        private void guna2Buttonaddtocart_Click(object sender, EventArgs e)
+        {
+            var user = SessionManger.currentUser.Id;
+            var cartDto = new CartDto
+            {
+                UserId = SessionManger.currentUser.Id,
+                ProductId = _productId,
+            };
+            _cartService.AddToCart(cartDto);
+;            guna2Buttonaddtocart.Text = "Added";
+            guna2Buttonaddtocart.FillColor = Color.Green;
+        }
+
+
+       
     }
 }

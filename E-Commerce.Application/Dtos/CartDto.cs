@@ -10,6 +10,7 @@ namespace E_Commerce.Application.Dtos
     public class CartDto
     {
         public int UserId { get; set; }
-        public ICollection<CartItem> CartItems { get; set; }
+        public int ProductId { get; set; }
+       public ICollection<CartItem> Cartitems { get; set; }=new HashSet<CartItem>();
     }
 }

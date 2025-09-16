@@ -1,4 +1,5 @@
-﻿using E_Commerce.Application;
+﻿using Autofac;
+using E_Commerce.Application;
 using E_Commerce.Application.Dtos;
 using E_Commerce.Application.Interfaces;
 using E_Commerce.PL.Admin;
@@ -17,13 +18,15 @@ namespace E_Commerce.PL
 {
     public partial class Login : Form
     {
+        private readonly IComponentContext _context;
         private readonly IAuthService _authService;
         private readonly ICategoryservice _categoryservice;
         private readonly IproductService _productService;
 
-        public Login(IAuthService authService,ICategoryservice categoryservice,IproductService productService)
+        public Login(IComponentContext context,  IAuthService authService,ICategoryservice categoryservice,IproductService productService)
         {
             InitializeComponent();
+            _context = context;
             _authService = authService;
            _categoryservice = categoryservice;
             _productService = productService;
@@ -36,7 +39,7 @@ namespace E_Commerce.PL
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Form1).OpenChildForm(new Register(_authService, _categoryservice,_productService));
+            (this.ParentForm as Form1).OpenChildForm(_context.Resolve<Register>());
 
 
         }
@@ -64,11 +67,11 @@ namespace E_Commerce.PL
                 if (SessionManger.currentUser.Role == "Admin")
                 {
                     (this.ParentForm as Form1).Hide();
-                    Dashbord dashbord = new Dashbord(_categoryservice,_productService);
+                    Dashbord dashbord = _context.Resolve<Dashbord>();
                     dashbord.ShowDialog();
 
                 }
-                else { (this.ParentForm as Form1).OpenChildForm(new EcommerceForm(_categoryservice,_productService)); };
+                else { (this.ParentForm as Form1).OpenChildForm(_context.Resolve<EcommerceForm>()); };
 
             }
             else
@@ -85,7 +88,7 @@ namespace E_Commerce.PL
 
         private void label5_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Form1).OpenChildForm(new EcommerceForm(_categoryservice,_productService));
+            (this.ParentForm as Form1).OpenChildForm(_context.Resolve<EcommerceForm>());
         }
     }
 }

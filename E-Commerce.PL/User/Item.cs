@@ -1,4 +1,7 @@
-﻿using E_Commerce.Application.Interfaces;
+﻿using Autofac;
+using E_Commerce.Application.Dtos;
+using E_Commerce.Application;
+using E_Commerce.Application.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,21 +16,24 @@ namespace E_Commerce.PL.User
 {
     public partial class Item : UserControl
     {
-        private readonly IproductService _productService;
+        private readonly IComponentContext _context;
+        private readonly ICartService _cartService;
         Label lblid;
-        public Item(IproductService productService)
+        public Item(IComponentContext context,ICartService cartService)
         {
             InitializeComponent();
             lblid = new Label();
-           _productService = productService;
+            _context = context;
+             _cartService = cartService;
         }
+
         [Browsable(true)]
-       
+
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public int ProductId
         {
-            get =>Convert.ToInt32(lblid.Text);
-            set => lblid.Text =value.ToString();
+            get => Convert.ToInt32(lblid.Text);
+            set => lblid.Text = value.ToString();
         }
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
@@ -58,8 +64,22 @@ namespace E_Commerce.PL.User
 
         private void ProductImage_Click(object sender, EventArgs e)
         {
-            ProductDetails productDetails = new ProductDetails(ProductId,_productService);
+            var productDetails = _context.Resolve<ProductDetails>();
+            productDetails.LoadProduct(ProductId);//new ProductDetails(ProductId,_productService,_cartService);
             productDetails.ShowDialog();
+        }
+
+        private void iconPictureBox1_Click(object sender, EventArgs e)
+        {
+            var user = SessionManger.currentUser.Id;
+            var cartDto = new CartDto
+            {
+                UserId = SessionManger.currentUser.Id,
+                ProductId = ProductId,
+            };
+            _cartService.AddToCart(cartDto);
+            iconPictureBox1.ForeColor = Color.Green;
+
         }
     }
 }
