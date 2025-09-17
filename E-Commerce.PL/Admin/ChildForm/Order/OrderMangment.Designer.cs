@@ -83,6 +83,7 @@
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Size = new Size(768, 380);
             dataGridView.TabIndex = 7;
+            dataGridView.SelectionChanged += dataGridView_SelectionChanged;
             // 
             // btnupdateSataus
             // 
@@ -98,6 +99,7 @@
             btnupdateSataus.TabIndex = 3;
             btnupdateSataus.Text = "Update Status";
             btnupdateSataus.UseVisualStyleBackColor = false;
+            btnupdateSataus.Click += btnupdateSataus_Click;
             // 
             // guna2ComboBoxStatus
             // 

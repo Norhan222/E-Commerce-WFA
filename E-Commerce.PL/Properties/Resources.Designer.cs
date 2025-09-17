@@ -63,6 +63,16 @@ namespace E_Commerce.PL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1000_F_407233108_ISoxLWU08Xb5Hd8yK9QcOcI8iSxEAcRI {
+            get {
+                object obj = ResourceManager.GetObject("1000_F_407233108_ISoxLWU08Xb5Hd8yK9QcOcI8iSxEAcRI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _543_5436355_plain_green_t_shirt_png_download_image_blank {
             get {
                 object obj = ResourceManager.GetObject("543-5436355_plain-green-t-shirt-png-download-image-blank", resourceCulture);

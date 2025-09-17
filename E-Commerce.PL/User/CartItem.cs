@@ -17,14 +17,16 @@ namespace E_Commerce.PL.User
     public partial class CartItem : UserControl
     {
         private readonly IComponentContext _context;
+        private readonly CartDetails _cartDetails;
         private readonly ICartService _cartService;
         Label lblProductid;
 
-        public CartItem(IComponentContext context, ICartService cartService)
+        public CartItem(IComponentContext context,CartDetails cartDetails ,ICartService cartService)
         {
             InitializeComponent();
             lblProductid = new Label();
             _context = context;
+           _cartDetails = cartDetails;
             _cartService = cartService;
 
 
@@ -42,14 +44,7 @@ namespace E_Commerce.PL.User
             get => Convert.ToInt32(lblProductid.Text);
             set => lblProductid.Text = value.ToString();
         }
-        //[Browsable(true)]
-
-        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        //public int CartId
-        //{
-        //    get => Convert.ToInt32(lblCartid.Text);
-        //    set => lblCartid.Text = value.ToString();
-        //}
+   
         [Browsable(true)]
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
@@ -108,6 +103,8 @@ namespace E_Commerce.PL.User
             cartItem.Quantity = ++quantity;
             TotalPrice+=ProductPrice;
             _cartService.Save();
+            _cartDetails.load();
+
         }
 
         private void btnMinus_Click(object sender, EventArgs e)
@@ -127,6 +124,7 @@ namespace E_Commerce.PL.User
 
             }
             _cartService.Save();
+            _cartDetails.load();
         }
     }
 }

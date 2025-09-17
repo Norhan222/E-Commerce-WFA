@@ -48,8 +48,10 @@
             BackColor = Color.White;
             ClientSize = new Size(1085, 602);
             Controls.Add(panel1);
+            MaximumSize = new Size(1107, 658);
             MinimumSize = new Size(1107, 658);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
             ResumeLayout(false);

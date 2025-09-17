@@ -36,6 +36,7 @@
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
+            iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             labelTitleChildForm = new Label();
             iconHome = new FontAwesome.Sharp.IconPictureBox();
             panelDesktop = new Panel();
@@ -43,6 +44,7 @@
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconHome).BeginInit();
             SuspendLayout();
             // 
@@ -177,6 +179,7 @@
             // panel3
             // 
             panel3.BackColor = Color.DarkBlue;
+            panel3.Controls.Add(iconPictureBox1);
             panel3.Controls.Add(labelTitleChildForm);
             panel3.Controls.Add(iconHome);
             panel3.Dock = DockStyle.Top;
@@ -185,6 +188,22 @@
             panel3.Size = new Size(1083, 70);
             panel3.TabIndex = 1;
             panel3.MouseDown += panel3_MouseDown;
+            // 
+            // iconPictureBox1
+            // 
+            iconPictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            iconPictureBox1.BackColor = Color.DarkBlue;
+            iconPictureBox1.Cursor = Cursors.Hand;
+            iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
+            iconPictureBox1.IconColor = Color.White;
+            iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconPictureBox1.IconSize = 58;
+            iconPictureBox1.Location = new Point(1012, 6);
+            iconPictureBox1.Name = "iconPictureBox1";
+            iconPictureBox1.Size = new Size(71, 58);
+            iconPictureBox1.TabIndex = 6;
+            iconPictureBox1.TabStop = false;
+            iconPictureBox1.Click += iconPictureBox1_Click;
             // 
             // labelTitleChildForm
             // 
@@ -237,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconHome).EndInit();
             ResumeLayout(false);
         }
@@ -254,5 +274,6 @@
         private FontAwesome.Sharp.IconPictureBox iconHome;
         private Label labelTitleChildForm;
         private Panel panelDesktop;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }

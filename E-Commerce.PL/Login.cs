@@ -23,12 +23,12 @@ namespace E_Commerce.PL
         private readonly ICategoryservice _categoryservice;
         private readonly IproductService _productService;
 
-        public Login(IComponentContext context,  IAuthService authService,ICategoryservice categoryservice,IproductService productService)
+        public Login(IComponentContext context, IAuthService authService, ICategoryservice categoryservice, IproductService productService)
         {
             InitializeComponent();
             _context = context;
             _authService = authService;
-           _categoryservice = categoryservice;
+            _categoryservice = categoryservice;
             _productService = productService;
         }
 
@@ -61,8 +61,8 @@ namespace E_Commerce.PL
                 MessageBox.Show(message, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-          
-            if ( await _authService.Login(login))
+
+            if (await _authService.Login(login))
             {
                 if (SessionManger.currentUser.Role == "Admin")
                 {
@@ -89,6 +89,11 @@ namespace E_Commerce.PL
         private void label5_Click(object sender, EventArgs e)
         {
             (this.ParentForm as Form1).OpenChildForm(_context.Resolve<EcommerceForm>());
+        }
+
+        private void Login_Deactivate(object sender, EventArgs e)
+        {
+           this.Close();
         }
     }
 }

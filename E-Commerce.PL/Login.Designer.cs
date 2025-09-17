@@ -63,7 +63,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.RoyalBlue;
+            label1.ForeColor = Color.LightSalmon;
             label1.Location = new Point(690, 119);
             label1.Name = "label1";
             label1.Size = new Size(174, 26);
@@ -148,7 +148,7 @@
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.DodgerBlue;
+            guna2Button1.FillColor = Color.OrangeRed;
             guna2Button1.FocusedColor = Color.Black;
             guna2Button1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
@@ -171,7 +171,7 @@
             guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button2.FillColor = Color.DodgerBlue;
+            guna2Button2.FillColor = Color.OrangeRed;
             guna2Button2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button2.ForeColor = Color.White;
             guna2Button2.HoverState.FillColor = Color.RoyalBlue;
@@ -229,6 +229,7 @@
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            Deactivate += Login_Deactivate;
             Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

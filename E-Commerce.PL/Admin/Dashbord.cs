@@ -26,7 +26,7 @@ namespace E_Commerce.PL.Admin
         private readonly ICategoryservice _categoryservice;
         private readonly IproductService _productService;
 
-        public Dashbord(IComponentContext context   ,   ICategoryservice categoryservice,IproductService productService)
+        public Dashbord(IComponentContext context, ICategoryservice categoryservice, IproductService productService)
         {
             InitializeComponent();
             _context = context;
@@ -39,7 +39,9 @@ namespace E_Commerce.PL.Admin
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-          
+           // this.WindowState = FormWindowState.Maximized;
+
+
         }
         private struct RGBColors
         {
@@ -154,6 +156,11 @@ namespace E_Commerce.PL.Admin
         private void Dashbord_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void iconPictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

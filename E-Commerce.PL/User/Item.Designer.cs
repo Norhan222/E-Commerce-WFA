@@ -42,7 +42,7 @@
             lblProductname.AutoSize = true;
             lblProductname.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblProductname.ForeColor = Color.DimGray;
-            lblProductname.Location = new Point(19, 200);
+            lblProductname.Location = new Point(19, 298);
             lblProductname.Name = "lblProductname";
             lblProductname.Size = new Size(127, 25);
             lblProductname.TabIndex = 1;
@@ -53,9 +53,9 @@
             ProductImage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ProductImage.Cursor = Cursors.Hand;
             ProductImage.Image = Properties.Resources._543_5436355_plain_green_t_shirt_png_download_image_blank;
-            ProductImage.Location = new Point(67, 16);
+            ProductImage.Location = new Point(65, 45);
             ProductImage.Name = "ProductImage";
-            ProductImage.Size = new Size(154, 166);
+            ProductImage.Size = new Size(180, 235);
             ProductImage.SizeMode = PictureBoxSizeMode.Zoom;
             ProductImage.TabIndex = 2;
             ProductImage.TabStop = false;
@@ -67,7 +67,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(240, 197);
+            label1.Location = new Point(264, 295);
             label1.Name = "label1";
             label1.Size = new Size(69, 28);
             label1.TabIndex = 3;
@@ -83,7 +83,7 @@
             iconPictureBox1.IconColor = Color.Gray;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox1.IconSize = 48;
-            iconPictureBox1.Location = new Point(254, 13);
+            iconPictureBox1.Location = new Point(278, 13);
             iconPictureBox1.Name = "iconPictureBox1";
             iconPictureBox1.Size = new Size(48, 48);
             iconPictureBox1.TabIndex = 4;
@@ -99,8 +99,9 @@
             Controls.Add(label1);
             Controls.Add(ProductImage);
             Controls.Add(lblProductname);
+            Margin = new Padding(10);
             Name = "Item";
-            Size = new Size(312, 247);
+            Size = new Size(336, 345);
             Load += Item_Load;
             ((System.ComponentModel.ISupportInitialize)ProductImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();

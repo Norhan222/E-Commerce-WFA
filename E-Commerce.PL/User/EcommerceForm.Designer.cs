@@ -69,7 +69,7 @@
             panel1.Controls.Add(guna2TextBox1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1090, 75);
+            panel1.Size = new Size(1172, 75);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -83,7 +83,7 @@
             iconPictureBox3.IconColor = Color.RoyalBlue;
             iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox3.IconSize = 40;
-            iconPictureBox3.Location = new Point(887, 32);
+            iconPictureBox3.Location = new Point(969, 32);
             iconPictureBox3.Name = "iconPictureBox3";
             iconPictureBox3.Size = new Size(50, 40);
             iconPictureBox3.TabIndex = 5;
@@ -99,7 +99,7 @@
             iconPictureBox2.IconColor = Color.White;
             iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox2.IconSize = 34;
-            iconPictureBox2.Location = new Point(1021, 35);
+            iconPictureBox2.Location = new Point(1103, 35);
             iconPictureBox2.Name = "iconPictureBox2";
             iconPictureBox2.Size = new Size(52, 34);
             iconPictureBox2.TabIndex = 4;
@@ -112,7 +112,7 @@
             lblUsername.AutoSize = true;
             lblUsername.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUsername.ForeColor = Color.White;
-            lblUsername.Location = new Point(943, 35);
+            lblUsername.Location = new Point(1025, 35);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(76, 25);
             lblUsername.TabIndex = 3;
@@ -180,7 +180,7 @@
             guna2Panel1.Location = new Point(2, 85);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel1.Size = new Size(257, 505);
+            guna2Panel1.Size = new Size(339, 505);
             guna2Panel1.TabIndex = 3;
             // 
             // guna2BtnCancel
@@ -271,9 +271,11 @@
             flowLayoutitmes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutitmes.AutoScroll = true;
             flowLayoutitmes.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            flowLayoutitmes.Location = new Point(256, 88);
+            flowLayoutitmes.Location = new Point(347, 78);
+            flowLayoutitmes.Margin = new Padding(20);
             flowLayoutitmes.Name = "flowLayoutitmes";
-            flowLayoutitmes.Size = new Size(817, 512);
+            flowLayoutitmes.Padding = new Padding(5);
+            flowLayoutitmes.Size = new Size(808, 521);
             flowLayoutitmes.TabIndex = 4;
             flowLayoutitmes.Paint += flowLayoutitmes_Paint;
             // 
@@ -282,11 +284,10 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1085, 602);
+            ClientSize = new Size(1167, 602);
             Controls.Add(flowLayoutitmes);
             Controls.Add(guna2Panel1);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "EcommerceForm";
             Text = "EcommerceForm";
             Load += EcommerceForm_Load;

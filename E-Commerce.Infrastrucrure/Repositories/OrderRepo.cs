@@ -59,9 +59,9 @@ namespace E_Commerce.Infrastrucrure.Repositories
 
         public IEnumerable<Order> GetAll()
         {
-            return _context.Orders
-                           .Include(o => o.OrderItems)
-                           .ToList();
+            var orders = _context.Orders
+                           .Include(o => o.OrderItems).Include(o => o.User);
+            return orders;
         }
         public void Update(Order order)
         {

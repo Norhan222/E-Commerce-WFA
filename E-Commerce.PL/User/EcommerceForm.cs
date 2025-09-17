@@ -24,6 +24,8 @@ namespace E_Commerce.PL.User
         public EcommerceForm(IComponentContext context, ICategoryservice categoryservice, IproductService productService)
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+
             _context = context;
             _categoryservice = categoryservice;
             _productService = productService;

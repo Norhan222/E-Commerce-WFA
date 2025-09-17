@@ -51,6 +51,8 @@ namespace E_Commerce.PL
 
             containerBuilder.RegisterType<CartRepo>().As<ICartRepo>().SingleInstance();
             containerBuilder.RegisterType<CartService>().As<ICartService>().SingleInstance();
+            containerBuilder.RegisterType<OrderRepo>().As<IOrderRepo>().SingleInstance();
+            containerBuilder.RegisterType<OrderService>().As<IOrderService>().SingleInstance();
 
             containerBuilder.RegisterType<Register>();
             containerBuilder.RegisterType<Login>();
@@ -67,6 +69,10 @@ namespace E_Commerce.PL
             containerBuilder.RegisterType<AddProduct>();
             containerBuilder.RegisterType<FormAddCategory>();
             containerBuilder.RegisterType<OrderMangment>();
+            containerBuilder.RegisterType<HomePage>();
+
+
+
 
 
 
@@ -80,7 +86,7 @@ namespace E_Commerce.PL
 
             var container = containerBuilder.Build();
     
-            System.Windows.Forms.Application.Run(container.Resolve<Form1>());
+            System.Windows.Forms.Application.Run(container.Resolve<HomePage>());
         }
     }
 }

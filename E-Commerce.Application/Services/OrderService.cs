@@ -58,6 +58,11 @@ namespace E_Commerce.Application.Services
         public IEnumerable<Order> GetOrders() => _OrderRepo.GetAll();
 
         public Order GetOrder(int id) => _OrderRepo.GetById(id);
+
+        public void Save()
+        {
+            _CartRepo.Save();
+        }
     }
 
 
