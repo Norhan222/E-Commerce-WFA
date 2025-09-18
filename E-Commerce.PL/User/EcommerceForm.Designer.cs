@@ -69,9 +69,10 @@
             panel1.Controls.Add(guna2TextBox1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1172, 75);
+            panel1.Size = new Size(1163, 75);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+           // panel1.MouseDown += panel1_MouseDown_1;
             // 
             // iconPictureBox3
             // 
@@ -83,7 +84,7 @@
             iconPictureBox3.IconColor = Color.RoyalBlue;
             iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox3.IconSize = 40;
-            iconPictureBox3.Location = new Point(969, 32);
+            iconPictureBox3.Location = new Point(960, 32);
             iconPictureBox3.Name = "iconPictureBox3";
             iconPictureBox3.Size = new Size(50, 40);
             iconPictureBox3.TabIndex = 5;
@@ -99,7 +100,7 @@
             iconPictureBox2.IconColor = Color.White;
             iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox2.IconSize = 34;
-            iconPictureBox2.Location = new Point(1103, 35);
+            iconPictureBox2.Location = new Point(1094, 35);
             iconPictureBox2.Name = "iconPictureBox2";
             iconPictureBox2.Size = new Size(52, 34);
             iconPictureBox2.TabIndex = 4;
@@ -110,13 +111,15 @@
             // 
             lblUsername.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblUsername.AutoSize = true;
+            lblUsername.Cursor = Cursors.Hand;
             lblUsername.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUsername.ForeColor = Color.White;
-            lblUsername.Location = new Point(1025, 35);
+            lblUsername.Location = new Point(1016, 35);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(76, 25);
             lblUsername.TabIndex = 3;
             lblUsername.Text = "Norhan";
+            lblUsername.Click += lblUsername_Click;
             // 
             // label1
             // 
@@ -180,7 +183,7 @@
             guna2Panel1.Location = new Point(2, 85);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel1.Size = new Size(339, 505);
+            guna2Panel1.Size = new Size(330, 505);
             guna2Panel1.TabIndex = 3;
             // 
             // guna2BtnCancel
@@ -275,7 +278,7 @@
             flowLayoutitmes.Margin = new Padding(20);
             flowLayoutitmes.Name = "flowLayoutitmes";
             flowLayoutitmes.Padding = new Padding(5);
-            flowLayoutitmes.Size = new Size(808, 521);
+            flowLayoutitmes.Size = new Size(799, 561);
             flowLayoutitmes.TabIndex = 4;
             flowLayoutitmes.Paint += flowLayoutitmes_Paint;
             // 
@@ -284,7 +287,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1167, 602);
+            ClientSize = new Size(1158, 642);
             Controls.Add(flowLayoutitmes);
             Controls.Add(guna2Panel1);
             Controls.Add(panel1);

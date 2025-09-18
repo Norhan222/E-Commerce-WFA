@@ -71,7 +71,11 @@ namespace E_Commerce.PL
                     dashbord.ShowDialog();
 
                 }
-                else { (this.ParentForm as Form1).OpenChildForm(_context.Resolve<EcommerceForm>()); };
+                else {
+                    this.Close();
+                    var ecommerce = _context.Resolve<EcommerceForm>();
+                    ecommerce.ShowDialog();
+                        };
 
             }
             else
@@ -88,7 +92,9 @@ namespace E_Commerce.PL
 
         private void label5_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Form1).OpenChildForm(_context.Resolve<EcommerceForm>());
+            this.Close();
+            var ecommerce=_context.Resolve<EcommerceForm>();
+            ecommerce.ShowDialog();
         }
 
         private void Login_Deactivate(object sender, EventArgs e)

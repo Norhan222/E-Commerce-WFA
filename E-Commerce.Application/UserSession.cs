@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.Application
 {
-    public class UserSession
+    public struct UserSession
     {
-        public int Id { get; set; }
-        public string Username { get; set; }
+        public int Id { get; set; } = 0;
+        public string Username { get; set; } = null;
 
-        public string Role { get; set; }
+        public string Role { get; set; } = null;
 
+       public UserSession()
+        {
+
+        }
 
     }
     public static class SessionManger

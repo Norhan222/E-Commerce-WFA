@@ -1,4 +1,5 @@
-﻿using E_Commerce.Application;
+﻿using Autofac;
+using E_Commerce.Application;
 using E_Commerce.Application.Dtos;
 using E_Commerce.Application.Interfaces;
 using E_Commerce.Core.Entites;
@@ -17,12 +18,14 @@ namespace E_Commerce.PL.User
     public partial class ProductDetails : Form
     {
         private int _productId;
+        private readonly IComponentContext _context;
         private readonly IproductService _productService;
         private readonly ICartService _cartService;
 
-        public ProductDetails( IproductService productService,ICartService cartService)
+        public ProductDetails(IComponentContext context ,IproductService productService,ICartService cartService)
         {
             InitializeComponent();
+            _context = context;
             _productService = productService;
            _cartService = cartService;
         }
@@ -55,15 +58,24 @@ namespace E_Commerce.PL.User
 
         private void guna2Buttonaddtocart_Click(object sender, EventArgs e)
         {
-            var user = SessionManger.currentUser.Id;
-            var cartDto = new CartDto
+            var user = SessionManger.currentUser;
+            if (user.Id==0)
             {
-                UserId = SessionManger.currentUser.Id,
-                ProductId = _productId,
-            };
-            _cartService.AddToCart(cartDto);
-;            guna2Buttonaddtocart.Text = "Added";
-            guna2Buttonaddtocart.FillColor = Color.Green;
+                var login = _context.Resolve<Login>();
+                //this.Close();
+                login.Show();
+            }
+            else
+            {
+                var cartDto = new CartDto
+                {
+                    UserId = SessionManger.currentUser.Id,
+                    ProductId = _productId,
+                };
+                _cartService.AddToCart(cartDto);
+                ; guna2Buttonaddtocart.Text = "Added";
+                guna2Buttonaddtocart.FillColor = Color.Green;
+            }
         }
 
 

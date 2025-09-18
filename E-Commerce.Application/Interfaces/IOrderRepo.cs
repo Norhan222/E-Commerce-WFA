@@ -12,6 +12,7 @@ namespace E_Commerce.Application.Interfaces
         void Add(Order order);
         Order GetById(int id);
         IEnumerable<Order> GetAll();
+       public IEnumerable<Order> GetOrdersByUserId(int userid);
         void Update(Order order);
         void Delete(int id);
 

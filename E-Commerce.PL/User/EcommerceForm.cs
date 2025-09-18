@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,18 +25,27 @@ namespace E_Commerce.PL.User
         public EcommerceForm(IComponentContext context, ICategoryservice categoryservice, IproductService productService)
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
+            //this.Text = string.Empty;
+            //this.ControlBox = false;
+            //this.DoubleBuffered = true;
+            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+             this.WindowState = FormWindowState.Maximized;
 
             _context = context;
             _categoryservice = categoryservice;
             _productService = productService;
-            if (SessionManger.currentUser != null)
+
+            if (SessionManger.currentUser.Id == 0)
             {
-                lblUsername.Text = SessionManger.currentUser.Username;
+                lblUsername.Text = "Login";
+                iconPictureBox1.Visible = false;
+
+
             }
             else
             {
-                lblUsername.Text = "Login";
+                lblUsername.Text = SessionManger.currentUser.Username;
+                iconPictureBox1.Visible = true;
             }
 
 
@@ -69,7 +79,34 @@ namespace E_Commerce.PL.User
                 var selected = flowLayoutFilter.Controls.OfType<Guna2CheckBox>()
                                 .Where(c => c.Checked)
                                 .Select(c => c.Text);
-                MessageBox.Show("Selected: " + string.Join(", ", selected));
+                //MessageBox.Show("Selected: " + string.Join(", ", selected));
+                flowLayoutitmes.Controls.Clear();
+
+                foreach (var item in selected)
+                {
+                  var products=  _productService.GetProductsWithCategory(item);
+                    
+
+                    foreach (var product in products)
+                    {
+                        Item card = _context.Resolve<Item>();         
+                        card.ProductId = product.Id;
+                        card.ProductName = product.Name;
+                        card.ProductPrice = product.Price;
+                        var fullpath = Path.Combine(Directory.GetParent(System.Windows.Forms.Application.StartupPath).Parent.Parent.Parent.FullName, product.ImageUrl);
+                        if (File.Exists(fullpath))
+                        {
+                            using (var fs = new FileStream(fullpath, FileMode.Open, FileAccess.Read))
+                            {
+                                card.ProductIamge = Image.FromStream(fs);
+                            }
+                        }
+
+                        flowLayoutitmes.Controls.Add(card);
+                    }
+
+
+                }
             };
 
         }
@@ -100,102 +137,7 @@ namespace E_Commerce.PL.User
 
 
 
-        private void CreateFilterPanel()
-        {
-            // Panel
-            var panelFilter = new Guna2Panel
-            {
-                Size = new Size(250, 586),
-                BorderThickness = 1,
-                BorderColor = Color.LightGray,
-                BackColor = Color.White,
-                AutoScroll = true
-            };
-            // panel2.Controls.Add(panelFilter);
-
-            // LinkLabels
-            var linkSelectAll = new LinkLabel { Text = "Select all", Location = new Point(10, 10) };
-            var linkClear = new LinkLabel { Text = "Clear", Location = new Point(100, 10) };
-            panelFilter.Controls.Add(linkSelectAll);
-            panelFilter.Controls.Add(linkClear);
-
-            // FlowLayoutPanel for checkboxes
-            var flow = new FlowLayoutPanel
-            {
-                Location = new Point(10, 40),
-                Size = new Size(220, 220),
-                AutoScroll = true,
-                FlowDirection = FlowDirection.TopDown,
-                WrapContents = false
-            };
-            panelFilter.Controls.Add(flow);
-
-            // Categories
-            string[] categories =
-            {
-            "Aventura", "Dallas", "Daly City", "Deerfield Beach",
-            "Hayward", "Highland Village", "Irving",
-            "Manhattan", "Montgomery", "San Jose"
-        };
-
-            // Add Guna2CheckBoxes
-            foreach (var cat in categories)
-            {
-                var chk = new Guna2CheckBox
-                {
-                    Text = cat,
-                    AutoSize = true,
-                    Font = new Font("Segoe UI", 10),
-                    CheckedState = { FillColor = Color.DodgerBlue },
-                    UncheckedState = { FillColor = Color.LightGray }
-                };
-                flow.Controls.Add(chk);
-            }
-
-            // Buttons
-            var btnCancel = new Guna2Button
-            {
-                Text = "Cancel",
-                Location = new Point(10, 280),
-                Size = new Size(100, 35),
-                FillColor = Color.White,
-                ForeColor = Color.Black,
-                BorderColor = Color.Gray,
-                BorderThickness = 1
-            };
-            var btnApply = new Guna2Button
-            {
-                Text = "Apply",
-                Location = new Point(130, 280),
-                Size = new Size(100, 35),
-                FillColor = Color.DodgerBlue,
-                ForeColor = Color.White
-            };
-
-            panelFilter.Controls.Add(btnCancel);
-            panelFilter.Controls.Add(btnApply);
-
-            // Events
-            linkSelectAll.Click += (s, e) =>
-            {
-                foreach (Guna2CheckBox chk in flow.Controls)
-                    chk.Checked = true;
-            };
-
-            linkClear.Click += (s, e) =>
-            {
-                foreach (Guna2CheckBox chk in flow.Controls)
-                    chk.Checked = false;
-            };
-
-            btnApply.Click += (s, e) =>
-            {
-                var selected = flow.Controls.OfType<Guna2CheckBox>()
-                                .Where(c => c.Checked)
-                                .Select(c => c.Text);
-                MessageBox.Show("Selected: " + string.Join(", ", selected));
-            };
-        }
+      
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -210,12 +152,49 @@ namespace E_Commerce.PL.User
         private void iconPictureBox2_Click(object sender, EventArgs e)
         {
             ContextMenuStrip usertMenu = new ContextMenuStrip();
-            usertMenu.Items.Add("Logout");
-            usertMenu.Items.Add("Cart");
+
+            if (SessionManger.currentUser.Id == 0)
+            {
+                usertMenu.Items.Add("Register");
+
+            }
+            else
+            {
+                usertMenu.Items.Add("Logout");
+                usertMenu.Items.Add("Orders");
+            }
             iconPictureBox2.Click += (s, e) =>
             {
                 usertMenu.Show(iconPictureBox2, new Point(-100, iconPictureBox2.Height));
             };
+            usertMenu.ItemClicked += (s, e) =>
+            {
+                if (e.ClickedItem is ToolStripMenuItem item)
+                {
+                    if (item.Text == "Orders")
+                    {
+                        var orderform = _context.Resolve<OrderForm>();
+                        orderform.Show();
+                    }
+                    else if (item.Text == "Register")
+                    {
+                        var register = _context.Resolve<Register>();
+                        register.Show();
+                    }
+                    else if (item.Text == "Logout")
+                    {
+                        SessionManger.currentUser = new UserSession
+                        {
+                            Id = 0,
+                            Username = null,
+                            Role = null
+                        };
+                        var ecoomerec = _context.Resolve<EcommerceForm>();
+                        ecoomerec.Show();
+                    }
+                }
+            };
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -264,8 +243,37 @@ namespace E_Commerce.PL.User
 
         private void iconPictureBox3_Click(object sender, EventArgs e)
         {
+            if (SessionManger.currentUser.Id == 0)
+            {
+                var login = _context.Resolve<Login>();
+                login.ShowDialog();
+            }
             var CartDetails = _context.Resolve<CartDetails>();
             CartDetails.ShowDialog();
         }
+
+        private void lblUsername_Click(object sender, EventArgs e)
+        {
+            if (lblUsername.Text == "Login")
+            {
+                var login = _context.Resolve<Form1>();
+                login.ShowDialog();
+            }
+        }
+
+        //[DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        //private static extern void ReleaseCapture();
+        //[DllImport("user32.dll", EntryPoint = "SendMessage")]
+        //private extern static void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int lParam);
+        //private void panel1_MouseDown(object sender, MouseEventArgs e)
+        //{
+
+        //}
+
+        //private void panel1_MouseDown_1(object sender, MouseEventArgs e)
+        //{
+        //    ReleaseCapture();
+        //    SendMessage(this.Handle, 0x112, 0xf012, 0);
+        //}
     }
 }

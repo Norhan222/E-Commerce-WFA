@@ -32,7 +32,6 @@ namespace E_Commerce.Infrastrucrure.Repositories
                 .FirstOrDefault(o=>o.Id == orderId);
         }
 
-        // هنا هنرجع ليست 
         public IEnumerable<Order> GetOrdersByUserId(int userId)
         {
             return _context.Orders.Include(o => o.OrderItems)
@@ -82,5 +81,7 @@ namespace E_Commerce.Infrastrucrure.Repositories
             return _context.Orders.Include(o => o.OrderItems).ThenInclude(oi => oi.Product)
                 .FirstOrDefault(o => o.Id == id);
         }
+
+
     }
 }

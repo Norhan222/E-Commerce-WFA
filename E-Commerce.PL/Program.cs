@@ -70,6 +70,11 @@ namespace E_Commerce.PL
             containerBuilder.RegisterType<FormAddCategory>();
             containerBuilder.RegisterType<OrderMangment>();
             containerBuilder.RegisterType<HomePage>();
+            containerBuilder.RegisterType<CheckoutForm>();
+            containerBuilder.RegisterType<OrderForm>();
+
+            containerBuilder.RegisterType<OrderDetailsForm>();
+
 
 
 

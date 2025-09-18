@@ -60,7 +60,8 @@
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button1.Size = new Size(141, 50);
             guna2Button1.TabIndex = 0;
-            guna2Button1.Text = "Order Now";
+            guna2Button1.Text = "Checkout";
+            guna2Button1.Click += guna2Button1_Click;
             // 
             // label1
             // 

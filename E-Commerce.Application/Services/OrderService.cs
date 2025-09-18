@@ -1,4 +1,5 @@
-﻿using E_Commerce.Application.Interfaces;
+﻿using E_Commerce.Application.Dtos;
+using E_Commerce.Application.Interfaces;
 using E_Commerce.Core.Entites;
 using E_Commerce.Core.Enums;
 using System;
@@ -45,12 +46,25 @@ namespace E_Commerce.Application.Services
 
         }
 
-        public void PlaceOrder(Order order)
+        public void PlaceOrder(OrderDto orderDto)
         {
-            order.OrderDate = DateTime.Now;
-            order.Status = OrderStatus.Processing;
-            order.TotalAmount = order.OrderItems.Sum(i => i.Price * i.Quantity);
+            orderDto.OrderDate = DateTime.Now;
+            orderDto.Status = OrderStatus.Processing;
+            orderDto.TotalAmount = orderDto.OrderItems.Sum(i => i.TotalPrice);
+            var order = new Order()
+            {
+                UserId= orderDto.UserId,
+                OrderDate = orderDto.OrderDate,
+                Status = orderDto.Status,
+                TotalAmount = orderDto.TotalAmount,
+            };
+            order.OrderItems = orderDto.OrderItems.Select(o => new OrderItem
+            {
+                ProductId=o.ProductId,
+                Quantity = o.Quantity,
+                Price=o.UnitPrice,
 
+            }).ToList();
             _OrderRepo.Add(order);
         }
 
@@ -62,6 +76,30 @@ namespace E_Commerce.Application.Services
         public void Save()
         {
             _CartRepo.Save();
+        }
+
+        public IEnumerable<OrderDto> GetOrdersForUser(int userid)
+        {
+          var orders= _OrderRepo.GetOrdersByUserId(userid);
+            var orderDto = orders.Select(o => new OrderDto()
+            {
+                Id = o.Id,
+                UserId = o.UserId,
+                OrderDate = o.OrderDate,
+                Status = o.Status,
+                TotalAmount = o.TotalAmount,
+
+                OrderItems = o.OrderItems.Select(o => new OrderItemDto
+                {
+                    ProductId = o.ProductId,
+                    Quantity = o.Quantity,
+                    UnitPrice = o.Product.Price,
+                    TotalPrice=o.Quantity*o.Price,
+
+                }).ToList()
+            });
+            return orderDto;
+
         }
     }
 
