@@ -51,10 +51,26 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
         private void btnSave_Click(object sender, EventArgs e)
         {
             var name = txtName.Text;
+            if(!decimal.TryParse(txtPrice.Text,out _))
+            {
+                MessageBox.Show("Price Must be decimal");
+                return;
+            }
             var price = Convert.ToDecimal(txtPrice.Text);
             var categoryId = Convert.ToInt32(comboBoxCategory.SelectedValue);
+
+            if (!int.TryParse(txtQuantity.Text, out _))
+            {
+                MessageBox.Show("Stock Must be number");
+                return;
+            }
             var stock = Convert.ToInt32(txtQuantity.Text);
             var description = guna2TextBoxDes.Text;
+            if(selectedImagePath == null)
+            {
+                MessageBox.Show("Product Image Requird");
+                return;
+            }
 
             var imagefolder = Path.Combine(Directory.GetParent(System.Windows.Forms.Application.StartupPath).Parent.Parent.Parent.FullName, "Images", "Product");
             if (!Directory.Exists(imagefolder))

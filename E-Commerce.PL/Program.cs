@@ -29,9 +29,9 @@ namespace E_Commerce.PL
             containerBuilder.Register(ctx =>
             {
                 var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-                optionsBuilder.UseSqlServer("Server=.; Database=EcommerceDb; Trusted_Connection=true;  TrustServerCertificate=True; MultipleActiveResultSets=True;");
+              string connection=  ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;  
+                optionsBuilder.UseSqlServer(connection);
 
-                //return new AppDbContext(optionsBuilder.Options);
                 var context = new AppDbContext(optionsBuilder.Options);
 
                 DbSeeder.Seed(context);
@@ -61,11 +61,11 @@ namespace E_Commerce.PL
             containerBuilder.RegisterType<ProductDetails>();
             containerBuilder.RegisterType<Item>();
             containerBuilder.RegisterType<EcommerceForm>();
-            containerBuilder.RegisterType<Dashbord>();
             containerBuilder.RegisterType<CartDetails>();
             containerBuilder.RegisterType<CartItem>();
             containerBuilder.RegisterType<FormCategory>();
             containerBuilder.RegisterType<AllProductForm>();
+            containerBuilder.RegisterType<Dashbord>();
             containerBuilder.RegisterType<AddProduct>();
             containerBuilder.RegisterType<FormAddCategory>();
             containerBuilder.RegisterType<OrderMangment>();
@@ -74,20 +74,6 @@ namespace E_Commerce.PL
             containerBuilder.RegisterType<OrderForm>();
 
             containerBuilder.RegisterType<OrderDetailsForm>();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             var container = containerBuilder.Build();
     

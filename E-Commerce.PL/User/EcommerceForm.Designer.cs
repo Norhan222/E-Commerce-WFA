@@ -72,7 +72,6 @@
             panel1.Size = new Size(1163, 75);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
-           // panel1.MouseDown += panel1_MouseDown_1;
             // 
             // iconPictureBox3
             // 
@@ -83,10 +82,10 @@
             iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
             iconPictureBox3.IconColor = Color.RoyalBlue;
             iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox3.IconSize = 40;
-            iconPictureBox3.Location = new Point(960, 32);
+            iconPictureBox3.IconSize = 60;
+            iconPictureBox3.Location = new Point(929, 15);
             iconPictureBox3.Name = "iconPictureBox3";
-            iconPictureBox3.Size = new Size(50, 40);
+            iconPictureBox3.Size = new Size(63, 60);
             iconPictureBox3.TabIndex = 5;
             iconPictureBox3.TabStop = false;
             iconPictureBox3.Click += iconPictureBox3_Click;
@@ -100,7 +99,7 @@
             iconPictureBox2.IconColor = Color.White;
             iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox2.IconSize = 34;
-            iconPictureBox2.Location = new Point(1094, 35);
+            iconPictureBox2.Location = new Point(1079, 32);
             iconPictureBox2.Name = "iconPictureBox2";
             iconPictureBox2.Size = new Size(52, 34);
             iconPictureBox2.TabIndex = 4;
@@ -112,11 +111,11 @@
             lblUsername.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblUsername.AutoSize = true;
             lblUsername.Cursor = Cursors.Hand;
-            lblUsername.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUsername.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUsername.ForeColor = Color.White;
-            lblUsername.Location = new Point(1016, 35);
+            lblUsername.Location = new Point(998, 27);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(76, 25);
+            lblUsername.Size = new Size(90, 30);
             lblUsername.TabIndex = 3;
             lblUsername.Text = "Norhan";
             lblUsername.Click += lblUsername_Click;
@@ -132,9 +131,9 @@
             // iconPictureBox1
             // 
             iconPictureBox1.BackColor = Color.WhiteSmoke;
-            iconPictureBox1.ForeColor = SystemColors.AppWorkspace;
+            iconPictureBox1.ForeColor = SystemColors.ControlDark;
             iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Search;
-            iconPictureBox1.IconColor = SystemColors.AppWorkspace;
+            iconPictureBox1.IconColor = SystemColors.ControlDark;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox1.IconSize = 31;
             iconPictureBox1.Location = new Point(530, 24);
@@ -196,9 +195,9 @@
             guna2BtnCancel.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2BtnCancel.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2BtnCancel.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2BtnCancel.FillColor = Color.WhiteSmoke;
+            guna2BtnCancel.FillColor = Color.Gainsboro;
             guna2BtnCancel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2BtnCancel.ForeColor = Color.DarkGray;
+            guna2BtnCancel.ForeColor = Color.White;
             guna2BtnCancel.Location = new Point(132, 456);
             guna2BtnCancel.Name = "guna2BtnCancel";
             guna2BtnCancel.ShadowDecoration.CustomizableEdges = customizableEdges4;
@@ -216,7 +215,7 @@
             guna2BtnApply.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2BtnApply.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2BtnApply.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2BtnApply.FillColor = Color.DeepSkyBlue;
+            guna2BtnApply.FillColor = Color.RoyalBlue;
             guna2BtnApply.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2BtnApply.ForeColor = Color.White;
             guna2BtnApply.Location = new Point(12, 456);
@@ -234,7 +233,7 @@
             linkClear.BackColor = Color.Transparent;
             linkClear.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             linkClear.LinkBehavior = LinkBehavior.NeverUnderline;
-            linkClear.LinkColor = Color.DodgerBlue;
+            linkClear.LinkColor = Color.RoyalBlue;
             linkClear.Location = new Point(132, 52);
             linkClear.Name = "linkClear";
             linkClear.Size = new Size(57, 28);
@@ -250,7 +249,7 @@
             linkSelectAll.BackColor = Color.Transparent;
             linkSelectAll.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             linkSelectAll.LinkBehavior = LinkBehavior.NeverUnderline;
-            linkSelectAll.LinkColor = Color.DodgerBlue;
+            linkSelectAll.LinkColor = Color.RoyalBlue;
             linkSelectAll.Location = new Point(12, 52);
             linkSelectAll.Name = "linkSelectAll";
             linkSelectAll.Size = new Size(97, 28);

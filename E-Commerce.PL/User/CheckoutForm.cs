@@ -1,7 +1,9 @@
-﻿using E_Commerce.Application;
+﻿using Autofac;
+using E_Commerce.Application;
 using E_Commerce.Application.Dtos;
 using E_Commerce.Application.Interfaces;
 using E_Commerce.Core.Entites;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,12 +20,14 @@ namespace E_Commerce.PL.User
     {
         public Cart Cart;
         private decimal TotalPrice;
+        private readonly IComponentContext _context;
         private readonly IOrderService _orderService;
         private readonly ICartService _cartService;
 
-        public CheckoutForm(IOrderService orderService, ICartService cartService)
+        public CheckoutForm(IComponentContext context, IOrderService orderService, ICartService cartService)
         {
             InitializeComponent();
+            _context = context;
             _orderService = orderService;
             _cartService = cartService;
             dataGridView.Columns.Add("Product", "Product");
@@ -68,6 +72,8 @@ namespace E_Commerce.PL.User
 
         }
 
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             int userid = SessionManger.currentUser.Id;
@@ -94,6 +100,18 @@ namespace E_Commerce.PL.User
         private void CheckoutForm_Load_3(object sender, EventArgs e)
         {
 
+        }
+
+        private void CheckoutForm_Load_4(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            var cartDetails = _context.Resolve<CartDetails>();
+            cartDetails.Show();
         }
     }
 }

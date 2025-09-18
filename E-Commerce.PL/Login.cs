@@ -66,7 +66,7 @@ namespace E_Commerce.PL
             {
                 if (SessionManger.currentUser.Role == "Admin")
                 {
-                    (this.ParentForm as Form1).Hide();
+                    (this.ParentForm as Form1).Close();
                     Dashbord dashbord = _context.Resolve<Dashbord>();
                     dashbord.ShowDialog();
 
@@ -75,7 +75,7 @@ namespace E_Commerce.PL
                     this.Close();
                     var ecommerce = _context.Resolve<EcommerceForm>();
                     ecommerce.ShowDialog();
-                        };
+                    };
 
             }
             else

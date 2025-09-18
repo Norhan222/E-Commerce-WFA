@@ -79,7 +79,6 @@ namespace E_Commerce.PL.User
                 var selected = flowLayoutFilter.Controls.OfType<Guna2CheckBox>()
                                 .Where(c => c.Checked)
                                 .Select(c => c.Text);
-                //MessageBox.Show("Selected: " + string.Join(", ", selected));
                 flowLayoutitmes.Controls.Clear();
 
                 foreach (var item in selected)

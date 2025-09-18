@@ -51,7 +51,6 @@ namespace E_Commerce.PL.User
             // 
             // dataGridView
             // 
-       
             dataGridView.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
             dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -90,7 +89,7 @@ namespace E_Commerce.PL.User
             dataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.LightSkyBlue;
             dataGridView.RowTemplate.Height = 45;
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView.Size = new Size(728, 261);
+            dataGridView.Size = new Size(958, 316);
             dataGridView.TabIndex = 7;
             dataGridView.CellContentClick += dataGridView_CellContentClick;
             dataGridView.RowDividerDoubleClick += dataGridView_RowDividerDoubleClick;
@@ -100,7 +99,7 @@ namespace E_Commerce.PL.User
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(939, 357);
+            ClientSize = new Size(999, 416);
             Controls.Add(label1);
             Controls.Add(dataGridView);
             Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);

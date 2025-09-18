@@ -51,19 +51,13 @@ namespace E_Commerce.PL.User
                     }
                 }
                 flowPanelCarts.Controls.Add(CartItem);
-                TotalPriceValue(CartItem.TotalPrice);
-                //total+=CartItem.TotalPrice;
-                //TotalPrice.Text = total.ToString();
+                
 
             }
 
 
         }
-        public void TotalPriceValue(decimal totall)
-        {
-            total += totall;
-            TotalPrice.Text = total.ToString();
-        }
+      
         private void TotalPrice_Click(object sender, EventArgs e)
         {
 
@@ -91,7 +85,6 @@ namespace E_Commerce.PL.User
                     }
                 }
                 flowPanelCarts.Controls.Add(CartItem);
-                TotalPriceValue(CartItem.TotalPrice);
                 //total+=CartItem.TotalPrice;
                 //TotalPrice.Text = total.ToString();
             }
@@ -99,8 +92,10 @@ namespace E_Commerce.PL.User
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            this.Close();
             var checoutform=_context.Resolve<CheckoutForm>();
             checoutform.Load(Cart);
+          
             checoutform.Show();
         }
     }

@@ -60,6 +60,7 @@ namespace E_Commerce.PL.User
 
                 var orderdetails = _context.Resolve<OrderDetailsForm>();
                 orderdetails.GetOrderId(orderid);
+                this.Close();
                 orderdetails.ShowDialog();
             }
         }

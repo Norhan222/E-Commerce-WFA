@@ -152,7 +152,7 @@
             Controls.Add(lblProductName);
             Controls.Add(picProductImage);
             Name = "CartItem";
-            Size = new Size(596, 235);
+            Size = new Size(744, 254);
             Load += CartItem_Load;
             ((System.ComponentModel.ISupportInitialize)picProductImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnMinus).EndInit();

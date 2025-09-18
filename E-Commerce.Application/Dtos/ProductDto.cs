@@ -11,13 +11,16 @@ namespace E_Commerce.Application.Dtos
     public class ProductDto
     {
         public int Id { get; set; }
-        [Required]
-        [StringLength(50)]
+        [Required(ErrorMessage ="Product Name Is Required ")]
         public string Name { get; set; }
-        [StringLength(500)]
+        [Required(ErrorMessage = "Description  Is Required ")]
         public string Description { get; set; }
+        [Required(ErrorMessage ="Price Is Required")]
+        [DataType(DataType.Currency)]
         public decimal Price { get; set; }
-        public int Stock { get; set; }
+
+        public int Stock { get; set; } = 1;
+        [Required(ErrorMessage = "Image Is Required")]
         public string ImageUrl { get; set; }
         public string CategoryName { get; set; }
         public bool IsAvailable => Stock > 0;

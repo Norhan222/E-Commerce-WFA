@@ -36,6 +36,7 @@
             label2 = new Label();
             button1 = new Button();
             lblPrice = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -79,22 +80,24 @@
             dataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.LightSkyBlue;
             dataGridView.RowTemplate.Height = 45;
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView.Size = new Size(904, 309);
+            dataGridView.Size = new Size(960, 307);
             dataGridView.TabIndex = 7;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(79, 45);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Gray;
+            label1.Location = new Point(29, 36);
             label1.Name = "label1";
-            label1.Size = new Size(151, 25);
+            label1.Size = new Size(196, 29);
             label1.TabIndex = 8;
             label1.Text = "Order Summary";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(48, 456);
+            label2.Location = new Point(29, 456);
             label2.Name = "label2";
             label2.Size = new Size(62, 25);
             label2.TabIndex = 9;
@@ -102,22 +105,39 @@
             // 
             // button1
             // 
-            button1.Location = new Point(744, 448);
+            button1.BackColor = Color.Gold;
+            button1.Cursor = Cursors.Hand;
+            button1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(800, 437);
             button1.Name = "button1";
             button1.Size = new Size(163, 63);
             button1.TabIndex = 10;
             button1.Text = "Confirm";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // lblPrice
             // 
             lblPrice.AutoSize = true;
-            lblPrice.Location = new Point(159, 459);
+            lblPrice.Location = new Point(134, 456);
             lblPrice.Name = "lblPrice";
             lblPrice.Size = new Size(100, 25);
             lblPrice.TabIndex = 11;
             lblPrice.Text = "TotalPrice";
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Gainsboro;
+            button2.Cursor = Cursors.Hand;
+            button2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = SystemColors.ControlDark;
+            button2.Location = new Point(601, 437);
+            button2.Name = "button2";
+            button2.Size = new Size(163, 63);
+            button2.TabIndex = 12;
+            button2.Text = "Cancel";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // CheckoutForm
             // 
@@ -125,6 +145,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(980, 538);
+            Controls.Add(button2);
             Controls.Add(lblPrice);
             Controls.Add(button1);
             Controls.Add(label2);
@@ -146,5 +167,6 @@
         private Label label2;
         private Button button1;
         private Label lblPrice;
+        private Button button2;
     }
 }
