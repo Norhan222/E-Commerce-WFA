@@ -39,7 +39,12 @@ namespace E_Commerce.PL
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Form1).OpenChildForm(_context.Resolve<Register>());
+            var register = _context.Resolve<Register>();
+            this.Close();
+            register.Show();
+
+
+
 
 
         }
@@ -66,7 +71,7 @@ namespace E_Commerce.PL
             {
                 if (SessionManger.currentUser.Role == "Admin")
                 {
-                    (this.ParentForm as Form1).Close();
+                    this.Close();
                     Dashbord dashbord = _context.Resolve<Dashbord>();
                     dashbord.ShowDialog();
 

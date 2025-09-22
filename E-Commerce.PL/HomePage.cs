@@ -32,13 +32,9 @@ namespace E_Commerce.PL
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             var register = _context.Resolve<Register>();
-            register.ShowDialog();
+            register.Show();
+
         }
-
-
-
-
-
         private void HomePage_Load(object sender, EventArgs e)
         {
             guna2Button1.FillColor = Color.FromArgb(200, Color.OrangeRed);
@@ -72,8 +68,8 @@ namespace E_Commerce.PL
 
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
-            var login = _context.Resolve<Form1>();
-            login.ShowDialog();
+            var login = _context.Resolve<Login>();
+            login.Show();
         }
 
         private void label2_Click(object sender, EventArgs e)

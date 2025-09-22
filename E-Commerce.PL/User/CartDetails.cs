@@ -64,6 +64,7 @@ namespace E_Commerce.PL.User
         }
         public void load()
         {
+            flowPanelCarts.Controls.Clear();
             var userid = SessionManger.currentUser.Id;
             var cart = _cartService.GetCartById(userid);
             foreach (var item in cart.CartItems)
@@ -92,10 +93,9 @@ namespace E_Commerce.PL.User
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            this.Close();
             var checoutform=_context.Resolve<CheckoutForm>();
             checoutform.Load(Cart);
-          
+            this.Close();
             checoutform.Show();
         }
     }

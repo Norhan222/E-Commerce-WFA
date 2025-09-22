@@ -25,10 +25,7 @@ namespace E_Commerce.PL.User
         public EcommerceForm(IComponentContext context, ICategoryservice categoryservice, IproductService productService)
         {
             InitializeComponent();
-            //this.Text = string.Empty;
-            //this.ControlBox = false;
-            //this.DoubleBuffered = true;
-            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+           
              this.WindowState = FormWindowState.Maximized;
 
             _context = context;
@@ -255,7 +252,7 @@ namespace E_Commerce.PL.User
         {
             if (lblUsername.Text == "Login")
             {
-                var login = _context.Resolve<Form1>();
+                var login = _context.Resolve<Login>();
                 login.ShowDialog();
             }
         }

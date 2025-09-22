@@ -19,22 +19,22 @@ namespace E_Commerce.PL
     {
         private readonly IComponentContext _context;
         private readonly IAuthService _authService;
-        private readonly ICategoryservice _categoryservice;
-        private readonly IproductService productService;
+      
 
-        public Register(IComponentContext context,IAuthService authService,ICategoryservice categoryservice, IproductService productService)
+        public Register(IComponentContext context,IAuthService authService)
         {
             InitializeComponent();
            _context = context;
             _authService = authService;
-           _categoryservice = categoryservice;
-            this.productService = productService;
+          
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-          (this.ParentForm as Form1).OpenChildForm(_context.Resolve<Login>());
-          
+            var login = _context.Resolve<Login>();
+            this.Close();
+            login.Show();
+
         }
 
         private void Register_Load(object sender, EventArgs e)
@@ -62,8 +62,18 @@ namespace E_Commerce.PL
                 MessageBox.Show(message,"Validation",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            await _authService.Register(Register);
-            (this.ParentForm as Form1).OpenChildForm(_context.Resolve<Login>());
+           if( await _authService.Register(Register) == true)
+            {
+                MessageBox.Show("Register Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var reg=_context.Resolve<Login>();
+                reg.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Username is already exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         private void guna2TextBoxUsername_TextChanged(object sender, EventArgs e)

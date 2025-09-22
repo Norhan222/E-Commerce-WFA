@@ -41,16 +41,17 @@ namespace E_Commerce.Application.Services
             return false;
         }
 
-        public async Task Register(RegisterDto userDto)
+        public async Task<bool> Register(RegisterDto userDto)
         {
             var user=await _userRepo.GetByUsernameAsync(userDto.UserName);
             if(user != null)
             {
-                return;
+                return false;
             }
             var usermapped = userDto.Adapt<User>();
             usermapped.Password=HashPassword(userDto.Password);
-           await _userRepo.AddUserAsync(usermapped);
+           if( await _userRepo.AddUserAsync(usermapped)=="1");
+               return true;
         }
 
 

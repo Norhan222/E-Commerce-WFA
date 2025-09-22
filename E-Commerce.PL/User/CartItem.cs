@@ -93,15 +93,24 @@ namespace E_Commerce.PL.User
             var userid = SessionManger.currentUser.Id;
             _cartService.RemoveFromCart(userid, Id);
             CartDetails cart = _context.Resolve<CartDetails>();
-            cart.Show();
+            cart.load();
+            cart.ShowDialog();
         }
      
         private void btnPlus_Click(object sender, EventArgs e)
         {
             var cart = _cartService.GetCartById(SessionManger.currentUser.Id);
             var cartItem = cart.CartItems.FirstOrDefault(ci => ci.ProductId == Id);
-            cartItem.Quantity = ++quantity;
-            TotalPrice+=ProductPrice;
+            if (quantity >= cartItem.Product.Stock)
+            {
+                quantity = quantity;
+            }
+            else
+            {
+                cartItem.Quantity = ++quantity;
+                TotalPrice += ProductPrice;
+            }
+          
             _cartService.Save();
             _cartDetails.load();
 
@@ -112,7 +121,7 @@ namespace E_Commerce.PL.User
             var cart = _cartService.GetCartById(SessionManger.currentUser.Id);
             var cartItem = cart.CartItems.Where(ci => ci.ProductId == Id).First();
 
-            if (quantity <= 0)
+            if (quantity <= 1)
             {
                 quantity = 1;
 

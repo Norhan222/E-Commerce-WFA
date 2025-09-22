@@ -85,6 +85,7 @@
             // btnMinus
             // 
             btnMinus.BackColor = Color.WhiteSmoke;
+            btnMinus.Cursor = Cursors.Hand;
             btnMinus.ForeColor = Color.FromArgb(64, 64, 64);
             btnMinus.IconChar = FontAwesome.Sharp.IconChar.Minus;
             btnMinus.IconColor = Color.FromArgb(64, 64, 64);
@@ -100,6 +101,7 @@
             // btnPlus
             // 
             btnPlus.BackColor = Color.WhiteSmoke;
+            btnPlus.Cursor = Cursors.Hand;
             btnPlus.ForeColor = Color.FromArgb(64, 64, 64);
             btnPlus.IconChar = FontAwesome.Sharp.IconChar.Plus;
             btnPlus.IconColor = Color.FromArgb(64, 64, 64);
@@ -115,6 +117,7 @@
             // btnDeleteProduct
             // 
             btnDeleteProduct.BackColor = Color.WhiteSmoke;
+            btnDeleteProduct.Cursor = Cursors.Hand;
             btnDeleteProduct.ForeColor = Color.Red;
             btnDeleteProduct.IconChar = FontAwesome.Sharp.IconChar.Times;
             btnDeleteProduct.IconColor = Color.Red;

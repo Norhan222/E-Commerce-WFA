@@ -56,7 +56,6 @@ namespace E_Commerce.PL
 
             containerBuilder.RegisterType<Register>();
             containerBuilder.RegisterType<Login>();
-            containerBuilder.RegisterType<Form1>();
             containerBuilder.RegisterType<UpdateProduct>();
             containerBuilder.RegisterType<ProductDetails>();
             containerBuilder.RegisterType<Item>();

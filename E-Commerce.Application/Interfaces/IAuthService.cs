@@ -11,7 +11,7 @@ namespace E_Commerce.Application.Interfaces
 {
     public interface IAuthService
     {
-        public Task Register(RegisterDto userDto);
+        public Task<bool> Register(RegisterDto userDto);
         public Task<bool> Login(LoginDto userDto);
     }
 }
