@@ -19,12 +19,14 @@ namespace E_Commerce.PL.Admin.ChildForm
     public partial class FormCategory : Form
     {
         private readonly ICategoryservice _categoryservice;
-        public FormCategory(ICategoryservice categoryservice)
+        private readonly IproductService _iproductService;
+
+        public FormCategory(ICategoryservice categoryservice ,IproductService iproductService)
         {
             InitializeComponent();
             this.Text = "Categories";
             _categoryservice = categoryservice;
-
+            _iproductService = iproductService;
             dataGridView.Columns.Add("Id", "Id");
             dataGridView.Columns.Add("Name", "Name");
             dataGridView.Columns.Add("Description", "Description");
@@ -41,7 +43,7 @@ namespace E_Commerce.PL.Admin.ChildForm
         }
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Dashbord).OpenChildForm(new FormAddCategory(_categoryservice));
+            (this.ParentForm as Dashbord).OpenChildForm(new FormAddCategory(_categoryservice,_iproductService));
 
         }
         private void btnEdit_Click(object sender, EventArgs e)
@@ -49,7 +51,7 @@ namespace E_Commerce.PL.Admin.ChildForm
             if (dataGridView.CurrentRow != null)
             {
                 var row = dataGridView.CurrentRow;
-                (this.ParentForm as Dashbord).OpenChildForm(new FormUpdateCategory(row, _categoryservice));
+                (this.ParentForm as Dashbord).OpenChildForm(new FormUpdateCategory(row, _categoryservice,_iproductService));
 
             }
             else
@@ -86,15 +88,16 @@ namespace E_Commerce.PL.Admin.ChildForm
 
                 if (result == DialogResult.No) return;
 
-                // 3- Check if category has related products
-                //var hasProducts = _dbContext.Products.Any(p => p.CategoryId == categoryId);
-                //if (hasProducts)
-                //{
-                //    MessageBox.Show("⚠️ Cannot delete this category because it has related products.");
-                //    return;
-                //}
+                //3 - Check if category has related products
+                var category1 = _categoryservice.getcategory(categoryId);
 
-                // 4- Delete category
+                var hasProducts =_iproductService.GetProductsWithCategory(category1.Name);
+                if (hasProducts.Count() >0)
+                {
+                    MessageBox.Show("⚠️ Cannot delete this category because it has related products.");
+                    return;
+                }
+
                 var category =_categoryservice.getcategory(categoryId);
                 if (category != null)
                 {

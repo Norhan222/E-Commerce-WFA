@@ -25,43 +25,42 @@ namespace E_Commerce.PL.User
             InitializeComponent();
             _context = context;
             _cartService = cartService;
+          
         }
 
         public void CartDetails_Load(object sender, EventArgs e)
         {
             var userid = SessionManger.currentUser.Id;
-             Cart = _cartService.GetCartById(userid);
-            foreach (var item in Cart.CartItems)
+            Cart = _cartService.GetCartById(userid);
+            if (Cart is not null)
             {
-
-                var CartItem = _context.Resolve<CartItem>();
-                CartItem.Id = item.ProductId;
-                CartItem.ProductName = item.Product.Name;
-                CartItem.ProductPrice = item.Product.Price;
-                CartItem.ProductPrice = item.Product.Price;
-                CartItem.quantity = item.Quantity;
-                CartItem.TotalPrice = item.Product.Price * item.Quantity;
-
-                var fullpath = Path.Combine(Directory.GetParent(System.Windows.Forms.Application.StartupPath).Parent.Parent.Parent.FullName, item.Product.ImageUrl);
-                if (File.Exists(fullpath))
+                foreach (var item in Cart.CartItems)
                 {
-                    using (var fs = new FileStream(fullpath, FileMode.Open, FileAccess.Read))
+
+                    var CartItem = _context.Resolve<CartItem>();
+                    CartItem.Id = item.ProductId;
+                    CartItem.ProductName = item.Product.Name;
+                    CartItem.ProductPrice = item.Product.Price;
+                    CartItem.ProductPrice = item.Product.Price;
+                    CartItem.quantity = item.Quantity;
+                    CartItem.TotalPrice = item.Product.Price * item.Quantity;
+
+                    var fullpath = Path.Combine(Directory.GetParent(System.Windows.Forms.Application.StartupPath).Parent.Parent.Parent.FullName, item.Product.ImageUrl);
+                    if (File.Exists(fullpath))
                     {
-                        CartItem.ProductIamge = Image.FromStream(fs);
+                        using (var fs = new FileStream(fullpath, FileMode.Open, FileAccess.Read))
+                        {
+                            CartItem.ProductIamge = Image.FromStream(fs);
+                        }
                     }
+                    flowPanelCarts.Controls.Add(CartItem);
+
+
                 }
-                flowPanelCarts.Controls.Add(CartItem);
-                
-
             }
-
 
         }
       
-        private void TotalPrice_Click(object sender, EventArgs e)
-        {
-
-        }
         public void load()
         {
             flowPanelCarts.Controls.Clear();

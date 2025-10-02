@@ -81,11 +81,10 @@ namespace E_Commerce.PL.User
                 foreach (var item in selected)
                 {
                   var products=  _productService.GetProductsWithCategory(item);
-                    
 
                     foreach (var product in products)
                     {
-                        Item card = _context.Resolve<Item>();         
+                        Item card = _context.Resolve<Item>();   
                         card.ProductId = product.Id;
                         card.ProductName = product.Name;
                         card.ProductPrice = product.Price;
@@ -244,8 +243,11 @@ namespace E_Commerce.PL.User
                 var login = _context.Resolve<Login>();
                 login.ShowDialog();
             }
-            var CartDetails = _context.Resolve<CartDetails>();
-            CartDetails.ShowDialog();
+            else
+            {
+                var CartDetails = _context.Resolve<CartDetails>();
+                CartDetails.ShowDialog();
+            }
         }
 
         private void lblUsername_Click(object sender, EventArgs e)

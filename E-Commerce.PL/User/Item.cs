@@ -71,14 +71,24 @@ namespace E_Commerce.PL.User
 
         private void iconPictureBox1_Click(object sender, EventArgs e)
         {
-            var user = SessionManger.currentUser.Id;
-            var cartDto = new CartDto
+            if (SessionManger.currentUser.Id == 0)
             {
-                UserId = SessionManger.currentUser.Id,
-                ProductId = ProductId,
-            };
-            _cartService.AddToCart(cartDto);
-            iconPictureBox1.ForeColor = Color.Green;
+                var login = _context.Resolve<Login>();
+                login.ShowDialog();
+            }
+            else
+            {
+
+
+                var user = SessionManger.currentUser.Id;
+                var cartDto = new CartDto
+                {
+                    UserId = SessionManger.currentUser.Id,
+                    ProductId = ProductId,
+                };
+                _cartService.AddToCart(cartDto);
+                iconPictureBox1.ForeColor = Color.Green;
+            }
 
         }
     }

@@ -16,11 +16,13 @@ namespace E_Commerce.PL.Admin.ChildForm
     public partial class FormUpdateCategory : Form
     {
         private readonly ICategoryservice _categoryservice;
+        private readonly IproductService iproductService;
         private Label lblId;
-        public FormUpdateCategory(DataGridViewRow gridViewRow, ICategoryservice categoryservice)
+        public FormUpdateCategory(DataGridViewRow gridViewRow, ICategoryservice categoryservice,IproductService iproductService)
         {
             InitializeComponent();
             _categoryservice = categoryservice;
+            this.iproductService = iproductService;
             lblId = new Label();
             lblId.Text = gridViewRow.Cells["Id"].Value?.ToString();
             txtName.Text = gridViewRow.Cells["Name"].Value?.ToString();
@@ -29,7 +31,7 @@ namespace E_Commerce.PL.Admin.ChildForm
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Dashbord).OpenChildForm(new FormCategory(_categoryservice));
+            (this.ParentForm as Dashbord).OpenChildForm(new FormCategory(_categoryservice, iproductService));
         }
 
         private void FormUpdateCategory_Load(object sender, EventArgs e)
@@ -56,7 +58,7 @@ namespace E_Commerce.PL.Admin.ChildForm
             }
             _categoryservice.updatecategory(category);
             _categoryservice.Save();
-            (this.ParentForm as Dashbord).OpenChildForm(new FormCategory(_categoryservice));
+            (this.ParentForm as Dashbord).OpenChildForm(new FormCategory(_categoryservice,iproductService));
 
         }
     }

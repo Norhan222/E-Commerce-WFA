@@ -78,6 +78,7 @@
             // 
             iconPictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             iconPictureBox1.BackColor = Color.WhiteSmoke;
+            iconPictureBox1.Cursor = Cursors.Hand;
             iconPictureBox1.ForeColor = Color.Gray;
             iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
             iconPictureBox1.IconColor = Color.Gray;

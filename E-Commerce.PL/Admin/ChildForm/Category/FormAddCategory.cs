@@ -17,12 +17,14 @@ namespace E_Commerce.PL.Admin.ChildForm
     {
         private readonly IAuthService _authService;
         private readonly ICategoryservice _categoryservice;
+        private readonly IproductService iproductService;
 
-        public FormAddCategory(ICategoryservice categoryservice)
+        public FormAddCategory(ICategoryservice categoryservice,IproductService iproductService)
         {
             this.Text = "AddCategory";
             InitializeComponent();
             _categoryservice = categoryservice;
+            this.iproductService = iproductService;
         }
 
         private void FormAddCategory_Load(object sender, EventArgs e)
@@ -32,7 +34,7 @@ namespace E_Commerce.PL.Admin.ChildForm
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            (this.ParentForm as Dashbord).OpenChildForm(new FormCategory(_categoryservice));
+            (this.ParentForm as Dashbord).OpenChildForm(new FormCategory(_categoryservice,iproductService));
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -54,7 +56,7 @@ namespace E_Commerce.PL.Admin.ChildForm
             }
             _categoryservice.createcategory(category);
             _categoryservice.Save();
-            (this.ParentForm as Dashbord).OpenChildForm(new FormCategory(_categoryservice));
+            (this.ParentForm as Dashbord).OpenChildForm(new FormCategory(_categoryservice, iproductService));
         }
     }
 }

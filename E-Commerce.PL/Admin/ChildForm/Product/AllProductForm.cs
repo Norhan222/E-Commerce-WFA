@@ -131,7 +131,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
                 int productId = Convert.ToInt32(dataGridView.CurrentRow.Cells["Id"].Value);
 
                 // 2- Confirmation message
-                var result = MessageBox.Show("Are you sure you want to delete this category?",
+                var result = MessageBox.Show("Are you sure you want to delete this product?",
                                              "Delete Confirmation",
                                              MessageBoxButtons.YesNo,
                                              MessageBoxIcon.Warning);
@@ -158,7 +158,7 @@ namespace E_Commerce.PL.Admin.ChildForm.Product
                     {
                         File.Delete(imagepath);
                     }
-                    MessageBox.Show("✅ Category deleted successfully.");
+                    MessageBox.Show("✅ Product deleted successfully.");
                     dataGridView.Rows.RemoveAt(dataGridView.CurrentRow.Index);
                 }
 

@@ -66,6 +66,7 @@ namespace E_Commerce.PL
             {
                 MessageBox.Show("Register Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 var reg=_context.Resolve<Login>();
+                this.Close();
                 reg.ShowDialog();
 
             }

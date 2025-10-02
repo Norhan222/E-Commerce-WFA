@@ -41,7 +41,7 @@ namespace E_Commerce.PL
         {
             var register = _context.Resolve<Register>();
             this.Close();
-            register.Show();
+            register.ShowDialog();
 
 
 
@@ -73,7 +73,7 @@ namespace E_Commerce.PL
                 {
                     this.Close();
                     Dashbord dashbord = _context.Resolve<Dashbord>();
-                    dashbord.ShowDialog();
+                    dashbord.Show();
 
                 }
                 else {
